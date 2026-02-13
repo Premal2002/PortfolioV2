@@ -1,73 +1,233 @@
-# React + TypeScript + Vite
+# Premal Kadam — Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance personal portfolio built with **React 18, Vite, Tailwind CSS, and Radix UI**.
+Designed to showcase professional experience, technical expertise, and featured projects with a clean, responsive, and accessible UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## React Compiler
+> *(Add your deployed URL here once deployed)*
+> Example: [https://premalkadam.dev](https://premalkadam.dev)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧑‍💻 About The Project
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This portfolio is built to reflect:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* Clean UI design principles
+* Modern frontend architecture
+* Component-driven development
+* Accessibility-first UI using Radix primitives
+* Smooth UX with animations & responsive layout
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+It highlights:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Professional Experience
+* Technical Skills
+* Featured Projects
+* Education & Certifications
+* Contact & Social Links
+
+---
+
+## 🛠 Tech Stack
+
+### Core
+
+* ⚛️ React 18
+* ⚡ Vite 5
+* 🎨 Tailwind CSS
+* 🧩 Radix UI Primitives
+* 🎭 shadcn-style component architecture
+
+### UI & Utilities
+
+* Lucide Icons
+* class-variance-authority
+* clsx
+* tailwind-merge
+* sonner (toast notifications)
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+│
+├── components/
+│   ├── portfolio/       # Main portfolio sections
+│   └── ui/              # Reusable UI components (Radix-based)
+│
+├── data/
+│   └── mock.js          # Portfolio content data
+│
+├── hooks/
+│   └── use-toast.js
+│
+├── App.jsx
+├── main.jsx
+└── index.css
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Architecture follows a **clean separation of concerns**:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* `portfolio/` → Business content components
+* `ui/` → Reusable UI primitives
+* `data/` → Centralized content management
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+cd portfolio
 ```
+
+---
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 3️⃣ Run Development Server
+
+```bash
+npm run dev
+```
+
+App will run at:
+
+```
+http://localhost:5173
+```
+
+---
+
+### 4️⃣ Build for Production
+
+```bash
+npm run build
+```
+
+Preview build:
+
+```bash
+npm run preview
+```
+
+---
+
+## 🎨 Customization Guide
+
+### Update Personal Information
+
+Modify:
+
+```
+src/data/mock.js
+```
+
+Update:
+
+* Name
+* Title
+* Experience
+* Skills
+* Projects
+* Social links
+
+---
+
+### Update Theme / Styling
+
+* Tailwind config → `tailwind.config.js`
+* Global styles → `src/index.css`
+* Color palette → Modify Tailwind tokens
+
+---
+
+## 📦 Deployment
+
+This project can be deployed easily to:
+
+* Vercel
+* Netlify
+* GitHub Pages
+* Azure Static Web Apps
+
+For Vercel:
+
+```bash
+npm run build
+```
+
+Deploy `dist/` directory.
+
+---
+
+## ✨ Features
+
+* Fully responsive design
+* Smooth scroll navigation
+* Animated hero section
+* Timeline-based experience layout
+* Toast-based form feedback
+* Reusable component system
+* Clean dark modern aesthetic
+
+---
+
+## 🔒 Performance & Optimization
+
+* Vite for lightning-fast builds
+* Tree-shakable Radix primitives
+* Optimized production build
+* No unnecessary dependencies
+* Minimal runtime overhead
+
+---
+
+## 🧠 Design Philosophy
+
+This portfolio emphasizes:
+
+* Clarity over clutter
+* Accessibility-first components
+* Semantic HTML structure
+* Scalable UI architecture
+* Maintainable codebase
+
+---
+
+## 📬 Contact
+
+**Premal Kadam**
+Full-Stack / Backend Engineer
+
+* LinkedIn: *(Add link)*
+* GitHub: *(Add link)*
+* Email: *(Add email)*
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+## ⭐ If You Like This Project
+
+Give it a star on GitHub — it helps!
+
+---
