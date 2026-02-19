@@ -4,29 +4,29 @@ import { Building2, ChevronRight } from "lucide-react";
 
 const Experience = () => {
   return (
-    <section id="experience" className="bg-[#1a1c1b] py-24 md:py-32">
+    <section id="experience" className="bg-[#09090f] py-24 md:py-32">
       <div className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
           <span
-            className="text-[#888680] text-xs font-medium uppercase tracking-[0.2em]"
+            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             03 / Experience
           </span>
-          <div className="h-px flex-1 bg-[#3f4816]/50" />
+          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
         </div>
 
         <h2
           className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
-          Work <span className="text-[#d9fb06]">History</span>
+          Work <span className="text-[#818cf8]">History</span>
         </h2>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-[#3f4816]/60 hidden md:block" />
+          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-[#2d2b6e]/60 hidden md:block" />
 
           <div className="flex flex-col gap-10">
             {experience.map((exp, idx) => (
@@ -37,19 +37,19 @@ const Experience = () => {
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${
                         exp.current
-                          ? "bg-[#d9fb06] border-[#d9fb06]"
-                          : "bg-[#302f2c] border-[#3f4816] group-hover:border-[#d9fb06]/50"
+                          ? "bg-[#6366f1] border-[#6366f1]"
+                          : "bg-[#13132a] border-[#2d2b6e] group-hover:border-[#6366f1]/50"
                       }`}
                     >
                       <Building2
                         size={18}
-                        className={exp.current ? "text-[#1a1c1b]" : "text-[#888680]"}
+                        className={exp.current ? "text-white" : "text-[#94a3b8]"}
                       />
                     </div>
                   </div>
 
                   {/* Content card */}
-                  <div className="flex-1 p-6 md:p-8 rounded-xl border border-[#3f4816]/50 bg-[#302f2c]/20 group-hover:border-[#d9fb06]/20 group-hover:bg-[#302f2c]/30 transition-all duration-300">
+                  <div className="flex-1 p-6 md:p-8 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 group-hover:border-[#6366f1]/20 group-hover:bg-[#13132a]/30 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                       <div>
                         <h3
@@ -59,7 +59,7 @@ const Experience = () => {
                           {exp.role}
                         </h3>
                         <span
-                          className="text-[#d9fb06] text-sm font-medium"
+                          className="text-[#818cf8] text-sm font-medium"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                           {exp.company}
@@ -67,12 +67,12 @@ const Experience = () => {
                       </div>
                       <div className="flex items-center gap-2">
                         {exp.current && (
-                          <span className="text-[#1a1c1b] text-xs font-semibold px-3 py-1 bg-[#d9fb06] rounded-full uppercase">
+                          <span className="text-white text-xs font-semibold px-3 py-1 bg-[#6366f1] rounded-full uppercase">
                             Current
                           </span>
                         )}
                         <span
-                          className="text-[#888680] text-sm"
+                          className="text-[#94a3b8] text-sm"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                           {exp.period}
@@ -85,10 +85,10 @@ const Experience = () => {
                         <li key={dIdx} className="flex gap-3 items-start">
                           <ChevronRight
                             size={16}
-                            className="text-[#3f4816] mt-1 flex-shrink-0"
+                            className="text-[#4f46e5] mt-1 flex-shrink-0"
                           />
                           <span
-                            className="text-[#888680] text-sm leading-relaxed"
+                            className="text-[#94a3b8] text-sm leading-relaxed"
                             style={{ fontFamily: "'Inter', sans-serif" }}
                           >
                             {desc}
@@ -101,7 +101,7 @@ const Experience = () => {
                       {exp.tech.map((t, tIdx) => (
                         <span
                           key={tIdx}
-                          className="text-[#d9fb06]/80 text-xs font-medium px-2.5 py-1 rounded-md bg-[#3f4816]/20 border border-[#3f4816]/40"
+                          className="text-[#818cf8]/80 text-xs font-medium px-2.5 py-1 rounded-md bg-[#2d2b6e]/20 border border-[#2d2b6e]/40"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                           {t}

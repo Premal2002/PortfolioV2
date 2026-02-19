@@ -4,17 +4,17 @@ import { GraduationCap, Award, BadgeCheck } from "lucide-react";
 
 const Credentials = () => {
   return (
-    <section id="credentials" className="bg-[#1a1c1b] py-24 md:py-32">
+    <section id="credentials" className="bg-[#09090f] py-24 md:py-32">
       <div className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
           <span
-            className="text-[#888680] text-xs font-medium uppercase tracking-[0.2em]"
+            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             05 / Credentials
           </span>
-          <div className="h-px flex-1 bg-[#3f4816]/50" />
+          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -24,18 +24,18 @@ const Credentials = () => {
               className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              Edu<span className="text-[#d9fb06]">cation</span>
+              Edu<span className="text-[#818cf8]">cation</span>
             </h2>
 
             <div className="flex flex-col gap-6">
               {education.map((edu, idx) => (
                 <div
                   key={idx}
-                  className="group p-6 rounded-xl border border-[#3f4816]/50 bg-[#302f2c]/20 hover:border-[#d9fb06]/20 hover:bg-[#302f2c]/30 transition-all duration-300"
+                  className="group p-6 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 hover:border-[#6366f1]/20 hover:bg-[#13132a]/30 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#3f4816]/50 flex items-center justify-center group-hover:bg-[#d9fb06]/10 transition-colors duration-300">
-                      <GraduationCap size={22} className="text-[#d9fb06]" />
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center group-hover:bg-[#6366f1]/10 transition-colors duration-300">
+                      <GraduationCap size={22} className="text-[#818cf8]" />
                     </div>
                     <div className="flex-1">
                       <h3
@@ -45,19 +45,19 @@ const Credentials = () => {
                         {edu.degree}
                       </h3>
                       <p
-                        className="text-[#d9fb06] text-sm font-medium mb-2"
+                        className="text-[#818cf8] text-sm font-medium mb-2"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                       >
                         {edu.institution}
                       </p>
                       <div className="flex items-center gap-4">
                         <span
-                          className="text-[#888680] text-sm"
+                          className="text-[#94a3b8] text-sm"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                           {edu.period}
                         </span>
-                        <span className="text-[#d9fb06]/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#3f4816]/30 border border-[#3f4816]/40">
+                        <span className="text-[#818cf8]/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#2d2b6e]/30 border border-[#2d2b6e]/40">
                           {edu.score}
                         </span>
                       </div>
@@ -74,20 +74,20 @@ const Credentials = () => {
               className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              Certi<span className="text-[#d9fb06]">fications</span>
+              Certi<span className="text-[#818cf8]">fications</span>
             </h2>
 
             <div className="flex flex-col gap-4">
               {certifications.map((cert, idx) => (
                 <div
                   key={idx}
-                  className="group flex items-center gap-4 p-5 rounded-xl border border-[#3f4816]/50 bg-[#302f2c]/20 hover:border-[#d9fb06]/20 hover:bg-[#302f2c]/30 transition-all duration-300"
+                  className="group flex items-center gap-4 p-5 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 hover:border-[#6366f1]/20 hover:bg-[#13132a]/30 transition-all duration-300"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#3f4816]/50 flex items-center justify-center group-hover:bg-[#d9fb06]/10 transition-colors duration-300">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center group-hover:bg-[#6366f1]/10 transition-colors duration-300">
                     {idx === 0 ? (
-                      <BadgeCheck size={20} className="text-[#d9fb06]" />
+                      <BadgeCheck size={20} className="text-[#818cf8]" />
                     ) : (
-                      <Award size={20} className="text-[#d9fb06]" />
+                      <Award size={20} className="text-[#818cf8]" />
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -99,14 +99,14 @@ const Credentials = () => {
                     </h4>
                     <div className="flex items-center gap-2">
                       <span
-                        className="text-[#888680] text-xs"
+                        className="text-[#94a3b8] text-xs"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                       >
                         {cert.issuer}
                       </span>
-                      <span className="text-[#3f4816]">·</span>
+                      <span className="text-[#2d2b6e]">·</span>
                       <span
-                        className="text-[#888680] text-xs"
+                        className="text-[#94a3b8] text-xs"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                       >
                         {cert.date}
