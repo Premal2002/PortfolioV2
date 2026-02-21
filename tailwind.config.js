@@ -13,6 +13,18 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+        // ─── Portfolio Theme Tokens ───────────────────────────────────────────
+        // To retheme the entire site, only change values in this block.
+        brand: {
+          bg:      '#09090f', // Main dark background
+          surface: '#13132a', // Card / panel surfaces
+          border:  '#2d2b6e', // Borders & separators
+          primary: '#6366f1', // Primary CTA colour
+          hover:   '#4f46e5', // Primary hover state
+          accent:  '#818cf8', // Icon tint / soft highlight
+          muted:   '#94a3b8', // Secondary / muted text
+        },
+        // ─── shadcn/ui System Tokens (do not change) ─────────────────────────
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -79,4 +91,4 @@ module.exports = {
   	}
   },
   plugins: [require("tailwindcss-animate")],
-};
+};	

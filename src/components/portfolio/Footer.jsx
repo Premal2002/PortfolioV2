@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#13132a]/30 border-t border-[#2d2b6e]/40 py-12">
+    <footer className="bg-brand-surface/30 border-t border-brand-border/40 py-12">
       <div className="max-w-[87.5rem] mx-auto px-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Brand */}
@@ -19,13 +19,13 @@ const Footer = () => {
                 e.preventDefault();
                 scrollToTop();
               }}
-              className="text-[#818cf8] font-bold text-2xl tracking-tight hover:opacity-80 transition-opacity duration-300 inline-block mb-2"
+              className="text-brand-accent font-bold text-2xl tracking-tight hover:opacity-80 transition-opacity duration-300 inline-block mb-2"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               PK<span className="text-white">.</span>
             </a>
             <p
-              className="text-[#94a3b8] text-sm max-w-xs"
+              className="text-brand-muted text-sm max-w-xs"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {personalInfo.title} based in {personalInfo.location}
@@ -42,7 +42,7 @@ const Footer = () => {
                   e.preventDefault();
                   document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="text-[#94a3b8] text-sm hover:text-[#818cf8] transition-colors duration-300"
+                className="text-brand-muted text-sm hover:text-brand-accent transition-colors duration-300"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {link.label}
@@ -53,7 +53,7 @@ const Footer = () => {
           {/* Scroll to top */}
           <button
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-full border border-[#2d2b6e] bg-[#13132a]/40 flex items-center justify-center text-[#94a3b8] hover:text-[#818cf8] hover:border-[#6366f1]/40 transition-all duration-300"
+            className="w-10 h-10 rounded-full border border-brand-border bg-brand-surface/40 flex items-center justify-center text-brand-muted hover:text-brand-accent hover:border-brand-primary/40 transition-all duration-300"
             aria-label="Back to top"
           >
             <ArrowUp size={18} />
@@ -61,19 +61,19 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-[#2d2b6e]/40 my-8" />
+        <div className="h-px bg-brand-border/40 my-8" />
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p
-            className="text-[#94a3b8] text-xs flex items-center gap-1"
+            className="text-brand-muted text-xs flex items-center gap-1"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             &copy; {new Date().getFullYear()} {personalInfo.name}. Built with{" "}
-            <Heart size={12} className="text-[#818cf8] inline" /> and code.
+            <Heart size={12} className="text-brand-accent inline" /> and code.
           </p>
           <p
-            className="text-[#94a3b8]/50 text-xs"
+            className="text-brand-muted/50 text-xs"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Thane, Maharashtra, India

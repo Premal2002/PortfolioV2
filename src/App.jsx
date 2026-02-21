@@ -13,7 +13,7 @@ import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
-    <div className="App bg-[#09090f] min-h-screen">
+    <div className="App bg-brand-bg min-h-screen">
       <Header />
       <main>
         <Hero />

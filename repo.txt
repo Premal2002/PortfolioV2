@@ -337,1196 +337,8 @@ module.exports = {
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
 </file>
 
-<file path="src/App.css">
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-track {
-    background: #1a1c1b;
-}
-::-webkit-scrollbar-thumb {
-    background: #3f4816;
-    border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #d9fb06;
-}
-
-/* Selection color */
-::selection {
-    background: rgba(217, 251, 6, 0.25);
-    color: #fff;
-}
-</file>
-
-<file path="src/App.jsx">
-import React from "react";
-import "./App.css";
-import Header from "./components/portfolio/Header";
-import Hero from "./components/portfolio/Hero";
-import About from "./components/portfolio/About";
-import Skills from "./components/portfolio/Skills";
-import Experience from "./components/portfolio/Experience";
-import Projects from "./components/portfolio/Projects";
-import Credentials from "./components/portfolio/Credentials";
-import Contact from "./components/portfolio/Contact";
-import Footer from "./components/portfolio/Footer";
-import { Toaster } from "./components/ui/toaster";
-
-function App() {
-  return (
-    <div className="App bg-[#1a1c1b] min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Credentials />
-        <Contact />
-      </main>
-      <Footer />
-      <Toaster />
-    </div>
-  );
-}
-
-export default App;
-</file>
-
 <file path="src/assets/react.svg">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
-</file>
-
-<file path="src/components/portfolio/About.jsx">
-import React from "react";
-import { personalInfo } from "../../data/mock";
-import { Terminal, Cloud, Zap } from "lucide-react";
-
-const highlights = [
-  {
-    icon: Terminal,
-    title: "Backend Architect",
-    desc: "Building robust .NET 8 microservices with Clean Architecture, DDD, and CQRS patterns.",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud-Native",
-    desc: "Azure certified. Designing containerized, scalable systems with Docker & modern DevOps.",
-  },
-  {
-    icon: Zap,
-    title: "Full-Stack Capable",
-    desc: "Crafting responsive interfaces with React, Next.js, Angular, and interactive visualizations.",
-  },
-];
-
-const About = () => {
-  return (
-    <section id="about" className="bg-[#1a1c1b] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#888680] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            01 / About
-          </span>
-          <div className="h-px flex-1 bg-[#3f4816]/50" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left — text */}
-          <div>
-            <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-8 uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Crafting Modern{" "}
-              <span className="text-[#d9fb06]">Software</span>{" "}
-              Solutions
-            </h2>
-            <p
-              className="text-[#888680] text-lg leading-relaxed mb-6"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {personalInfo.summary}
-            </p>
-            <p
-              className="text-[#888680] text-lg leading-relaxed"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {personalInfo.summaryExtended}
-            </p>
-          </div>
-
-          {/* Right — highlight cards */}
-          <div className="flex flex-col gap-5">
-            {highlights.map((item, i) => (
-              <div
-                key={i}
-                className="group flex gap-5 p-6 rounded-xl border border-[#3f4816]/50 bg-[#302f2c]/30 hover:bg-[#3f4816]/30 hover:border-[#d9fb06]/30 transition-all duration-300 cursor-default"
-              >
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#3f4816]/50 flex items-center justify-center group-hover:bg-[#d9fb06]/10 transition-colors duration-300">
-                  <item.icon size={22} className="text-[#d9fb06]" />
-                </div>
-                <div>
-                  <h3
-                    className="text-white font-semibold text-base mb-1"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p
-                    className="text-[#888680] text-sm leading-relaxed"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default About;
-</file>
-
-<file path="src/components/portfolio/Contact.jsx">
-import React, { useState } from "react";
-import { personalInfo } from "../../data/mock";
-import { Mail, Phone, MapPin, Send, Linkedin, Github, ArrowUpRight } from "lucide-react";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { useToast } from "../../hooks/use-toast";
-
-const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [sending, setSending] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSending(true);
-    // Mock submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setSending(false);
-    }, 1200);
-  };
-
-  const contactDetails = [
-    { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-    { icon: Phone, label: "Phone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
-    { icon: MapPin, label: "Location", value: personalInfo.location, href: null },
-  ];
-
-  const socials = [
-    { icon: Linkedin, label: "LinkedIn", href: personalInfo.linkedin },
-    { icon: Github, label: "GitHub", href: personalInfo.github },
-  ];
-
-  return (
-    <section id="contact" className="bg-[#1a1c1b] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#888680] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            06 / Contact
-          </span>
-          <div className="h-px flex-1 bg-[#3f4816]/50" />
-        </div>
-
-        <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Get In <span className="text-[#d9fb06]">Touch</span>
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact info */}
-          <div>
-            <p
-              className="text-[#888680] text-lg leading-relaxed mb-10"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Have a project in mind or want to collaborate? Feel free to reach out.
-              I'm always open to discussing new opportunities.
-            </p>
-
-            <div className="flex flex-col gap-5 mb-10">
-              {contactDetails.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#3f4816]/40 flex items-center justify-center">
-                    <item.icon size={20} className="text-[#d9fb06]" />
-                  </div>
-                  <div>
-                    <span
-                      className="text-[#888680] text-xs font-medium uppercase tracking-widest block mb-0.5"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      {item.label}
-                    </span>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-white text-sm font-medium hover:text-[#d9fb06] transition-colors duration-300"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span
-                        className="text-white text-sm font-medium"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {item.value}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Socials */}
-            <div className="flex gap-3">
-              {socials.map((s, idx) => (
-                <a
-                  key={idx}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#3f4816] bg-[#302f2c]/20 hover:border-[#d9fb06]/40 hover:bg-[#3f4816]/30 transition-all duration-300"
-                >
-                  <s.icon size={18} className="text-[#d9fb06]" />
-                  <span
-                    className="text-[#888680] text-sm font-medium group-hover:text-white transition-colors duration-300"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {s.label}
-                  </span>
-                  <ArrowUpRight
-                    size={14}
-                    className="text-[#888680] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label
-                  className="text-[#888680] text-xs font-medium uppercase tracking-widest block mb-2"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Name
-                </label>
-                <Input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your name"
-                  className="bg-[#302f2c]/30 border-[#3f4816]/50 text-white placeholder:text-[#888680]/50 focus:border-[#d9fb06]/50 focus:ring-[#d9fb06]/20 rounded-lg h-12"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                />
-              </div>
-              <div>
-                <label
-                  className="text-[#888680] text-xs font-medium uppercase tracking-widest block mb-2"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Email
-                </label>
-                <Input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="your@email.com"
-                  className="bg-[#302f2c]/30 border-[#3f4816]/50 text-white placeholder:text-[#888680]/50 focus:border-[#d9fb06]/50 focus:ring-[#d9fb06]/20 rounded-lg h-12"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                className="text-[#888680] text-xs font-medium uppercase tracking-widest block mb-2"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                Subject
-              </label>
-              <Input
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                placeholder="Project inquiry"
-                className="bg-[#302f2c]/30 border-[#3f4816]/50 text-white placeholder:text-[#888680]/50 focus:border-[#d9fb06]/50 focus:ring-[#d9fb06]/20 rounded-lg h-12"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              />
-            </div>
-
-            <div>
-              <label
-                className="text-[#888680] text-xs font-medium uppercase tracking-widest block mb-2"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                Message
-              </label>
-              <Textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                placeholder="Tell me about your project..."
-                rows={5}
-                className="bg-[#302f2c]/30 border-[#3f4816]/50 text-white placeholder:text-[#888680]/50 focus:border-[#d9fb06]/50 focus:ring-[#d9fb06]/20 rounded-lg resize-none"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={sending}
-              className="inline-flex items-center justify-center gap-2 bg-[#d9fb06] text-[#1a1c1b] font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:opacity-90 active:scale-[0.98] transition-transform duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-            >
-              {sending ? (
-                "Sending..."
-              ) : (
-                <>
-                  Send Message
-                  <Send size={18} />
-                </>
-              )}
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Contact;
-</file>
-
-<file path="src/components/portfolio/Credentials.jsx">
-import React from "react";
-import { education, certifications } from "../../data/mock";
-import { GraduationCap, Award, BadgeCheck } from "lucide-react";
-
-const Credentials = () => {
-  return (
-    <section id="credentials" className="bg-[#1a1c1b] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#888680] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            05 / Credentials
-          </span>
-          <div className="h-px flex-1 bg-[#3f4816]/50" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Education */}
-          <div>
-            <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Edu<span className="text-[#d9fb06]">cation</span>
-            </h2>
-
-            <div className="flex flex-col gap-6">
-              {education.map((edu, idx) => (
-                <div
-                  key={idx}
-                  className="group p-6 rounded-xl border border-[#3f4816]/50 bg-[#302f2c]/20 hover:border-[#d9fb06]/20 hover:bg-[#302f2c]/30 transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#3f4816]/50 flex items-center justify-center group-hover:bg-[#d9fb06]/10 transition-colors duration-300">
-                      <GraduationCap size={22} className="text-[#d9fb06]" />
-                    </div>
-                    <div className="flex-1">
-                      <h3
-                        className="text-white font-semibold text-lg mb-1"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                      >
-                        {edu.degree}
-                      </h3>
-                      <p
-                        className="text-[#d9fb06] text-sm font-medium mb-2"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {edu.institution}
-                      </p>
-                      <div className="flex items-center gap-4">
-                        <span
-                          className="text-[#888680] text-sm"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {edu.period}
-                        </span>
-                        <span className="text-[#d9fb06]/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#3f4816]/30 border border-[#3f4816]/40">
-                          {edu.score}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Certi<span className="text-[#d9fb06]">fications</span>
-            </h2>
-
-            <div className="flex flex-col gap-4">
-              {certifications.map((cert, idx) => (
-                <div
-                  key={idx}
-                  className="group flex items-center gap-4 p-5 rounded-xl border border-[#3f4816]/50 bg-[#302f2c]/20 hover:border-[#d9fb06]/20 hover:bg-[#302f2c]/30 transition-all duration-300"
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#3f4816]/50 flex items-center justify-center group-hover:bg-[#d9fb06]/10 transition-colors duration-300">
-                    {idx === 0 ? (
-                      <BadgeCheck size={20} className="text-[#d9fb06]" />
-                    ) : (
-                      <Award size={20} className="text-[#d9fb06]" />
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4
-                      className="text-white font-medium text-sm truncate"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      {cert.name}
-                    </h4>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="text-[#888680] text-xs"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {cert.issuer}
-                      </span>
-                      <span className="text-[#3f4816]">·</span>
-                      <span
-                        className="text-[#888680] text-xs"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {cert.date}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Credentials;
-</file>
-
-<file path="src/components/portfolio/Experience.jsx">
-import React from "react";
-import { experience } from "../../data/mock";
-import { Building2, ChevronRight } from "lucide-react";
-
-const Experience = () => {
-  return (
-    <section id="experience" className="bg-[#1a1c1b] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#888680] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            03 / Experience
-          </span>
-          <div className="h-px flex-1 bg-[#3f4816]/50" />
-        </div>
-
-        <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Work <span className="text-[#d9fb06]">History</span>
-        </h2>
-
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-[#3f4816]/60 hidden md:block" />
-
-          <div className="flex flex-col gap-10">
-            {experience.map((exp, idx) => (
-              <div key={idx} className="relative group">
-                <div className="flex gap-6 md:gap-10">
-                  {/* Timeline dot */}
-                  <div className="hidden md:flex flex-shrink-0 relative z-10">
-                    <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${
-                        exp.current
-                          ? "bg-[#d9fb06] border-[#d9fb06]"
-                          : "bg-[#302f2c] border-[#3f4816] group-hover:border-[#d9fb06]/50"
-                      }`}
-                    >
-                      <Building2
-                        size={18}
-                        className={exp.current ? "text-[#1a1c1b]" : "text-[#888680]"}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Content card */}
-                  <div className="flex-1 p-6 md:p-8 rounded-xl border border-[#3f4816]/50 bg-[#302f2c]/20 group-hover:border-[#d9fb06]/20 group-hover:bg-[#302f2c]/30 transition-all duration-300">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-                      <div>
-                        <h3
-                          className="text-white font-bold text-xl mb-1"
-                          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                          {exp.role}
-                        </h3>
-                        <span
-                          className="text-[#d9fb06] text-sm font-medium"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {exp.company}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {exp.current && (
-                          <span className="text-[#1a1c1b] text-xs font-semibold px-3 py-1 bg-[#d9fb06] rounded-full uppercase">
-                            Current
-                          </span>
-                        )}
-                        <span
-                          className="text-[#888680] text-sm"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {exp.period}
-                        </span>
-                      </div>
-                    </div>
-
-                    <ul className="space-y-3 mb-5">
-                      {exp.descriptions.map((desc, dIdx) => (
-                        <li key={dIdx} className="flex gap-3 items-start">
-                          <ChevronRight
-                            size={16}
-                            className="text-[#3f4816] mt-1 flex-shrink-0"
-                          />
-                          <span
-                            className="text-[#888680] text-sm leading-relaxed"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                          >
-                            {desc}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((t, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="text-[#d9fb06]/80 text-xs font-medium px-2.5 py-1 rounded-md bg-[#3f4816]/20 border border-[#3f4816]/40"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Experience;
-</file>
-
-<file path="src/components/portfolio/Footer.jsx">
-import React from "react";
-import { personalInfo, navLinks } from "../../data/mock";
-import { ArrowUp, Heart } from "lucide-react";
-
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  return (
-    <footer className="bg-[#302f2c]/30 border-t border-[#3f4816]/40 py-12">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          {/* Brand */}
-          <div>
-            <a
-              href="#hero"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToTop();
-              }}
-              className="text-[#d9fb06] font-bold text-2xl tracking-tight hover:opacity-80 transition-opacity duration-300 inline-block mb-2"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              PK<span className="text-white">.</span>
-            </a>
-            <p
-              className="text-[#888680] text-sm max-w-xs"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {personalInfo.title} based in {personalInfo.location}
-            </p>
-          </div>
-
-          {/* Nav links */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="text-[#888680] text-sm hover:text-[#d9fb06] transition-colors duration-300"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Scroll to top */}
-          <button
-            onClick={scrollToTop}
-            className="w-10 h-10 rounded-full border border-[#3f4816] bg-[#302f2c]/40 flex items-center justify-center text-[#888680] hover:text-[#d9fb06] hover:border-[#d9fb06]/40 transition-all duration-300"
-            aria-label="Back to top"
-          >
-            <ArrowUp size={18} />
-          </button>
-        </div>
-
-        {/* Divider */}
-        <div className="h-px bg-[#3f4816]/40 my-8" />
-
-        {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p
-            className="text-[#888680] text-xs flex items-center gap-1"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            &copy; {new Date().getFullYear()} {personalInfo.name}. Built with{" "}
-            <Heart size={12} className="text-[#d9fb06] inline" /> and code.
-          </p>
-          <p
-            className="text-[#888680]/50 text-xs"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Thane, Maharashtra, India
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
-</file>
-
-<file path="src/components/portfolio/Header.jsx">
-import React, { useState, useEffect } from "react";
-import { navLinks, personalInfo } from "../../data/mock";
-import { Menu, X } from "lucide-react";
-
-const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
-  return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        scrolled
-          ? "bg-[#1a1c1b]/95 backdrop-blur-md border-b border-[#3f4816]/50"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-[87.5rem] mx-auto px-10 flex items-center justify-between h-[72px]">
-        {/* Logo */}
-        <a
-          href="#hero"
-          onClick={(e) => handleNavClick(e, "#hero")}
-          className="text-[#d9fb06] font-bold text-xl tracking-tight hover:opacity-80 transition-opacity duration-300"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          PK<span className="text-white">.</span>
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-[#d9fb06] text-sm font-medium px-4 py-2 rounded-full hover:bg-[#3f4816]/40 transition-colors duration-300"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* CTA */}
-        <a
-          href="#contact"
-          onClick={(e) => handleNavClick(e, "#contact")}
-          className="hidden md:inline-flex items-center justify-center bg-[#d9fb06] text-[#1a1c1b] font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-[1.02] hover:opacity-90 active:scale-[0.98] transition-transform duration-300"
-          style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-        >
-          Let's Talk
-        </a>
-
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-[#d9fb06] p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-[#1a1c1b]/98 backdrop-blur-md border-t border-[#3f4816]/50 px-6 pb-6 pt-2">
-          <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[#d9fb06] text-base font-medium px-4 py-3 rounded-lg hover:bg-[#3f4816]/40 transition-colors duration-300"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className="mt-2 inline-flex items-center justify-center bg-[#d9fb06] text-[#1a1c1b] font-semibold text-sm px-6 py-3 rounded-full hover:opacity-90 transition-opacity duration-300 w-full"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Let's Talk
-            </a>
-          </nav>
-        </div>
-      )}
-    </header>
-  );
-};
-
-export default Header;
-</file>
-
-<file path="src/components/portfolio/Hero.jsx">
-import React from "react";
-import { personalInfo } from "../../data/mock";
-import { ArrowDown, MapPin, Briefcase } from "lucide-react";
-
-const Hero = () => {
-  const scrollToAbout = () => {
-    const el = document.querySelector("#about");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
-  return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center bg-[#1a1c1b] overflow-hidden"
-    >
-      {/* Background grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(#d9fb06 1px, transparent 1px), linear-gradient(90deg, #d9fb06 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
-
-      {/* Decorative blobs */}
-      <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-[#3f4816]/20 rounded-full blur-[120px]" />
-      <div className="absolute bottom-20 left-10 w-[300px] h-[300px] bg-[#d9fb06]/5 rounded-full blur-[100px]" />
-
-      <div className="relative z-10 max-w-[87.5rem] mx-auto px-10 w-full py-32">
-        <div className="flex flex-col gap-8">
-          {/* Status badge */}
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d9fb06] opacity-75" />
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#d9fb06]" />
-            </span>
-            <span
-              className="text-[#888680] text-sm font-medium uppercase tracking-widest"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Available for opportunities
-            </span>
-          </div>
-
-          {/* Main heading */}
-          <div>
-            <h1
-              className="text-[#d9fb06] font-black uppercase leading-[0.85]"
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: "clamp(3.5rem, 8vw, 8rem)",
-              }}
-            >
-              {personalInfo.firstName}
-            </h1>
-            <h1
-              className="text-white font-black uppercase leading-[0.85] mt-2"
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: "clamp(3.5rem, 8vw, 8rem)",
-              }}
-            >
-              {personalInfo.lastName}
-            </h1>
-          </div>
-
-          {/* Subtitle area */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-            <div className="flex items-center gap-2">
-              <Briefcase size={18} className="text-[#d9fb06]" />
-              <span
-                className="text-white text-lg font-medium"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {personalInfo.title}
-              </span>
-            </div>
-            <div className="hidden sm:block w-px h-5 bg-[#3f4816]" />
-            <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-[#888680]" />
-              <span
-                className="text-[#888680] text-base"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {personalInfo.location}
-              </span>
-            </div>
-          </div>
-
-          {/* Tagline */}
-          <p
-            className="text-[#888680] text-lg max-w-2xl leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            {personalInfo.tagline}. Expertise in{" "}
-            <span className="text-white">ASP.NET Core</span>,{" "}
-            <span className="text-white">Microservices</span>,{" "}
-            <span className="text-white">React</span> &{" "}
-            <span className="text-white">Cloud-Native Design</span>.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-4">
-            <a
-              href="#projects"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="inline-flex items-center justify-center bg-[#d9fb06] text-[#1a1c1b] font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:opacity-90 active:scale-[0.98] transition-transform duration-300 uppercase tracking-tight"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="inline-flex items-center justify-center bg-transparent text-[#d9fb06] font-semibold text-base px-8 py-3.5 rounded-full border border-[#d9fb06] hover:bg-[#d9fb06] hover:text-[#1a1c1b] active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-            >
-              Get In Touch
-            </a>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <button
-          onClick={scrollToAbout}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#888680] hover:text-[#d9fb06] transition-colors duration-300 animate-bounce"
-          aria-label="Scroll down"
-        >
-          <ArrowDown size={24} />
-        </button>
-      </div>
-    </section>
-  );
-};
-
-export default Hero;
-</file>
-
-<file path="src/components/portfolio/Projects.jsx">
-import React from "react";
-import { projects } from "../../data/mock";
-import { ArrowUpRight, Calendar } from "lucide-react";
-
-const Projects = () => {
-  return (
-    <section id="projects" className="bg-[#1a1c1b] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#888680] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            04 / Projects
-          </span>
-          <div className="h-px flex-1 bg-[#3f4816]/50" />
-        </div>
-
-        <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Featured <span className="text-[#d9fb06]">Work</span>
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, idx) => (
-            <div
-              key={idx}
-              className="group relative p-8 rounded-2xl border border-[#3f4816]/50 bg-[#302f2c]/15 hover:border-[#d9fb06]/30 hover:bg-[#302f2c]/30 transition-all duration-300 overflow-hidden"
-            >
-              {/* Background accent */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-[#d9fb06]/[0.02] rounded-full blur-[60px] group-hover:bg-[#d9fb06]/[0.05] transition-all duration-500" />
-
-              {/* Header */}
-              <div className="relative z-10 flex items-start justify-between mb-6">
-                <div className="w-14 h-14 rounded-xl bg-[#3f4816]/40 flex items-center justify-center text-[#d9fb06] group-hover:bg-[#d9fb06]/10 transition-colors duration-300">
-                  {project.icon}
-                </div>
-                <div className="flex items-center gap-2 text-[#888680]">
-                  <Calendar size={14} />
-                  <span
-                    className="text-xs font-medium"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {project.year}
-                  </span>
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3
-                className="relative z-10 text-white font-bold text-2xl mb-4 group-hover:text-[#d9fb06] transition-colors duration-300"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                {project.title}
-                <ArrowUpRight
-                  size={20}
-                  className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </h3>
-
-              {/* Descriptions */}
-              <ul className="relative z-10 space-y-2 mb-6">
-                {project.descriptions.map((desc, dIdx) => (
-                  <li
-                    key={dIdx}
-                    className="text-[#888680] text-sm leading-relaxed pl-4 border-l-2 border-[#3f4816]/40"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {desc}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Tech stack */}
-              <div className="relative z-10 flex flex-wrap gap-2">
-                {project.tech.map((t, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="text-[#d9fb06]/80 text-xs font-medium px-3 py-1.5 rounded-full border border-[#3f4816] bg-[#3f4816]/15 group-hover:border-[#d9fb06]/30 transition-colors duration-300"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Projects;
-</file>
-
-<file path="src/components/portfolio/Skills.jsx">
-import React from "react";
-import { skills } from "../../data/mock";
-
-const Skills = () => {
-  const skillCategories = Object.values(skills);
-
-  return (
-    <section id="skills" className="bg-[#1a1c1b] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#888680] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            02 / Skills
-          </span>
-          <div className="h-px flex-1 bg-[#3f4816]/50" />
-        </div>
-
-        <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Tech <span className="text-[#d9fb06]">Stack</span>
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, idx) => (
-            <div
-              key={idx}
-              className="group p-6 rounded-xl border border-[#3f4816]/50 bg-[#302f2c]/20 hover:border-[#d9fb06]/30 hover:bg-[#302f2c]/40 transition-all duration-300"
-            >
-              {/* Card header */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-[#3f4816]/50 flex items-center justify-center text-[#d9fb06] group-hover:bg-[#d9fb06]/10 transition-colors duration-300">
-                  {category.icon}
-                </div>
-                <h3
-                  className="text-white font-semibold text-base"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  {category.title}
-                </h3>
-              </div>
-
-              {/* Skills tags */}
-              <div className="flex flex-wrap gap-2">
-                {category.items.map((skill, sIdx) => (
-                  <span
-                    key={sIdx}
-                    className="text-[#d9fb06] text-xs font-medium px-3 py-1.5 rounded-full border border-[#3f4816] bg-[#3f4816]/20 hover:bg-[#d9fb06]/10 hover:border-[#d9fb06]/40 transition-colors duration-200 cursor-default"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Skills;
 </file>
 
 <file path="src/components/ui/accordion.jsx">
@@ -4848,124 +3660,6 @@ function useToast() {
 export { useToast, toast }
 </file>
 
-<file path="src/index.css">
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-    margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-@layer base {
-    :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
-    }
-    .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
-    }
-}
-
-@layer base {
-    * {
-        @apply border-border;
-    }
-    body {
-        @apply bg-background text-foreground;
-    }
-}
-
-@layer base {
-    [data-debug-wrapper="true"] {
-        display: contents !important;
-    }
-
-    [data-debug-wrapper="true"] > * {
-        margin-left: inherit;
-        margin-right: inherit;
-        margin-top: inherit;
-        margin-bottom: inherit;
-        padding-left: inherit;
-        padding-right: inherit;
-        padding-top: inherit;
-        padding-bottom: inherit;
-        column-gap: inherit;
-        row-gap: inherit;
-        gap: inherit;
-        border-left-width: inherit;
-        border-right-width: inherit;
-        border-top-width: inherit;
-        border-bottom-width: inherit;
-        border-left-style: inherit;
-        border-right-style: inherit;
-        border-top-style: inherit;
-        border-bottom-style: inherit;
-        border-left-color: inherit;
-        border-right-color: inherit;
-        border-top-color: inherit;
-        border-bottom-color: inherit;
-    }
-}
-</file>
-
 <file path="src/lib/utils.js">
 import { clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
@@ -5323,6 +4017,1313 @@ This project is open-source and available under the MIT License.
 Give it a star on GitHub — it helps!
 
 ---
+</file>
+
+<file path="src/App.css">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #09090f;
+}
+::-webkit-scrollbar-thumb {
+    background: #2d2b6e;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+
+/* Selection color */
+::selection {
+    background: rgba(99, 102, 241, 0.3);
+    color: #fff;
+}
+</file>
+
+<file path="src/App.jsx">
+import React from "react";
+import "./App.css";
+import Header from "./components/portfolio/Header";
+import Hero from "./components/portfolio/Hero";
+import About from "./components/portfolio/About";
+import Skills from "./components/portfolio/Skills";
+import Experience from "./components/portfolio/Experience";
+import Projects from "./components/portfolio/Projects";
+import Credentials from "./components/portfolio/Credentials";
+import Contact from "./components/portfolio/Contact";
+import Footer from "./components/portfolio/Footer";
+import { Toaster } from "./components/ui/toaster";
+
+function App() {
+  return (
+    <div className="App bg-[#09090f] min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Credentials />
+        <Contact />
+      </main>
+      <Footer />
+      <Toaster />
+    </div>
+  );
+}
+
+export default App;
+</file>
+
+<file path="src/components/portfolio/About.jsx">
+import React from "react";
+import { personalInfo } from "../../data/mock";
+import { Terminal, Cloud, Zap } from "lucide-react";
+
+const highlights = [
+  {
+    icon: Terminal,
+    title: "Backend Architect",
+    desc: "Building robust .NET 8 microservices with Clean Architecture, DDD, and CQRS patterns.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud-Native",
+    desc: "Azure certified. Designing containerized, scalable systems with Docker & modern DevOps.",
+  },
+  {
+    icon: Zap,
+    title: "Full-Stack Capable",
+    desc: "Crafting responsive interfaces with React, Next.js, Angular, and interactive visualizations.",
+  },
+];
+
+const About = () => {
+  return (
+    <section id="about" className="bg-[#09090f] py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            01 / About
+          </span>
+          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Left — text */}
+          <div>
+            <h2
+              className="text-white font-black text-4xl md:text-5xl leading-tight mb-8 uppercase"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Crafting Modern{" "}
+              <span className="text-[#818cf8]">Software</span>{" "}
+              Solutions
+            </h2>
+            <p
+              className="text-[#94a3b8] text-lg leading-relaxed mb-6"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {personalInfo.summary}
+            </p>
+            <p
+              className="text-[#94a3b8] text-lg leading-relaxed"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {personalInfo.summaryExtended}
+            </p>
+          </div>
+
+          {/* Right — highlight cards */}
+          <div className="flex flex-col gap-5">
+            {highlights.map((item, i) => (
+              <div
+                key={i}
+                className="group flex gap-5 p-6 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/30 hover:bg-[#2d2b6e]/30 hover:border-[#6366f1]/30 transition-all duration-300 cursor-default"
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center group-hover:bg-[#6366f1]/10 transition-colors duration-300">
+                  <item.icon size={22} className="text-[#818cf8]" />
+                </div>
+                <div>
+                  <h3
+                    className="text-white font-semibold text-base mb-1"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className="text-[#94a3b8] text-sm leading-relaxed"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
+</file>
+
+<file path="src/components/portfolio/Contact.jsx">
+import React, { useState } from "react";
+import { personalInfo } from "../../data/mock";
+import { Mail, Phone, MapPin, Send, Linkedin, Github, ArrowUpRight } from "lucide-react";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { useToast } from "../../hooks/use-toast";
+
+const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSending(true);
+    // Mock submission
+    setTimeout(() => {
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setSending(false);
+    }, 1200);
+  };
+
+  const contactDetails = [
+    { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
+    { icon: Phone, label: "Phone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
+    { icon: MapPin, label: "Location", value: personalInfo.location, href: null },
+  ];
+
+  const socials = [
+    { icon: Linkedin, label: "LinkedIn", href: personalInfo.linkedin },
+    { icon: Github, label: "GitHub", href: personalInfo.github },
+  ];
+
+  return (
+    <section id="contact" className="bg-[#09090f] py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            06 / Contact
+          </span>
+          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
+        </div>
+
+        <h2
+          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Get In <span className="text-[#818cf8]">Touch</span>
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Contact info */}
+          <div>
+            <p
+              className="text-[#94a3b8] text-lg leading-relaxed mb-10"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Have a project in mind or want to collaborate? Feel free to reach out.
+              I'm always open to discussing new opportunities.
+            </p>
+
+            <div className="flex flex-col gap-5 mb-10">
+              {contactDetails.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-[#2d2b6e]/40 flex items-center justify-center">
+                    <item.icon size={20} className="text-[#818cf8]" />
+                  </div>
+                  <div>
+                    <span
+                      className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-0.5"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {item.label}
+                    </span>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="text-white text-sm font-medium hover:text-[#818cf8] transition-colors duration-300"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span
+                        className="text-white text-sm font-medium"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {item.value}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Socials */}
+            <div className="flex gap-3">
+              {socials.map((s, idx) => (
+                <a
+                  key={idx}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#2d2b6e] bg-[#13132a]/20 hover:border-[#6366f1]/40 hover:bg-[#2d2b6e]/30 transition-all duration-300"
+                >
+                  <s.icon size={18} className="text-[#818cf8]" />
+                  <span
+                    className="text-[#94a3b8] text-sm font-medium group-hover:text-white transition-colors duration-300"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {s.label}
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-[#94a3b8] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact form */}
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label
+                  className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-2"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  Name
+                </label>
+                <Input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your name"
+                  className="bg-[#13132a]/30 border-[#2d2b6e]/50 text-white placeholder:text-[#94a3b8]/50 focus:border-[#6366f1]/50 focus:ring-[#6366f1]/20 rounded-lg h-12"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                />
+              </div>
+              <div>
+                <label
+                  className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-2"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  Email
+                </label>
+                <Input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="your@email.com"
+                  className="bg-[#13132a]/30 border-[#2d2b6e]/50 text-white placeholder:text-[#94a3b8]/50 focus:border-[#6366f1]/50 focus:ring-[#6366f1]/20 rounded-lg h-12"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-2"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                Subject
+              </label>
+              <Input
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                placeholder="Project inquiry"
+                className="bg-[#13132a]/30 border-[#2d2b6e]/50 text-white placeholder:text-[#94a3b8]/50 focus:border-[#6366f1]/50 focus:ring-[#6366f1]/20 rounded-lg h-12"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              />
+            </div>
+
+            <div>
+              <label
+                className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-2"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                Message
+              </label>
+              <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="Tell me about your project..."
+                rows={5}
+                className="bg-[#13132a]/30 border-[#2d2b6e]/50 text-white placeholder:text-[#94a3b8]/50 focus:border-[#6366f1]/50 focus:ring-[#6366f1]/20 rounded-lg resize-none"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={sending}
+              className="inline-flex items-center justify-center gap-2 bg-[#6366f1] text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-[#4f46e5] active:scale-[0.98] transition-all duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
+              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+            >
+              {sending ? (
+                "Sending..."
+              ) : (
+                <>
+                  Send Message
+                  <Send size={18} />
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
+</file>
+
+<file path="src/components/portfolio/Credentials.jsx">
+import React from "react";
+import { education, certifications } from "../../data/mock";
+import { GraduationCap, Award, BadgeCheck } from "lucide-react";
+
+const Credentials = () => {
+  return (
+    <section id="credentials" className="bg-[#09090f] py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            05 / Credentials
+          </span>
+          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Education */}
+          <div>
+            <h2
+              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Edu<span className="text-[#818cf8]">cation</span>
+            </h2>
+
+            <div className="flex flex-col gap-6">
+              {education.map((edu, idx) => (
+                <div
+                  key={idx}
+                  className="group p-6 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 hover:border-[#6366f1]/20 hover:bg-[#13132a]/30 transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center group-hover:bg-[#6366f1]/10 transition-colors duration-300">
+                      <GraduationCap size={22} className="text-[#818cf8]" />
+                    </div>
+                    <div className="flex-1">
+                      <h3
+                        className="text-white font-semibold text-lg mb-1"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        {edu.degree}
+                      </h3>
+                      <p
+                        className="text-[#818cf8] text-sm font-medium mb-2"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {edu.institution}
+                      </p>
+                      <div className="flex items-center gap-4">
+                        <span
+                          className="text-[#94a3b8] text-sm"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {edu.period}
+                        </span>
+                        <span className="text-[#818cf8]/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#2d2b6e]/30 border border-[#2d2b6e]/40">
+                          {edu.score}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div>
+            <h2
+              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Certi<span className="text-[#818cf8]">fications</span>
+            </h2>
+
+            <div className="flex flex-col gap-4">
+              {certifications.map((cert, idx) => (
+                <div
+                  key={idx}
+                  className="group flex items-center gap-4 p-5 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 hover:border-[#6366f1]/20 hover:bg-[#13132a]/30 transition-all duration-300"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center group-hover:bg-[#6366f1]/10 transition-colors duration-300">
+                    {idx === 0 ? (
+                      <BadgeCheck size={20} className="text-[#818cf8]" />
+                    ) : (
+                      <Award size={20} className="text-[#818cf8]" />
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4
+                      className="text-white font-medium text-sm truncate"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {cert.name}
+                    </h4>
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="text-[#94a3b8] text-xs"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {cert.issuer}
+                      </span>
+                      <span className="text-[#2d2b6e]">·</span>
+                      <span
+                        className="text-[#94a3b8] text-xs"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {cert.date}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Credentials;
+</file>
+
+<file path="src/components/portfolio/Experience.jsx">
+import React from "react";
+import { experience } from "../../data/mock";
+import { Building2, ChevronRight } from "lucide-react";
+
+const Experience = () => {
+  return (
+    <section id="experience" className="bg-[#09090f] py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            03 / Experience
+          </span>
+          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
+        </div>
+
+        <h2
+          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Work <span className="text-[#818cf8]">History</span>
+        </h2>
+
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-[#2d2b6e]/60 hidden md:block" />
+
+          <div className="flex flex-col gap-10">
+            {experience.map((exp, idx) => (
+              <div key={idx} className="relative group">
+                <div className="flex gap-6 md:gap-10">
+                  {/* Timeline dot */}
+                  <div className="hidden md:flex flex-shrink-0 relative z-10">
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${
+                        exp.current
+                          ? "bg-[#6366f1] border-[#6366f1]"
+                          : "bg-[#13132a] border-[#2d2b6e] group-hover:border-[#6366f1]/50"
+                      }`}
+                    >
+                      <Building2
+                        size={18}
+                        className={exp.current ? "text-white" : "text-[#94a3b8]"}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Content card */}
+                  <div className="flex-1 p-6 md:p-8 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 group-hover:border-[#6366f1]/20 group-hover:bg-[#13132a]/30 transition-all duration-300">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                      <div>
+                        <h3
+                          className="text-white font-bold text-xl mb-1"
+                          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        >
+                          {exp.role}
+                        </h3>
+                        <span
+                          className="text-[#818cf8] text-sm font-medium"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {exp.company}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {exp.current && (
+                          <span className="text-white text-xs font-semibold px-3 py-1 bg-[#6366f1] rounded-full uppercase">
+                            Current
+                          </span>
+                        )}
+                        <span
+                          className="text-[#94a3b8] text-sm"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {exp.period}
+                        </span>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-3 mb-5">
+                      {exp.descriptions.map((desc, dIdx) => (
+                        <li key={dIdx} className="flex gap-3 items-start">
+                          <ChevronRight
+                            size={16}
+                            className="text-[#4f46e5] mt-1 flex-shrink-0"
+                          />
+                          <span
+                            className="text-[#94a3b8] text-sm leading-relaxed"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                          >
+                            {desc}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tech.map((t, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="text-[#818cf8]/80 text-xs font-medium px-2.5 py-1 rounded-md bg-[#2d2b6e]/20 border border-[#2d2b6e]/40"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
+</file>
+
+<file path="src/components/portfolio/Footer.jsx">
+import React from "react";
+import { personalInfo, navLinks } from "../../data/mock";
+import { ArrowUp, Heart } from "lucide-react";
+
+const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <footer className="bg-[#13132a]/30 border-t border-[#2d2b6e]/40 py-12">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          {/* Brand */}
+          <div>
+            <a
+              href="#hero"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToTop();
+              }}
+              className="text-[#818cf8] font-bold text-2xl tracking-tight hover:opacity-80 transition-opacity duration-300 inline-block mb-2"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              PK<span className="text-white">.</span>
+            </a>
+            <p
+              className="text-[#94a3b8] text-sm max-w-xs"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {personalInfo.title} based in {personalInfo.location}
+            </p>
+          </div>
+
+          {/* Nav links */}
+          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="text-[#94a3b8] text-sm hover:text-[#818cf8] transition-colors duration-300"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Scroll to top */}
+          <button
+            onClick={scrollToTop}
+            className="w-10 h-10 rounded-full border border-[#2d2b6e] bg-[#13132a]/40 flex items-center justify-center text-[#94a3b8] hover:text-[#818cf8] hover:border-[#6366f1]/40 transition-all duration-300"
+            aria-label="Back to top"
+          >
+            <ArrowUp size={18} />
+          </button>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-[#2d2b6e]/40 my-8" />
+
+        {/* Bottom row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p
+            className="text-[#94a3b8] text-xs flex items-center gap-1"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            &copy; {new Date().getFullYear()} {personalInfo.name}. Built with{" "}
+            <Heart size={12} className="text-[#818cf8] inline" /> and code.
+          </p>
+          <p
+            className="text-[#94a3b8]/50 text-xs"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            Thane, Maharashtra, India
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+</file>
+
+<file path="src/components/portfolio/Header.jsx">
+import React, { useState, useEffect } from "react";
+import { navLinks, personalInfo } from "../../data/mock";
+import { Menu, X } from "lucide-react";
+
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        scrolled
+          ? "bg-[#09090f]/95 backdrop-blur-md border-b border-[#2d2b6e]/50"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-[87.5rem] mx-auto px-10 flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick(e, "#hero")}
+          className="text-[#818cf8] font-bold text-xl tracking-tight hover:opacity-80 transition-opacity duration-300"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          PK<span className="text-white">.</span>
+        </a>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-[#94a3b8] text-sm font-medium px-4 py-2 rounded-full hover:text-white hover:bg-[#2d2b6e]/40 transition-colors duration-300"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* CTA */}
+        <a
+          href="#contact"
+          onClick={(e) => handleNavClick(e, "#contact")}
+          className="hidden md:inline-flex items-center justify-center bg-[#6366f1] text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-[1.02] hover:bg-[#4f46e5] active:scale-[0.98] transition-all duration-300"
+          style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+        >
+          Let's Talk
+        </a>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden text-[#818cf8] p-2"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-[#09090f]/98 backdrop-blur-md border-t border-[#2d2b6e]/50 px-6 pb-6 pt-2">
+          <nav className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-[#94a3b8] text-base font-medium px-4 py-3 rounded-lg hover:text-white hover:bg-[#2d2b6e]/40 transition-colors duration-300"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="mt-2 inline-flex items-center justify-center bg-[#6366f1] text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-[#4f46e5] transition-all duration-300 w-full"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Let's Talk
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
+</file>
+
+<file path="src/components/portfolio/Hero.jsx">
+import React from "react";
+import { personalInfo } from "../../data/mock";
+import { ArrowDown, MapPin, Briefcase } from "lucide-react";
+
+const Hero = () => {
+  const scrollToAbout = () => {
+    const el = document.querySelector("#about");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center bg-[#09090f] overflow-hidden"
+    >
+      {/* Background grid pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(#818cf8 1px, transparent 1px), linear-gradient(90deg, #818cf8 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
+
+      {/* Decorative blobs */}
+      <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-[#4f46e5]/15 rounded-full blur-[120px]" />
+      <div className="absolute bottom-20 left-10 w-[300px] h-[300px] bg-[#818cf8]/8 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#6366f1]/5 rounded-full blur-[140px]" />
+
+      <div className="relative z-10 max-w-[87.5rem] mx-auto px-10 w-full py-32">
+        <div className="flex flex-col gap-8">
+          {/* Status badge */}
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#818cf8] opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#6366f1]" />
+            </span>
+            <span
+              className="text-[#94a3b8] text-sm font-medium uppercase tracking-widest"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Available for opportunities
+            </span>
+          </div>
+
+          {/* Main heading */}
+          <div>
+            <h1
+              className="text-[#818cf8] font-black uppercase leading-[0.85]"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: "clamp(3.5rem, 8vw, 8rem)",
+              }}
+            >
+              {personalInfo.firstName}
+            </h1>
+            <h1
+              className="text-white font-black uppercase leading-[0.85] mt-2"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: "clamp(3.5rem, 8vw, 8rem)",
+              }}
+            >
+              {personalInfo.lastName}
+            </h1>
+          </div>
+
+          {/* Subtitle area */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+            <div className="flex items-center gap-2">
+              <Briefcase size={18} className="text-[#818cf8]" />
+              <span
+                className="text-white text-lg font-medium"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {personalInfo.title}
+              </span>
+            </div>
+            <div className="hidden sm:block w-px h-5 bg-[#2d2b6e]" />
+            <div className="flex items-center gap-2">
+              <MapPin size={18} className="text-[#94a3b8]" />
+              <span
+                className="text-[#94a3b8] text-base"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {personalInfo.location}
+              </span>
+            </div>
+          </div>
+
+          {/* Tagline */}
+          <p
+            className="text-[#94a3b8] text-lg max-w-2xl leading-relaxed"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            {personalInfo.tagline}. Expertise in{" "}
+            <span className="text-white">ASP.NET Core</span>,{" "}
+            <span className="text-white">Microservices</span>,{" "}
+            <span className="text-white">React</span> &{" "}
+            <span className="text-white">Cloud-Native Design</span>.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex items-center justify-center bg-[#6366f1] text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-[#4f46e5] active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
+              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex items-center justify-center bg-transparent text-[#818cf8] font-semibold text-base px-8 py-3.5 rounded-full border border-[#4f46e5] hover:bg-[#6366f1] hover:text-white active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
+              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+            >
+              Get In Touch
+            </a>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <button
+          onClick={scrollToAbout}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#94a3b8] hover:text-[#818cf8] transition-colors duration-300 animate-bounce"
+          aria-label="Scroll down"
+        >
+          <ArrowDown size={24} />
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+</file>
+
+<file path="src/components/portfolio/Projects.jsx">
+import React from "react";
+import { projects } from "../../data/mock";
+import { ArrowUpRight, Calendar } from "lucide-react";
+
+const Projects = () => {
+  return (
+    <section id="projects" className="bg-[#09090f] py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            04 / Projects
+          </span>
+          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
+        </div>
+
+        <h2
+          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Featured <span className="text-[#818cf8]">Work</span>
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {projects.map((project, idx) => (
+            <div
+              key={idx}
+              className="group relative p-8 rounded-2xl border border-[#2d2b6e]/50 bg-[#13132a]/15 hover:border-[#6366f1]/30 hover:bg-[#13132a]/30 transition-all duration-300 overflow-hidden"
+            >
+              {/* Background accent */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-[#6366f1]/[0.03] rounded-full blur-[60px] group-hover:bg-[#6366f1]/[0.07] transition-all duration-500" />
+
+              {/* Header */}
+              <div className="relative z-10 flex items-start justify-between mb-6">
+                <div className="w-14 h-14 rounded-xl bg-[#2d2b6e]/40 flex items-center justify-center text-[#818cf8] group-hover:bg-[#6366f1]/10 transition-colors duration-300">
+                  {project.icon}
+                </div>
+                <div className="flex items-center gap-2 text-[#94a3b8]">
+                  <Calendar size={14} />
+                  <span
+                    className="text-xs font-medium"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {project.year}
+                  </span>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3
+                className="relative z-10 text-white font-bold text-2xl mb-4 group-hover:text-[#818cf8] transition-colors duration-300"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                {project.title}
+                <ArrowUpRight
+                  size={20}
+                  className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </h3>
+
+              {/* Descriptions */}
+              <ul className="relative z-10 space-y-2 mb-6">
+                {project.descriptions.map((desc, dIdx) => (
+                  <li
+                    key={dIdx}
+                    className="text-[#94a3b8] text-sm leading-relaxed pl-4 border-l-2 border-[#2d2b6e]/40"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {desc}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Tech stack */}
+              <div className="relative z-10 flex flex-wrap gap-2">
+                {project.tech.map((t, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="text-[#818cf8]/80 text-xs font-medium px-3 py-1.5 rounded-full border border-[#2d2b6e] bg-[#2d2b6e]/15 group-hover:border-[#6366f1]/30 transition-colors duration-300"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
+</file>
+
+<file path="src/components/portfolio/Skills.jsx">
+import React from "react";
+import { skills } from "../../data/mock";
+
+const Skills = () => {
+  const skillCategories = Object.values(skills);
+
+  return (
+    <section id="skills" className="bg-[#09090f] py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            02 / Skills
+          </span>
+          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
+        </div>
+
+        <h2
+          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Tech <span className="text-[#818cf8]">Stack</span>
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, idx) => (
+            <div
+              key={idx}
+              className="group p-6 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 hover:border-[#6366f1]/30 hover:bg-[#13132a]/40 transition-all duration-300"
+            >
+              {/* Card header */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center text-[#818cf8] group-hover:bg-[#6366f1]/10 transition-colors duration-300">
+                  {category.icon}
+                </div>
+                <h3
+                  className="text-white font-semibold text-base"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  {category.title}
+                </h3>
+              </div>
+
+              {/* Skills tags */}
+              <div className="flex flex-wrap gap-2">
+                {category.items.map((skill, sIdx) => (
+                  <span
+                    key={sIdx}
+                    className="text-[#818cf8] text-xs font-medium px-3 py-1.5 rounded-full border border-[#2d2b6e] bg-[#2d2b6e]/20 hover:bg-[#6366f1]/10 hover:border-[#6366f1]/40 transition-colors duration-200 cursor-default"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
+</file>
+
+<file path="src/index.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family:
+        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 239 84% 67%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 239 84% 67%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 239 84% 67%;
+        --chart-1: 239 84% 67%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+        --radius: 0.5rem;
+    }
+    .dark {
+        --background: 240 20% 4%;
+        --foreground: 0 0% 98%;
+        --card: 240 20% 9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 20% 9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 239 84% 67%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 240 18% 16%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 18% 16%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 239 84% 67%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 18% 20%;
+        --input: 240 18% 16%;
+        --ring: 239 84% 67%;
+        --chart-1: 239 84% 67%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
 </file>
 
 </files>
