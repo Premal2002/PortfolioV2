@@ -1,13 +1,19 @@
 import React from "react";
 import { education, certifications } from "../../data/mock";
 import { GraduationCap, Award, BadgeCheck } from "lucide-react";
+import { useInView, fadeUp } from "../../hooks/useInView";
 
 const Credentials = () => {
+  const [sectionRef, inView] = useInView();
+
   return (
     <section id="credentials" className="bg-brand-bg py-16 md:py-20">
-      <div className="max-w-[87.5rem] mx-auto px-10">
+      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
+        <div
+          style={fadeUp(inView, 0)}
+          className="flex items-center gap-4 mb-12"
+        >
           <span
             className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
             style={{ fontFamily: "'Inter', sans-serif" }}
@@ -22,7 +28,10 @@ const Credentials = () => {
           <div>
             <h2
               className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                ...fadeUp(inView, 80),
+              }}
             >
               Edu<span className="text-brand-accent">cation</span>
             </h2>
@@ -31,6 +40,7 @@ const Credentials = () => {
               {education.map((edu, idx) => (
                 <div
                   key={idx}
+                  style={fadeUp(inView, 160 + idx * 90)}
                   className="group p-6 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
@@ -72,7 +82,10 @@ const Credentials = () => {
           <div>
             <h2
               className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                ...fadeUp(inView, 120),
+              }}
             >
               Certi<span className="text-brand-accent">fications</span>
             </h2>
@@ -81,6 +94,7 @@ const Credentials = () => {
               {certifications.map((cert, idx) => (
                 <div
                   key={idx}
+                  style={fadeUp(inView, 200 + idx * 70)}
                   className="group flex items-center gap-4 p-5 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">

@@ -12,9 +12,11 @@ import {
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { useToast } from "../../hooks/use-toast";
+import { useInView, fadeUp } from "../../hooks/useInView";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [sectionRef, inView] = useInView();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -69,9 +71,12 @@ const Contact = () => {
 
   return (
     <section id="contact" className="bg-brand-bg py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
+      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
+        <div
+          style={fadeUp(inView, 0)}
+          className="flex items-center gap-4 mb-12"
+        >
           <span
             className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
             style={{ fontFamily: "'Inter', sans-serif" }}
@@ -83,14 +88,17 @@ const Contact = () => {
 
         <h2
           className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            ...fadeUp(inView, 80),
+          }}
         >
           Get In <span className="text-brand-accent">Touch</span>
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact info */}
-          <div>
+          <div style={fadeUp(inView, 160)}>
             <p
               className="text-brand-muted text-lg leading-relaxed mb-10"
               style={{ fontFamily: "'Inter', sans-serif" }}
@@ -160,7 +168,11 @@ const Contact = () => {
           </div>
 
           {/* Contact form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <form
+            onSubmit={handleSubmit}
+            style={fadeUp(inView, 280)}
+            className="flex flex-col gap-5"
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label

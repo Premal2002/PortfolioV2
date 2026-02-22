@@ -1,14 +1,19 @@
 import React from "react";
 import { skills } from "../../data/mock";
+import { useInView, fadeUp } from "../../hooks/useInView";
 
 const Skills = () => {
   const skillCategories = Object.values(skills);
+  const [sectionRef, inView] = useInView();
 
   return (
     <section id="skills" className="bg-brand-bg py-16 md:py-20">
-      <div className="max-w-[87.5rem] mx-auto px-10">
+      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
+        <div
+          style={fadeUp(inView, 0)}
+          className="flex items-center gap-4 mb-12"
+        >
           <span
             className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
             style={{ fontFamily: "'Inter', sans-serif" }}
@@ -20,7 +25,10 @@ const Skills = () => {
 
         <h2
           className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            ...fadeUp(inView, 80),
+          }}
         >
           Tech <span className="text-brand-accent">Stack</span>
         </h2>
@@ -29,6 +37,7 @@ const Skills = () => {
           {skillCategories.map((category, idx) => (
             <div
               key={idx}
+              style={fadeUp(inView, 160 + idx * 70)}
               className="group p-6 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/30 hover:bg-brand-surface/40 transition-all duration-300"
             >
               {/* Card header */}

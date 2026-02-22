@@ -1,13 +1,19 @@
 import React from "react";
 import { experience } from "../../data/mock";
 import { Building2, ChevronRight } from "lucide-react";
+import { useInView, fadeUp } from "../../hooks/useInView";
 
 const Experience = () => {
+  const [sectionRef, inView] = useInView();
+
   return (
     <section id="experience" className="bg-brand-bg py-16 md:py-20">
-      <div className="max-w-[87.5rem] mx-auto px-10">
+      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
+        <div
+          style={fadeUp(inView, 0)}
+          className="flex items-center gap-4 mb-12"
+        >
           <span
             className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
             style={{ fontFamily: "'Inter', sans-serif" }}
@@ -19,7 +25,10 @@ const Experience = () => {
 
         <h2
           className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            ...fadeUp(inView, 80),
+          }}
         >
           Work <span className="text-brand-accent">History</span>
         </h2>
@@ -30,7 +39,11 @@ const Experience = () => {
 
           <div className="flex flex-col gap-10">
             {experience.map((exp, idx) => (
-              <div key={idx} className="relative group">
+              <div
+                key={idx}
+                style={fadeUp(inView, 160 + idx * 110)}
+                className="relative group"
+              >
                 <div className="flex gap-6 md:gap-10">
                   {/* Timeline dot */}
                   <div className="hidden md:flex flex-shrink-0 relative z-10">

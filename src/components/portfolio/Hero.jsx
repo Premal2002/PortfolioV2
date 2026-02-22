@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { personalInfo } from "../../data/mock";
 import { ArrowDown, MapPin, Briefcase } from "lucide-react";
 
 const Hero = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 80);
+    return () => clearTimeout(t);
+  }, []);
+
   const scrollToAbout = () => {
     const el = document.querySelector("#about");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+
+  const fade = (delay) => ({
+    opacity: mounted ? 1 : 0,
+    transform: mounted ? "translateY(0px)" : "translateY(20px)",
+    transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+  });
 
   return (
     <section
@@ -33,7 +46,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-[87.5rem] mx-auto px-10 w-full py-32">
         <div className="flex flex-col gap-8">
           {/* Status badge */}
-          <div className="flex items-center gap-3">
+          <div style={fade(100)} className="flex items-center gap-3">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75" />
               <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-primary" />
@@ -49,27 +62,32 @@ const Hero = () => {
           {/* Main heading */}
           <div>
             <h1
-              className="text-brand-accent font-black uppercase leading-[0.85]"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "clamp(3.5rem, 8vw, 8rem)",
+                ...fade(220),
               }}
+              className="text-brand-accent font-black uppercase leading-[0.85]"
             >
               {personalInfo.firstName}
             </h1>
             <h1
-              className="text-brand-fg font-black uppercase leading-[0.85] mt-2"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "clamp(3.5rem, 8vw, 8rem)",
+                ...fade(360),
               }}
+              className="text-brand-fg font-black uppercase leading-[0.85] mt-2"
             >
               {personalInfo.lastName}
             </h1>
           </div>
 
           {/* Subtitle area */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+          <div
+            style={fade(500)}
+            className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8"
+          >
             <div className="flex items-center gap-2">
               <Briefcase size={18} className="text-brand-accent" />
               <span
@@ -93,8 +111,8 @@ const Hero = () => {
 
           {/* Tagline */}
           <p
+            style={{ fontFamily: "'Inter', sans-serif", ...fade(620) }}
             className="text-brand-muted text-lg max-w-2xl leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {personalInfo.tagline}. Expertise in{" "}
             <span className="text-brand-fg">ASP.NET Core</span>,{" "}
@@ -104,15 +122,23 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+          <div
+            style={fade(750)}
+            className="flex flex-col sm:flex-row gap-4 mt-4"
+          >
             <a
               href="#projects"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+                document
+                  .querySelector("#projects")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
               className="inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "-0.04em",
+              }}
             >
               View Projects
             </a>
@@ -120,10 +146,15 @@ const Hero = () => {
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
               className="inline-flex items-center justify-center bg-transparent text-brand-accent font-semibold text-base px-8 py-3.5 rounded-full border border-brand-hover hover:bg-brand-primary hover:text-white active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "-0.04em",
+              }}
             >
               Get In Touch
             </a>

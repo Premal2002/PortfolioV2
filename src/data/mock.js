@@ -1,4 +1,15 @@
-import { Code2, Server, Database, Globe, Container, GitBranch, Layers, Cpu, Monitor, ShoppingCart } from "lucide-react";
+import {
+  Code2,
+  Server,
+  Database,
+  Globe,
+  Container,
+  GitBranch,
+  Layers,
+  Cpu,
+  Monitor,
+  ShoppingCart,
+} from "lucide-react";
 import React from "react";
 
 export const personalInfo = {
@@ -10,8 +21,8 @@ export const personalInfo = {
   email: "premkasdam143@gmail.com",
   phone: "+91-9768342809",
   location: "Thane, Maharashtra, India",
-  linkedin: "https://linkedin.com/in/premalkadam",
-  github: "https://github.com/premalkadam",
+  linkedin: "https://www.linkedin.com/in/premal-kadam/",
+  github: "https://github.com/Premal2002",
   summary:
     "Software Developer with hands-on experience building scalable, real-time, and data-driven applications using modern backend and frontend technologies. Strong expertise in ASP.NET Core, microservices, GraphQL, gRPC, WebSockets, and Docker, with a focus on clean architecture, performance optimization, and reliable data synchronization.",
   summaryExtended:
@@ -36,7 +47,16 @@ export const skills = {
   backend: {
     title: "Backend",
     icon: React.createElement(Server, { size: 20 }),
-    items: ["ASP.NET Core", ".NET 8", "MVC", "LINQ", "EF Core", "REST", "gRPC", "GraphQL"],
+    items: [
+      "ASP.NET Core",
+      ".NET 8",
+      "MVC",
+      "LINQ",
+      "EF Core",
+      "REST",
+      "gRPC",
+      "GraphQL",
+    ],
   },
   frontend: {
     title: "Frontend",
@@ -56,7 +76,13 @@ export const skills = {
   architecture: {
     title: "Architecture",
     icon: React.createElement(Layers, { size: 20 }),
-    items: ["Clean Architecture", "DDD", "CQRS", "Microservices", "Event-Driven"],
+    items: [
+      "Clean Architecture",
+      "DDD",
+      "CQRS",
+      "Microservices",
+      "Event-Driven",
+    ],
   },
 };
 
@@ -98,7 +124,15 @@ export const projects = [
       "Implemented a GraphQL backend service for efficient querying of structured data.",
       "Developed interactive visualizations using React and GoJS.",
     ],
-    tech: ["ASP.NET Core", ".NET 8", "Next.js", "WebSockets", "GraphQL", "React", "GoJS"],
+    tech: [
+      "ASP.NET Core",
+      ".NET 8",
+      "Next.js",
+      "WebSockets",
+      "GraphQL",
+      "React",
+      "GoJS",
+    ],
   },
   {
     title: "eShop Microservices",

@@ -1,13 +1,19 @@
 import React from "react";
 import { projects } from "../../data/mock";
 import { ArrowUpRight, Calendar } from "lucide-react";
+import { useInView, fadeUp } from "../../hooks/useInView";
 
 const Projects = () => {
+  const [sectionRef, inView] = useInView();
+
   return (
     <section id="projects" className="bg-brand-bg py-16 md:py-20">
-      <div className="max-w-[87.5rem] mx-auto px-10">
+      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
+        <div
+          style={fadeUp(inView, 0)}
+          className="flex items-center gap-4 mb-12"
+        >
           <span
             className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
             style={{ fontFamily: "'Inter', sans-serif" }}
@@ -19,7 +25,10 @@ const Projects = () => {
 
         <h2
           className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            ...fadeUp(inView, 80),
+          }}
         >
           Featured <span className="text-brand-accent">Work</span>
         </h2>
@@ -28,6 +37,7 @@ const Projects = () => {
           {projects.map((project, idx) => (
             <div
               key={idx}
+              style={fadeUp(inView, 160 + idx * 120)}
               className="group relative p-8 rounded-2xl border border-brand-border/50 bg-brand-surface/15 hover:border-brand-primary/30 hover:bg-brand-surface/30 transition-all duration-300 overflow-hidden"
             >
               {/* Background accent */}
