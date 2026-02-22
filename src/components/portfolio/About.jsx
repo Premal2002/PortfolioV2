@@ -22,7 +22,7 @@ const highlights = [
 
 const About = () => {
   return (
-    <section id="about" className="bg-brand-bg py-24 md:py-32">
+    <section id="about" className="bg-brand-bg py-16 md:py-20">
       <div className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
@@ -39,12 +39,11 @@ const About = () => {
           {/* Left — text */}
           <div>
             <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-8 uppercase"
+              className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-8 uppercase"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               Crafting Modern{" "}
-              <span className="text-brand-accent">Software</span>{" "}
-              Solutions
+              <span className="text-brand-accent">Software</span> Solutions
             </h2>
             <p
               className="text-brand-muted text-lg leading-relaxed mb-6"
@@ -72,7 +71,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3
-                    className="text-white font-semibold text-base mb-1"
+                    className="text-brand-fg font-semibold text-base mb-1"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {item.title}

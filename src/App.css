@@ -1,38 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 /* Smooth scrolling */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar — uses CSS variables so it switches with the theme */
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #09090f;
+  background: rgb(var(--brand-bg));
 }
 ::-webkit-scrollbar-thumb {
-    background: #2d2b6e;
-    border-radius: 3px;
+  background: rgb(var(--brand-border));
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #6366f1;
+  background: rgb(var(--brand-primary));
 }
 
 /* Selection color */
 ::selection {
-    background: rgba(99, 102, 241, 0.3);
-    color: #fff;
+  background: rgba(99, 102, 241, 0.3);
+  color: rgb(var(--brand-fg));
 }

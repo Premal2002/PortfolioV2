@@ -4,7 +4,7 @@ import { ArrowUpRight, Calendar } from "lucide-react";
 
 const Projects = () => {
   return (
-    <section id="projects" className="bg-brand-bg py-24 md:py-32">
+    <section id="projects" className="bg-brand-bg py-16 md:py-20">
       <div className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
@@ -18,7 +18,7 @@ const Projects = () => {
         </div>
 
         <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           Featured <span className="text-brand-accent">Work</span>
@@ -51,7 +51,7 @@ const Projects = () => {
 
               {/* Title */}
               <h3
-                className="relative z-10 text-white font-bold text-2xl mb-4 group-hover:text-brand-accent transition-colors duration-300"
+                className="relative z-10 text-brand-fg font-bold text-2xl mb-4 group-hover:text-brand-accent transition-colors duration-300"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 {project.title}

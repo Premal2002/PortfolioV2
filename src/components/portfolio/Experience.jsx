@@ -4,7 +4,7 @@ import { Building2, ChevronRight } from "lucide-react";
 
 const Experience = () => {
   return (
-    <section id="experience" className="bg-brand-bg py-24 md:py-32">
+    <section id="experience" className="bg-brand-bg py-16 md:py-20">
       <div className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
@@ -18,7 +18,7 @@ const Experience = () => {
         </div>
 
         <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           Work <span className="text-brand-accent">History</span>
@@ -43,7 +43,9 @@ const Experience = () => {
                     >
                       <Building2
                         size={18}
-                        className={exp.current ? "text-white" : "text-brand-muted"}
+                        className={
+                          exp.current ? "text-white" : "text-brand-muted"
+                        }
                       />
                     </div>
                   </div>
@@ -53,7 +55,7 @@ const Experience = () => {
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                       <div>
                         <h3
-                          className="text-white font-bold text-xl mb-1"
+                          className="text-brand-fg font-bold text-xl mb-1"
                           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                         >
                           {exp.role}

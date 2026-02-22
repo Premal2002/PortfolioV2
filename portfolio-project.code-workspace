@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "files.autoSave": "onFocusChange",
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/.vscode": true
+    }
+  },
+}

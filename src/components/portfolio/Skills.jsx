@@ -5,7 +5,7 @@ const Skills = () => {
   const skillCategories = Object.values(skills);
 
   return (
-    <section id="skills" className="bg-brand-bg py-24 md:py-32">
+    <section id="skills" className="bg-brand-bg py-16 md:py-20">
       <div className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
@@ -19,7 +19,7 @@ const Skills = () => {
         </div>
 
         <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           Tech <span className="text-brand-accent">Stack</span>
@@ -37,7 +37,7 @@ const Skills = () => {
                   {category.icon}
                 </div>
                 <h3
-                  className="text-white font-semibold text-base"
+                  className="text-brand-fg font-semibold text-base"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {category.title}

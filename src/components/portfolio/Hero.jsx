@@ -58,7 +58,7 @@ const Hero = () => {
               {personalInfo.firstName}
             </h1>
             <h1
-              className="text-white font-black uppercase leading-[0.85] mt-2"
+              className="text-brand-fg font-black uppercase leading-[0.85] mt-2"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "clamp(3.5rem, 8vw, 8rem)",
@@ -73,7 +73,7 @@ const Hero = () => {
             <div className="flex items-center gap-2">
               <Briefcase size={18} className="text-brand-accent" />
               <span
-                className="text-white text-lg font-medium"
+                className="text-brand-fg text-lg font-medium"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {personalInfo.title}
@@ -97,10 +97,10 @@ const Hero = () => {
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {personalInfo.tagline}. Expertise in{" "}
-            <span className="text-white">ASP.NET Core</span>,{" "}
-            <span className="text-white">Microservices</span>,{" "}
-            <span className="text-white">React</span> &{" "}
-            <span className="text-white">Cloud-Native Design</span>.
+            <span className="text-brand-fg">ASP.NET Core</span>,{" "}
+            <span className="text-brand-fg">Microservices</span>,{" "}
+            <span className="text-brand-fg">React</span> &{" "}
+            <span className="text-brand-fg">Cloud-Native Design</span>.
           </p>
 
           {/* CTA Buttons */}

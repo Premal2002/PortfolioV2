@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { navLinks, personalInfo } from "../../data/mock";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
-const Header = () => {
+const Header = ({ isDark, onToggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -32,10 +32,16 @@ const Header = () => {
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="text-brand-accent font-bold text-xl tracking-tight hover:opacity-80 transition-opacity duration-300"
+          className="flex items-center gap-0.5 hover:opacity-80 transition-opacity duration-300 select-none"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
-          PK<span className="text-white">.</span>
+          <span className="text-brand-muted font-medium text-lg">&lt;</span>
+          <span className="text-brand-accent font-black text-xl tracking-tight">
+            PK
+          </span>
+          <span className="text-brand-muted font-medium text-base">
+            &nbsp;/&gt;
+          </span>
         </a>
 
         {/* Desktop Nav */}
@@ -45,7 +51,7 @@ const Header = () => {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-brand-muted text-sm font-medium px-4 py-2 rounded-full hover:text-white hover:bg-brand-border/40 transition-colors duration-300"
+              className="text-brand-muted text-sm font-medium px-4 py-2 rounded-full hover:text-brand-fg hover:bg-brand-border/40 transition-colors duration-300"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {link.label}
@@ -53,24 +59,48 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* CTA */}
-        <a
-          href="#contact"
-          onClick={(e) => handleNavClick(e, "#contact")}
-          className="hidden md:inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300"
-          style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-        >
-          Let's Talk
-        </a>
+        {/* Right side: theme toggle + CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          {/* Theme toggle */}
+          <button
+            onClick={onToggleTheme}
+            className="text-brand-muted hover:text-brand-accent transition-colors duration-300 p-2 rounded-full hover:bg-brand-border/40"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-brand-accent p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* CTA */}
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, "#contact")}
+            className="inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              letterSpacing: "-0.04em",
+            }}
+          >
+            Let's Talk
+          </a>
+        </div>
+
+        {/* Mobile: theme toggle + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={onToggleTheme}
+            className="text-brand-muted hover:text-brand-accent transition-colors duration-300 p-2 rounded-full hover:bg-brand-border/40"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button
+            className="text-brand-accent p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -82,7 +112,7 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-brand-muted text-base font-medium px-4 py-3 rounded-lg hover:text-white hover:bg-brand-border/40 transition-colors duration-300"
+                className="text-brand-muted text-base font-medium px-4 py-3 rounded-lg hover:text-brand-fg hover:bg-brand-border/40 transition-colors duration-300"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {link.label}

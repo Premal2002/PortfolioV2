@@ -19,10 +19,16 @@ const Footer = () => {
                 e.preventDefault();
                 scrollToTop();
               }}
-              className="text-brand-accent font-bold text-2xl tracking-tight hover:opacity-80 transition-opacity duration-300 inline-block mb-2"
+              className="flex items-center gap-0.5 hover:opacity-80 transition-opacity duration-300 select-none mb-2"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              PK<span className="text-white">.</span>
+              <span className="text-brand-muted font-medium text-xl">&lt;</span>
+              <span className="text-brand-accent font-black text-2xl tracking-tight">
+                PK
+              </span>
+              <span className="text-brand-muted font-medium text-lg">
+                &nbsp;/&gt;
+              </span>
             </a>
             <p
               className="text-brand-muted text-sm max-w-xs"
@@ -40,7 +46,9 @@ const Footer = () => {
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                  document
+                    .querySelector(link.href)
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="text-brand-muted text-sm hover:text-brand-accent transition-colors duration-300"
                 style={{ fontFamily: "'Inter', sans-serif" }}

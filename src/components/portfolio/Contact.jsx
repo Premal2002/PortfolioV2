@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { personalInfo } from "../../data/mock";
-import { Mail, Phone, MapPin, Send, Linkedin, Github, ArrowUpRight } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Linkedin,
+  Github,
+  ArrowUpRight,
+} from "lucide-react";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { useToast } from "../../hooks/use-toast";
@@ -34,9 +42,24 @@ const Contact = () => {
   };
 
   const contactDetails = [
-    { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-    { icon: Phone, label: "Phone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
-    { icon: MapPin, label: "Location", value: personalInfo.location, href: null },
+    {
+      icon: Mail,
+      label: "Email",
+      value: personalInfo.email,
+      href: `mailto:${personalInfo.email}`,
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: personalInfo.phone,
+      href: `tel:${personalInfo.phone}`,
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: personalInfo.location,
+      href: null,
+    },
   ];
 
   const socials = [
@@ -59,7 +82,7 @@ const Contact = () => {
         </div>
 
         <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           Get In <span className="text-brand-accent">Touch</span>
@@ -72,8 +95,8 @@ const Contact = () => {
               className="text-brand-muted text-lg leading-relaxed mb-10"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              Have a project in mind or want to collaborate? Feel free to reach out.
-              I'm always open to discussing new opportunities.
+              Have a project in mind or want to collaborate? Feel free to reach
+              out. I'm always open to discussing new opportunities.
             </p>
 
             <div className="flex flex-col gap-5 mb-10">
@@ -92,14 +115,14 @@ const Contact = () => {
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-white text-sm font-medium hover:text-brand-accent transition-colors duration-300"
+                        className="text-brand-fg text-sm font-medium hover:text-brand-accent transition-colors duration-300"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                       >
                         {item.value}
                       </a>
                     ) : (
                       <span
-                        className="text-white text-sm font-medium"
+                        className="text-brand-fg text-sm font-medium"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                       >
                         {item.value}
@@ -122,7 +145,7 @@ const Contact = () => {
                 >
                   <s.icon size={18} className="text-brand-accent" />
                   <span
-                    className="text-brand-muted text-sm font-medium group-hover:text-white transition-colors duration-300"
+                    className="text-brand-muted text-sm font-medium group-hover:text-brand-fg transition-colors duration-300"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {s.label}
@@ -152,7 +175,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your name"
-                  className="bg-brand-surface/30 border-brand-border/50 text-white placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 />
               </div>
@@ -170,7 +193,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="your@email.com"
-                  className="bg-brand-surface/30 border-brand-border/50 text-white placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 />
               </div>
@@ -189,7 +212,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 placeholder="Project inquiry"
-                className="bg-brand-surface/30 border-brand-border/50 text-white placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               />
             </div>
@@ -208,7 +231,7 @@ const Contact = () => {
                 required
                 placeholder="Tell me about your project..."
                 rows={5}
-                className="bg-brand-surface/30 border-brand-border/50 text-white placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg resize-none"
+                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg resize-none"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               />
             </div>
@@ -217,7 +240,10 @@ const Contact = () => {
               type="submit"
               disabled={sending}
               className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "-0.04em",
+              }}
             >
               {sending ? (
                 "Sending..."

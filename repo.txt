@@ -3683,91 +3683,6 @@ root.render(
 );
 </file>
 
-<file path="tailwind.config.js">
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    darkMode: ["class"],
-    content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html"
-  ],
-  theme: {
-  	extend: {
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
-  		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		},
-  		keyframes: {
-  			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
-  			},
-  			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
-  			}
-  		},
-  		animation: {
-  			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
-  	}
-  },
-  plugins: [require("tailwindcss-animate")],
-};
-</file>
-
 <file path="vite.config.ts">
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -4060,1154 +3975,6 @@ html {
 }
 </file>
 
-<file path="src/App.jsx">
-import React from "react";
-import "./App.css";
-import Header from "./components/portfolio/Header";
-import Hero from "./components/portfolio/Hero";
-import About from "./components/portfolio/About";
-import Skills from "./components/portfolio/Skills";
-import Experience from "./components/portfolio/Experience";
-import Projects from "./components/portfolio/Projects";
-import Credentials from "./components/portfolio/Credentials";
-import Contact from "./components/portfolio/Contact";
-import Footer from "./components/portfolio/Footer";
-import { Toaster } from "./components/ui/toaster";
-
-function App() {
-  return (
-    <div className="App bg-[#09090f] min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Credentials />
-        <Contact />
-      </main>
-      <Footer />
-      <Toaster />
-    </div>
-  );
-}
-
-export default App;
-</file>
-
-<file path="src/components/portfolio/About.jsx">
-import React from "react";
-import { personalInfo } from "../../data/mock";
-import { Terminal, Cloud, Zap } from "lucide-react";
-
-const highlights = [
-  {
-    icon: Terminal,
-    title: "Backend Architect",
-    desc: "Building robust .NET 8 microservices with Clean Architecture, DDD, and CQRS patterns.",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud-Native",
-    desc: "Azure certified. Designing containerized, scalable systems with Docker & modern DevOps.",
-  },
-  {
-    icon: Zap,
-    title: "Full-Stack Capable",
-    desc: "Crafting responsive interfaces with React, Next.js, Angular, and interactive visualizations.",
-  },
-];
-
-const About = () => {
-  return (
-    <section id="about" className="bg-[#09090f] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            01 / About
-          </span>
-          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left — text */}
-          <div>
-            <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-8 uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Crafting Modern{" "}
-              <span className="text-[#818cf8]">Software</span>{" "}
-              Solutions
-            </h2>
-            <p
-              className="text-[#94a3b8] text-lg leading-relaxed mb-6"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {personalInfo.summary}
-            </p>
-            <p
-              className="text-[#94a3b8] text-lg leading-relaxed"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {personalInfo.summaryExtended}
-            </p>
-          </div>
-
-          {/* Right — highlight cards */}
-          <div className="flex flex-col gap-5">
-            {highlights.map((item, i) => (
-              <div
-                key={i}
-                className="group flex gap-5 p-6 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/30 hover:bg-[#2d2b6e]/30 hover:border-[#6366f1]/30 transition-all duration-300 cursor-default"
-              >
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center group-hover:bg-[#6366f1]/10 transition-colors duration-300">
-                  <item.icon size={22} className="text-[#818cf8]" />
-                </div>
-                <div>
-                  <h3
-                    className="text-white font-semibold text-base mb-1"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p
-                    className="text-[#94a3b8] text-sm leading-relaxed"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default About;
-</file>
-
-<file path="src/components/portfolio/Contact.jsx">
-import React, { useState } from "react";
-import { personalInfo } from "../../data/mock";
-import { Mail, Phone, MapPin, Send, Linkedin, Github, ArrowUpRight } from "lucide-react";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { useToast } from "../../hooks/use-toast";
-
-const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [sending, setSending] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSending(true);
-    // Mock submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setSending(false);
-    }, 1200);
-  };
-
-  const contactDetails = [
-    { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-    { icon: Phone, label: "Phone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
-    { icon: MapPin, label: "Location", value: personalInfo.location, href: null },
-  ];
-
-  const socials = [
-    { icon: Linkedin, label: "LinkedIn", href: personalInfo.linkedin },
-    { icon: Github, label: "GitHub", href: personalInfo.github },
-  ];
-
-  return (
-    <section id="contact" className="bg-[#09090f] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            06 / Contact
-          </span>
-          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
-        </div>
-
-        <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Get In <span className="text-[#818cf8]">Touch</span>
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact info */}
-          <div>
-            <p
-              className="text-[#94a3b8] text-lg leading-relaxed mb-10"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Have a project in mind or want to collaborate? Feel free to reach out.
-              I'm always open to discussing new opportunities.
-            </p>
-
-            <div className="flex flex-col gap-5 mb-10">
-              {contactDetails.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#2d2b6e]/40 flex items-center justify-center">
-                    <item.icon size={20} className="text-[#818cf8]" />
-                  </div>
-                  <div>
-                    <span
-                      className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-0.5"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      {item.label}
-                    </span>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-white text-sm font-medium hover:text-[#818cf8] transition-colors duration-300"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span
-                        className="text-white text-sm font-medium"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {item.value}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Socials */}
-            <div className="flex gap-3">
-              {socials.map((s, idx) => (
-                <a
-                  key={idx}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#2d2b6e] bg-[#13132a]/20 hover:border-[#6366f1]/40 hover:bg-[#2d2b6e]/30 transition-all duration-300"
-                >
-                  <s.icon size={18} className="text-[#818cf8]" />
-                  <span
-                    className="text-[#94a3b8] text-sm font-medium group-hover:text-white transition-colors duration-300"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {s.label}
-                  </span>
-                  <ArrowUpRight
-                    size={14}
-                    className="text-[#94a3b8] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label
-                  className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-2"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Name
-                </label>
-                <Input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your name"
-                  className="bg-[#13132a]/30 border-[#2d2b6e]/50 text-white placeholder:text-[#94a3b8]/50 focus:border-[#6366f1]/50 focus:ring-[#6366f1]/20 rounded-lg h-12"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                />
-              </div>
-              <div>
-                <label
-                  className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-2"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Email
-                </label>
-                <Input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="your@email.com"
-                  className="bg-[#13132a]/30 border-[#2d2b6e]/50 text-white placeholder:text-[#94a3b8]/50 focus:border-[#6366f1]/50 focus:ring-[#6366f1]/20 rounded-lg h-12"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-2"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                Subject
-              </label>
-              <Input
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                placeholder="Project inquiry"
-                className="bg-[#13132a]/30 border-[#2d2b6e]/50 text-white placeholder:text-[#94a3b8]/50 focus:border-[#6366f1]/50 focus:ring-[#6366f1]/20 rounded-lg h-12"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              />
-            </div>
-
-            <div>
-              <label
-                className="text-[#94a3b8] text-xs font-medium uppercase tracking-widest block mb-2"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                Message
-              </label>
-              <Textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                placeholder="Tell me about your project..."
-                rows={5}
-                className="bg-[#13132a]/30 border-[#2d2b6e]/50 text-white placeholder:text-[#94a3b8]/50 focus:border-[#6366f1]/50 focus:ring-[#6366f1]/20 rounded-lg resize-none"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={sending}
-              className="inline-flex items-center justify-center gap-2 bg-[#6366f1] text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-[#4f46e5] active:scale-[0.98] transition-all duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-            >
-              {sending ? (
-                "Sending..."
-              ) : (
-                <>
-                  Send Message
-                  <Send size={18} />
-                </>
-              )}
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Contact;
-</file>
-
-<file path="src/components/portfolio/Credentials.jsx">
-import React from "react";
-import { education, certifications } from "../../data/mock";
-import { GraduationCap, Award, BadgeCheck } from "lucide-react";
-
-const Credentials = () => {
-  return (
-    <section id="credentials" className="bg-[#09090f] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            05 / Credentials
-          </span>
-          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Education */}
-          <div>
-            <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Edu<span className="text-[#818cf8]">cation</span>
-            </h2>
-
-            <div className="flex flex-col gap-6">
-              {education.map((edu, idx) => (
-                <div
-                  key={idx}
-                  className="group p-6 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 hover:border-[#6366f1]/20 hover:bg-[#13132a]/30 transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center group-hover:bg-[#6366f1]/10 transition-colors duration-300">
-                      <GraduationCap size={22} className="text-[#818cf8]" />
-                    </div>
-                    <div className="flex-1">
-                      <h3
-                        className="text-white font-semibold text-lg mb-1"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                      >
-                        {edu.degree}
-                      </h3>
-                      <p
-                        className="text-[#818cf8] text-sm font-medium mb-2"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {edu.institution}
-                      </p>
-                      <div className="flex items-center gap-4">
-                        <span
-                          className="text-[#94a3b8] text-sm"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {edu.period}
-                        </span>
-                        <span className="text-[#818cf8]/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#2d2b6e]/30 border border-[#2d2b6e]/40">
-                          {edu.score}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Certi<span className="text-[#818cf8]">fications</span>
-            </h2>
-
-            <div className="flex flex-col gap-4">
-              {certifications.map((cert, idx) => (
-                <div
-                  key={idx}
-                  className="group flex items-center gap-4 p-5 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 hover:border-[#6366f1]/20 hover:bg-[#13132a]/30 transition-all duration-300"
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center group-hover:bg-[#6366f1]/10 transition-colors duration-300">
-                    {idx === 0 ? (
-                      <BadgeCheck size={20} className="text-[#818cf8]" />
-                    ) : (
-                      <Award size={20} className="text-[#818cf8]" />
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4
-                      className="text-white font-medium text-sm truncate"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      {cert.name}
-                    </h4>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="text-[#94a3b8] text-xs"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {cert.issuer}
-                      </span>
-                      <span className="text-[#2d2b6e]">·</span>
-                      <span
-                        className="text-[#94a3b8] text-xs"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {cert.date}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Credentials;
-</file>
-
-<file path="src/components/portfolio/Experience.jsx">
-import React from "react";
-import { experience } from "../../data/mock";
-import { Building2, ChevronRight } from "lucide-react";
-
-const Experience = () => {
-  return (
-    <section id="experience" className="bg-[#09090f] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            03 / Experience
-          </span>
-          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
-        </div>
-
-        <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Work <span className="text-[#818cf8]">History</span>
-        </h2>
-
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-[#2d2b6e]/60 hidden md:block" />
-
-          <div className="flex flex-col gap-10">
-            {experience.map((exp, idx) => (
-              <div key={idx} className="relative group">
-                <div className="flex gap-6 md:gap-10">
-                  {/* Timeline dot */}
-                  <div className="hidden md:flex flex-shrink-0 relative z-10">
-                    <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${
-                        exp.current
-                          ? "bg-[#6366f1] border-[#6366f1]"
-                          : "bg-[#13132a] border-[#2d2b6e] group-hover:border-[#6366f1]/50"
-                      }`}
-                    >
-                      <Building2
-                        size={18}
-                        className={exp.current ? "text-white" : "text-[#94a3b8]"}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Content card */}
-                  <div className="flex-1 p-6 md:p-8 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 group-hover:border-[#6366f1]/20 group-hover:bg-[#13132a]/30 transition-all duration-300">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-                      <div>
-                        <h3
-                          className="text-white font-bold text-xl mb-1"
-                          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                          {exp.role}
-                        </h3>
-                        <span
-                          className="text-[#818cf8] text-sm font-medium"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {exp.company}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {exp.current && (
-                          <span className="text-white text-xs font-semibold px-3 py-1 bg-[#6366f1] rounded-full uppercase">
-                            Current
-                          </span>
-                        )}
-                        <span
-                          className="text-[#94a3b8] text-sm"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {exp.period}
-                        </span>
-                      </div>
-                    </div>
-
-                    <ul className="space-y-3 mb-5">
-                      {exp.descriptions.map((desc, dIdx) => (
-                        <li key={dIdx} className="flex gap-3 items-start">
-                          <ChevronRight
-                            size={16}
-                            className="text-[#4f46e5] mt-1 flex-shrink-0"
-                          />
-                          <span
-                            className="text-[#94a3b8] text-sm leading-relaxed"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                          >
-                            {desc}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((t, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="text-[#818cf8]/80 text-xs font-medium px-2.5 py-1 rounded-md bg-[#2d2b6e]/20 border border-[#2d2b6e]/40"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Experience;
-</file>
-
-<file path="src/components/portfolio/Footer.jsx">
-import React from "react";
-import { personalInfo, navLinks } from "../../data/mock";
-import { ArrowUp, Heart } from "lucide-react";
-
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  return (
-    <footer className="bg-[#13132a]/30 border-t border-[#2d2b6e]/40 py-12">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          {/* Brand */}
-          <div>
-            <a
-              href="#hero"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToTop();
-              }}
-              className="text-[#818cf8] font-bold text-2xl tracking-tight hover:opacity-80 transition-opacity duration-300 inline-block mb-2"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              PK<span className="text-white">.</span>
-            </a>
-            <p
-              className="text-[#94a3b8] text-sm max-w-xs"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {personalInfo.title} based in {personalInfo.location}
-            </p>
-          </div>
-
-          {/* Nav links */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="text-[#94a3b8] text-sm hover:text-[#818cf8] transition-colors duration-300"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Scroll to top */}
-          <button
-            onClick={scrollToTop}
-            className="w-10 h-10 rounded-full border border-[#2d2b6e] bg-[#13132a]/40 flex items-center justify-center text-[#94a3b8] hover:text-[#818cf8] hover:border-[#6366f1]/40 transition-all duration-300"
-            aria-label="Back to top"
-          >
-            <ArrowUp size={18} />
-          </button>
-        </div>
-
-        {/* Divider */}
-        <div className="h-px bg-[#2d2b6e]/40 my-8" />
-
-        {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p
-            className="text-[#94a3b8] text-xs flex items-center gap-1"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            &copy; {new Date().getFullYear()} {personalInfo.name}. Built with{" "}
-            <Heart size={12} className="text-[#818cf8] inline" /> and code.
-          </p>
-          <p
-            className="text-[#94a3b8]/50 text-xs"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Thane, Maharashtra, India
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
-</file>
-
-<file path="src/components/portfolio/Header.jsx">
-import React, { useState, useEffect } from "react";
-import { navLinks, personalInfo } from "../../data/mock";
-import { Menu, X } from "lucide-react";
-
-const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
-  return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        scrolled
-          ? "bg-[#09090f]/95 backdrop-blur-md border-b border-[#2d2b6e]/50"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-[87.5rem] mx-auto px-10 flex items-center justify-between h-[72px]">
-        {/* Logo */}
-        <a
-          href="#hero"
-          onClick={(e) => handleNavClick(e, "#hero")}
-          className="text-[#818cf8] font-bold text-xl tracking-tight hover:opacity-80 transition-opacity duration-300"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          PK<span className="text-white">.</span>
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-[#94a3b8] text-sm font-medium px-4 py-2 rounded-full hover:text-white hover:bg-[#2d2b6e]/40 transition-colors duration-300"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* CTA */}
-        <a
-          href="#contact"
-          onClick={(e) => handleNavClick(e, "#contact")}
-          className="hidden md:inline-flex items-center justify-center bg-[#6366f1] text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-[1.02] hover:bg-[#4f46e5] active:scale-[0.98] transition-all duration-300"
-          style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-        >
-          Let's Talk
-        </a>
-
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-[#818cf8] p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-[#09090f]/98 backdrop-blur-md border-t border-[#2d2b6e]/50 px-6 pb-6 pt-2">
-          <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[#94a3b8] text-base font-medium px-4 py-3 rounded-lg hover:text-white hover:bg-[#2d2b6e]/40 transition-colors duration-300"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className="mt-2 inline-flex items-center justify-center bg-[#6366f1] text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-[#4f46e5] transition-all duration-300 w-full"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Let's Talk
-            </a>
-          </nav>
-        </div>
-      )}
-    </header>
-  );
-};
-
-export default Header;
-</file>
-
-<file path="src/components/portfolio/Hero.jsx">
-import React from "react";
-import { personalInfo } from "../../data/mock";
-import { ArrowDown, MapPin, Briefcase } from "lucide-react";
-
-const Hero = () => {
-  const scrollToAbout = () => {
-    const el = document.querySelector("#about");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
-  return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center bg-[#09090f] overflow-hidden"
-    >
-      {/* Background grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(#818cf8 1px, transparent 1px), linear-gradient(90deg, #818cf8 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
-
-      {/* Decorative blobs */}
-      <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-[#4f46e5]/15 rounded-full blur-[120px]" />
-      <div className="absolute bottom-20 left-10 w-[300px] h-[300px] bg-[#818cf8]/8 rounded-full blur-[100px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#6366f1]/5 rounded-full blur-[140px]" />
-
-      <div className="relative z-10 max-w-[87.5rem] mx-auto px-10 w-full py-32">
-        <div className="flex flex-col gap-8">
-          {/* Status badge */}
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#818cf8] opacity-75" />
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#6366f1]" />
-            </span>
-            <span
-              className="text-[#94a3b8] text-sm font-medium uppercase tracking-widest"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Available for opportunities
-            </span>
-          </div>
-
-          {/* Main heading */}
-          <div>
-            <h1
-              className="text-[#818cf8] font-black uppercase leading-[0.85]"
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: "clamp(3.5rem, 8vw, 8rem)",
-              }}
-            >
-              {personalInfo.firstName}
-            </h1>
-            <h1
-              className="text-white font-black uppercase leading-[0.85] mt-2"
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: "clamp(3.5rem, 8vw, 8rem)",
-              }}
-            >
-              {personalInfo.lastName}
-            </h1>
-          </div>
-
-          {/* Subtitle area */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-            <div className="flex items-center gap-2">
-              <Briefcase size={18} className="text-[#818cf8]" />
-              <span
-                className="text-white text-lg font-medium"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {personalInfo.title}
-              </span>
-            </div>
-            <div className="hidden sm:block w-px h-5 bg-[#2d2b6e]" />
-            <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-[#94a3b8]" />
-              <span
-                className="text-[#94a3b8] text-base"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {personalInfo.location}
-              </span>
-            </div>
-          </div>
-
-          {/* Tagline */}
-          <p
-            className="text-[#94a3b8] text-lg max-w-2xl leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            {personalInfo.tagline}. Expertise in{" "}
-            <span className="text-white">ASP.NET Core</span>,{" "}
-            <span className="text-white">Microservices</span>,{" "}
-            <span className="text-white">React</span> &{" "}
-            <span className="text-white">Cloud-Native Design</span>.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-4">
-            <a
-              href="#projects"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="inline-flex items-center justify-center bg-[#6366f1] text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-[#4f46e5] active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="inline-flex items-center justify-center bg-transparent text-[#818cf8] font-semibold text-base px-8 py-3.5 rounded-full border border-[#4f46e5] hover:bg-[#6366f1] hover:text-white active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
-            >
-              Get In Touch
-            </a>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <button
-          onClick={scrollToAbout}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#94a3b8] hover:text-[#818cf8] transition-colors duration-300 animate-bounce"
-          aria-label="Scroll down"
-        >
-          <ArrowDown size={24} />
-        </button>
-      </div>
-    </section>
-  );
-};
-
-export default Hero;
-</file>
-
-<file path="src/components/portfolio/Projects.jsx">
-import React from "react";
-import { projects } from "../../data/mock";
-import { ArrowUpRight, Calendar } from "lucide-react";
-
-const Projects = () => {
-  return (
-    <section id="projects" className="bg-[#09090f] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            04 / Projects
-          </span>
-          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
-        </div>
-
-        <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Featured <span className="text-[#818cf8]">Work</span>
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, idx) => (
-            <div
-              key={idx}
-              className="group relative p-8 rounded-2xl border border-[#2d2b6e]/50 bg-[#13132a]/15 hover:border-[#6366f1]/30 hover:bg-[#13132a]/30 transition-all duration-300 overflow-hidden"
-            >
-              {/* Background accent */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-[#6366f1]/[0.03] rounded-full blur-[60px] group-hover:bg-[#6366f1]/[0.07] transition-all duration-500" />
-
-              {/* Header */}
-              <div className="relative z-10 flex items-start justify-between mb-6">
-                <div className="w-14 h-14 rounded-xl bg-[#2d2b6e]/40 flex items-center justify-center text-[#818cf8] group-hover:bg-[#6366f1]/10 transition-colors duration-300">
-                  {project.icon}
-                </div>
-                <div className="flex items-center gap-2 text-[#94a3b8]">
-                  <Calendar size={14} />
-                  <span
-                    className="text-xs font-medium"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {project.year}
-                  </span>
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3
-                className="relative z-10 text-white font-bold text-2xl mb-4 group-hover:text-[#818cf8] transition-colors duration-300"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                {project.title}
-                <ArrowUpRight
-                  size={20}
-                  className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </h3>
-
-              {/* Descriptions */}
-              <ul className="relative z-10 space-y-2 mb-6">
-                {project.descriptions.map((desc, dIdx) => (
-                  <li
-                    key={dIdx}
-                    className="text-[#94a3b8] text-sm leading-relaxed pl-4 border-l-2 border-[#2d2b6e]/40"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {desc}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Tech stack */}
-              <div className="relative z-10 flex flex-wrap gap-2">
-                {project.tech.map((t, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="text-[#818cf8]/80 text-xs font-medium px-3 py-1.5 rounded-full border border-[#2d2b6e] bg-[#2d2b6e]/15 group-hover:border-[#6366f1]/30 transition-colors duration-300"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Projects;
-</file>
-
-<file path="src/components/portfolio/Skills.jsx">
-import React from "react";
-import { skills } from "../../data/mock";
-
-const Skills = () => {
-  const skillCategories = Object.values(skills);
-
-  return (
-    <section id="skills" className="bg-[#09090f] py-24 md:py-32">
-      <div className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
-          <span
-            className="text-[#94a3b8] text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            02 / Skills
-          </span>
-          <div className="h-px flex-1 bg-[#2d2b6e]/50" />
-        </div>
-
-        <h2
-          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Tech <span className="text-[#818cf8]">Stack</span>
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, idx) => (
-            <div
-              key={idx}
-              className="group p-6 rounded-xl border border-[#2d2b6e]/50 bg-[#13132a]/20 hover:border-[#6366f1]/30 hover:bg-[#13132a]/40 transition-all duration-300"
-            >
-              {/* Card header */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-[#2d2b6e]/50 flex items-center justify-center text-[#818cf8] group-hover:bg-[#6366f1]/10 transition-colors duration-300">
-                  {category.icon}
-                </div>
-                <h3
-                  className="text-white font-semibold text-base"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  {category.title}
-                </h3>
-              </div>
-
-              {/* Skills tags */}
-              <div className="flex flex-wrap gap-2">
-                {category.items.map((skill, sIdx) => (
-                  <span
-                    key={sIdx}
-                    className="text-[#818cf8] text-xs font-medium px-3 py-1.5 rounded-full border border-[#2d2b6e] bg-[#2d2b6e]/20 hover:bg-[#6366f1]/10 hover:border-[#6366f1]/40 transition-colors duration-200 cursor-default"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Skills;
-</file>
-
 <file path="src/index.css">
 @tailwind base;
 @tailwind components;
@@ -5324,6 +4091,1251 @@ code {
         border-bottom-color: inherit;
     }
 }
+</file>
+
+<file path="tailwind.config.js">
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    darkMode: ["class"],
+    content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./public/index.html"
+  ],
+  theme: {
+  	extend: {
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		colors: {
+        // ─── Portfolio Theme Tokens ───────────────────────────────────────────
+        // To retheme the entire site, only change values in this block.
+        brand: {
+          bg:      '#09090f', // Main dark background
+          surface: '#13132a', // Card / panel surfaces
+          border:  '#2d2b6e', // Borders & separators
+          primary: '#6366f1', // Primary CTA colour
+          hover:   '#4f46e5', // Primary hover state
+          accent:  '#818cf8', // Icon tint / soft highlight
+          muted:   '#94a3b8', // Secondary / muted text
+        },
+        // ─── shadcn/ui System Tokens (do not change) ─────────────────────────
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			primary: {
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			secondary: {
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			border: 'hsl(var(--border))',
+  			input: 'hsl(var(--input))',
+  			ring: 'hsl(var(--ring))',
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			}
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
+  		}
+  	}
+  },
+  plugins: [require("tailwindcss-animate")],
+};
+</file>
+
+<file path="src/App.jsx">
+import React from "react";
+import "./App.css";
+import Header from "./components/portfolio/Header";
+import Hero from "./components/portfolio/Hero";
+import About from "./components/portfolio/About";
+import Skills from "./components/portfolio/Skills";
+import Experience from "./components/portfolio/Experience";
+import Projects from "./components/portfolio/Projects";
+import Credentials from "./components/portfolio/Credentials";
+import Contact from "./components/portfolio/Contact";
+import Footer from "./components/portfolio/Footer";
+import { Toaster } from "./components/ui/toaster";
+
+function App() {
+  return (
+    <div className="App bg-brand-bg min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Credentials />
+        <Contact />
+      </main>
+      <Footer />
+      <Toaster />
+    </div>
+  );
+}
+
+export default App;
+</file>
+
+<file path="src/components/portfolio/About.jsx">
+import React from "react";
+import { personalInfo } from "../../data/mock";
+import { Terminal, Cloud, Zap } from "lucide-react";
+
+const highlights = [
+  {
+    icon: Terminal,
+    title: "Backend Architect",
+    desc: "Building robust .NET 8 microservices with Clean Architecture, DDD, and CQRS patterns.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud-Native",
+    desc: "Azure certified. Designing containerized, scalable systems with Docker & modern DevOps.",
+  },
+  {
+    icon: Zap,
+    title: "Full-Stack Capable",
+    desc: "Crafting responsive interfaces with React, Next.js, Angular, and interactive visualizations.",
+  },
+];
+
+const About = () => {
+  return (
+    <section id="about" className="bg-brand-bg py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            01 / About
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Left — text */}
+          <div>
+            <h2
+              className="text-white font-black text-4xl md:text-5xl leading-tight mb-8 uppercase"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Crafting Modern{" "}
+              <span className="text-brand-accent">Software</span>{" "}
+              Solutions
+            </h2>
+            <p
+              className="text-brand-muted text-lg leading-relaxed mb-6"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {personalInfo.summary}
+            </p>
+            <p
+              className="text-brand-muted text-lg leading-relaxed"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {personalInfo.summaryExtended}
+            </p>
+          </div>
+
+          {/* Right — highlight cards */}
+          <div className="flex flex-col gap-5">
+            {highlights.map((item, i) => (
+              <div
+                key={i}
+                className="group flex gap-5 p-6 rounded-xl border border-brand-border/50 bg-brand-surface/30 hover:bg-brand-border/30 hover:border-brand-primary/30 transition-all duration-300 cursor-default"
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
+                  <item.icon size={22} className="text-brand-accent" />
+                </div>
+                <div>
+                  <h3
+                    className="text-white font-semibold text-base mb-1"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className="text-brand-muted text-sm leading-relaxed"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
+</file>
+
+<file path="src/components/portfolio/Contact.jsx">
+import React, { useState } from "react";
+import { personalInfo } from "../../data/mock";
+import { Mail, Phone, MapPin, Send, Linkedin, Github, ArrowUpRight } from "lucide-react";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { useToast } from "../../hooks/use-toast";
+
+const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSending(true);
+    // Mock submission
+    setTimeout(() => {
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setSending(false);
+    }, 1200);
+  };
+
+  const contactDetails = [
+    { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
+    { icon: Phone, label: "Phone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
+    { icon: MapPin, label: "Location", value: personalInfo.location, href: null },
+  ];
+
+  const socials = [
+    { icon: Linkedin, label: "LinkedIn", href: personalInfo.linkedin },
+    { icon: Github, label: "GitHub", href: personalInfo.github },
+  ];
+
+  return (
+    <section id="contact" className="bg-brand-bg py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            06 / Contact
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <h2
+          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Get In <span className="text-brand-accent">Touch</span>
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Contact info */}
+          <div>
+            <p
+              className="text-brand-muted text-lg leading-relaxed mb-10"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Have a project in mind or want to collaborate? Feel free to reach out.
+              I'm always open to discussing new opportunities.
+            </p>
+
+            <div className="flex flex-col gap-5 mb-10">
+              {contactDetails.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-brand-border/40 flex items-center justify-center">
+                    <item.icon size={20} className="text-brand-accent" />
+                  </div>
+                  <div>
+                    <span
+                      className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-0.5"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {item.label}
+                    </span>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="text-white text-sm font-medium hover:text-brand-accent transition-colors duration-300"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span
+                        className="text-white text-sm font-medium"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {item.value}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Socials */}
+            <div className="flex gap-3">
+              {socials.map((s, idx) => (
+                <a
+                  key={idx}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-brand-border bg-brand-surface/20 hover:border-brand-primary/40 hover:bg-brand-border/30 transition-all duration-300"
+                >
+                  <s.icon size={18} className="text-brand-accent" />
+                  <span
+                    className="text-brand-muted text-sm font-medium group-hover:text-white transition-colors duration-300"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {s.label}
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-brand-muted opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact form */}
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label
+                  className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  Name
+                </label>
+                <Input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your name"
+                  className="bg-brand-surface/30 border-brand-border/50 text-white placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                />
+              </div>
+              <div>
+                <label
+                  className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  Email
+                </label>
+                <Input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="your@email.com"
+                  className="bg-brand-surface/30 border-brand-border/50 text-white placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                Subject
+              </label>
+              <Input
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                placeholder="Project inquiry"
+                className="bg-brand-surface/30 border-brand-border/50 text-white placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              />
+            </div>
+
+            <div>
+              <label
+                className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                Message
+              </label>
+              <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="Tell me about your project..."
+                rows={5}
+                className="bg-brand-surface/30 border-brand-border/50 text-white placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg resize-none"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={sending}
+              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
+              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+            >
+              {sending ? (
+                "Sending..."
+              ) : (
+                <>
+                  Send Message
+                  <Send size={18} />
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
+</file>
+
+<file path="src/components/portfolio/Credentials.jsx">
+import React from "react";
+import { education, certifications } from "../../data/mock";
+import { GraduationCap, Award, BadgeCheck } from "lucide-react";
+
+const Credentials = () => {
+  return (
+    <section id="credentials" className="bg-brand-bg py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            05 / Credentials
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Education */}
+          <div>
+            <h2
+              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Edu<span className="text-brand-accent">cation</span>
+            </h2>
+
+            <div className="flex flex-col gap-6">
+              {education.map((edu, idx) => (
+                <div
+                  key={idx}
+                  className="group p-6 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
+                      <GraduationCap size={22} className="text-brand-accent" />
+                    </div>
+                    <div className="flex-1">
+                      <h3
+                        className="text-white font-semibold text-lg mb-1"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        {edu.degree}
+                      </h3>
+                      <p
+                        className="text-brand-accent text-sm font-medium mb-2"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {edu.institution}
+                      </p>
+                      <div className="flex items-center gap-4">
+                        <span
+                          className="text-brand-muted text-sm"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {edu.period}
+                        </span>
+                        <span className="text-brand-accent/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-brand-border/30 border border-brand-border/40">
+                          {edu.score}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div>
+            <h2
+              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Certi<span className="text-brand-accent">fications</span>
+            </h2>
+
+            <div className="flex flex-col gap-4">
+              {certifications.map((cert, idx) => (
+                <div
+                  key={idx}
+                  className="group flex items-center gap-4 p-5 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
+                    {idx === 0 ? (
+                      <BadgeCheck size={20} className="text-brand-accent" />
+                    ) : (
+                      <Award size={20} className="text-brand-accent" />
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4
+                      className="text-white font-medium text-sm truncate"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {cert.name}
+                    </h4>
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="text-brand-muted text-xs"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {cert.issuer}
+                      </span>
+                      <span className="text-brand-border">·</span>
+                      <span
+                        className="text-brand-muted text-xs"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {cert.date}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Credentials;
+</file>
+
+<file path="src/components/portfolio/Experience.jsx">
+import React from "react";
+import { experience } from "../../data/mock";
+import { Building2, ChevronRight } from "lucide-react";
+
+const Experience = () => {
+  return (
+    <section id="experience" className="bg-brand-bg py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            03 / Experience
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <h2
+          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Work <span className="text-brand-accent">History</span>
+        </h2>
+
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-brand-border/60 hidden md:block" />
+
+          <div className="flex flex-col gap-10">
+            {experience.map((exp, idx) => (
+              <div key={idx} className="relative group">
+                <div className="flex gap-6 md:gap-10">
+                  {/* Timeline dot */}
+                  <div className="hidden md:flex flex-shrink-0 relative z-10">
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${
+                        exp.current
+                          ? "bg-brand-primary border-brand-primary"
+                          : "bg-brand-surface border-brand-border group-hover:border-brand-primary/50"
+                      }`}
+                    >
+                      <Building2
+                        size={18}
+                        className={exp.current ? "text-white" : "text-brand-muted"}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Content card */}
+                  <div className="flex-1 p-6 md:p-8 rounded-xl border border-brand-border/50 bg-brand-surface/20 group-hover:border-brand-primary/20 group-hover:bg-brand-surface/30 transition-all duration-300">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                      <div>
+                        <h3
+                          className="text-white font-bold text-xl mb-1"
+                          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        >
+                          {exp.role}
+                        </h3>
+                        <span
+                          className="text-brand-accent text-sm font-medium"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {exp.company}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {exp.current && (
+                          <span className="text-white text-xs font-semibold px-3 py-1 bg-brand-primary rounded-full uppercase">
+                            Current
+                          </span>
+                        )}
+                        <span
+                          className="text-brand-muted text-sm"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {exp.period}
+                        </span>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-3 mb-5">
+                      {exp.descriptions.map((desc, dIdx) => (
+                        <li key={dIdx} className="flex gap-3 items-start">
+                          <ChevronRight
+                            size={16}
+                            className="text-brand-hover mt-1 flex-shrink-0"
+                          />
+                          <span
+                            className="text-brand-muted text-sm leading-relaxed"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                          >
+                            {desc}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tech.map((t, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="text-brand-accent/80 text-xs font-medium px-2.5 py-1 rounded-md bg-brand-border/20 border border-brand-border/40"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
+</file>
+
+<file path="src/components/portfolio/Footer.jsx">
+import React from "react";
+import { personalInfo, navLinks } from "../../data/mock";
+import { ArrowUp, Heart } from "lucide-react";
+
+const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <footer className="bg-brand-surface/30 border-t border-brand-border/40 py-12">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          {/* Brand */}
+          <div>
+            <a
+              href="#hero"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToTop();
+              }}
+              className="text-brand-accent font-bold text-2xl tracking-tight hover:opacity-80 transition-opacity duration-300 inline-block mb-2"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              PK<span className="text-white">.</span>
+            </a>
+            <p
+              className="text-brand-muted text-sm max-w-xs"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {personalInfo.title} based in {personalInfo.location}
+            </p>
+          </div>
+
+          {/* Nav links */}
+          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="text-brand-muted text-sm hover:text-brand-accent transition-colors duration-300"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Scroll to top */}
+          <button
+            onClick={scrollToTop}
+            className="w-10 h-10 rounded-full border border-brand-border bg-brand-surface/40 flex items-center justify-center text-brand-muted hover:text-brand-accent hover:border-brand-primary/40 transition-all duration-300"
+            aria-label="Back to top"
+          >
+            <ArrowUp size={18} />
+          </button>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-brand-border/40 my-8" />
+
+        {/* Bottom row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p
+            className="text-brand-muted text-xs flex items-center gap-1"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            &copy; {new Date().getFullYear()} {personalInfo.name}. Built with{" "}
+            <Heart size={12} className="text-brand-accent inline" /> and code.
+          </p>
+          <p
+            className="text-brand-muted/50 text-xs"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            Thane, Maharashtra, India
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+</file>
+
+<file path="src/components/portfolio/Header.jsx">
+import React, { useState, useEffect } from "react";
+import { navLinks, personalInfo } from "../../data/mock";
+import { Menu, X } from "lucide-react";
+
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        scrolled
+          ? "bg-brand-bg/95 backdrop-blur-md border-b border-brand-border/50"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-[87.5rem] mx-auto px-10 flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick(e, "#hero")}
+          className="text-brand-accent font-bold text-xl tracking-tight hover:opacity-80 transition-opacity duration-300"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          PK<span className="text-white">.</span>
+        </a>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-brand-muted text-sm font-medium px-4 py-2 rounded-full hover:text-white hover:bg-brand-border/40 transition-colors duration-300"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* CTA */}
+        <a
+          href="#contact"
+          onClick={(e) => handleNavClick(e, "#contact")}
+          className="hidden md:inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300"
+          style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+        >
+          Let's Talk
+        </a>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden text-brand-accent p-2"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-brand-bg/98 backdrop-blur-md border-t border-brand-border/50 px-6 pb-6 pt-2">
+          <nav className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-brand-muted text-base font-medium px-4 py-3 rounded-lg hover:text-white hover:bg-brand-border/40 transition-colors duration-300"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="mt-2 inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-brand-hover transition-all duration-300 w-full"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Let's Talk
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
+</file>
+
+<file path="src/components/portfolio/Hero.jsx">
+import React from "react";
+import { personalInfo } from "../../data/mock";
+import { ArrowDown, MapPin, Briefcase } from "lucide-react";
+
+const Hero = () => {
+  const scrollToAbout = () => {
+    const el = document.querySelector("#about");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center bg-brand-bg overflow-hidden"
+    >
+      {/* Background grid pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(#818cf8 1px, transparent 1px), linear-gradient(90deg, #818cf8 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
+
+      {/* Decorative blobs */}
+      <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-brand-hover/15 rounded-full blur-[120px]" />
+      <div className="absolute bottom-20 left-10 w-[300px] h-[300px] bg-brand-accent/8 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-primary/5 rounded-full blur-[140px]" />
+
+      <div className="relative z-10 max-w-[87.5rem] mx-auto px-10 w-full py-32">
+        <div className="flex flex-col gap-8">
+          {/* Status badge */}
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-primary" />
+            </span>
+            <span
+              className="text-brand-muted text-sm font-medium uppercase tracking-widest"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Available for opportunities
+            </span>
+          </div>
+
+          {/* Main heading */}
+          <div>
+            <h1
+              className="text-brand-accent font-black uppercase leading-[0.85]"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: "clamp(3.5rem, 8vw, 8rem)",
+              }}
+            >
+              {personalInfo.firstName}
+            </h1>
+            <h1
+              className="text-white font-black uppercase leading-[0.85] mt-2"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: "clamp(3.5rem, 8vw, 8rem)",
+              }}
+            >
+              {personalInfo.lastName}
+            </h1>
+          </div>
+
+          {/* Subtitle area */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+            <div className="flex items-center gap-2">
+              <Briefcase size={18} className="text-brand-accent" />
+              <span
+                className="text-white text-lg font-medium"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {personalInfo.title}
+              </span>
+            </div>
+            <div className="hidden sm:block w-px h-5 bg-brand-border" />
+            <div className="flex items-center gap-2">
+              <MapPin size={18} className="text-brand-muted" />
+              <span
+                className="text-brand-muted text-base"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {personalInfo.location}
+              </span>
+            </div>
+          </div>
+
+          {/* Tagline */}
+          <p
+            className="text-brand-muted text-lg max-w-2xl leading-relaxed"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            {personalInfo.tagline}. Expertise in{" "}
+            <span className="text-white">ASP.NET Core</span>,{" "}
+            <span className="text-white">Microservices</span>,{" "}
+            <span className="text-white">React</span> &{" "}
+            <span className="text-white">Cloud-Native Design</span>.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
+              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex items-center justify-center bg-transparent text-brand-accent font-semibold text-base px-8 py-3.5 rounded-full border border-brand-hover hover:bg-brand-primary hover:text-white active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
+              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
+            >
+              Get In Touch
+            </a>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <button
+          onClick={scrollToAbout}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-brand-muted hover:text-brand-accent transition-colors duration-300 animate-bounce"
+          aria-label="Scroll down"
+        >
+          <ArrowDown size={24} />
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+</file>
+
+<file path="src/components/portfolio/Projects.jsx">
+import React from "react";
+import { projects } from "../../data/mock";
+import { ArrowUpRight, Calendar } from "lucide-react";
+
+const Projects = () => {
+  return (
+    <section id="projects" className="bg-brand-bg py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            04 / Projects
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <h2
+          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Featured <span className="text-brand-accent">Work</span>
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {projects.map((project, idx) => (
+            <div
+              key={idx}
+              className="group relative p-8 rounded-2xl border border-brand-border/50 bg-brand-surface/15 hover:border-brand-primary/30 hover:bg-brand-surface/30 transition-all duration-300 overflow-hidden"
+            >
+              {/* Background accent */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/[0.03] rounded-full blur-[60px] group-hover:bg-brand-primary/[0.07] transition-all duration-500" />
+
+              {/* Header */}
+              <div className="relative z-10 flex items-start justify-between mb-6">
+                <div className="w-14 h-14 rounded-xl bg-brand-border/40 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
+                  {project.icon}
+                </div>
+                <div className="flex items-center gap-2 text-brand-muted">
+                  <Calendar size={14} />
+                  <span
+                    className="text-xs font-medium"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {project.year}
+                  </span>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3
+                className="relative z-10 text-white font-bold text-2xl mb-4 group-hover:text-brand-accent transition-colors duration-300"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                {project.title}
+                <ArrowUpRight
+                  size={20}
+                  className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </h3>
+
+              {/* Descriptions */}
+              <ul className="relative z-10 space-y-2 mb-6">
+                {project.descriptions.map((desc, dIdx) => (
+                  <li
+                    key={dIdx}
+                    className="text-brand-muted text-sm leading-relaxed pl-4 border-l-2 border-brand-border/40"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {desc}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Tech stack */}
+              <div className="relative z-10 flex flex-wrap gap-2">
+                {project.tech.map((t, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="text-brand-accent/80 text-xs font-medium px-3 py-1.5 rounded-full border border-brand-border bg-brand-border/15 group-hover:border-brand-primary/30 transition-colors duration-300"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
+</file>
+
+<file path="src/components/portfolio/Skills.jsx">
+import React from "react";
+import { skills } from "../../data/mock";
+
+const Skills = () => {
+  const skillCategories = Object.values(skills);
+
+  return (
+    <section id="skills" className="bg-brand-bg py-24 md:py-32">
+      <div className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-12">
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            02 / Skills
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <h2
+          className="text-white font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Tech <span className="text-brand-accent">Stack</span>
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, idx) => (
+            <div
+              key={idx}
+              className="group p-6 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/30 hover:bg-brand-surface/40 transition-all duration-300"
+            >
+              {/* Card header */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-brand-border/50 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
+                  {category.icon}
+                </div>
+                <h3
+                  className="text-white font-semibold text-base"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  {category.title}
+                </h3>
+              </div>
+
+              {/* Skills tags */}
+              <div className="flex flex-wrap gap-2">
+                {category.items.map((skill, sIdx) => (
+                  <span
+                    key={sIdx}
+                    className="text-brand-accent text-xs font-medium px-3 py-1.5 rounded-full border border-brand-border bg-brand-border/20 hover:bg-brand-primary/10 hover:border-brand-primary/40 transition-colors duration-200 cursor-default"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
 </file>
 
 </files>

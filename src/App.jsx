@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/portfolio/Header";
 import Hero from "./components/portfolio/Hero";
@@ -12,9 +12,22 @@ import Footer from "./components/portfolio/Footer";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
+  const [isDark, setIsDark] = useState(() => {
+    // Persist preference across reloads
+    const saved = localStorage.getItem("theme");
+    return saved ? saved === "dark" : true; // default: dark
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark((prev) => !prev);
+
   return (
     <div className="App bg-brand-bg min-h-screen">
-      <Header />
+      <Header isDark={isDark} onToggleTheme={toggleTheme} />
       <main>
         <Hero />
         <About />

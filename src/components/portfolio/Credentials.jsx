@@ -4,7 +4,7 @@ import { GraduationCap, Award, BadgeCheck } from "lucide-react";
 
 const Credentials = () => {
   return (
-    <section id="credentials" className="bg-brand-bg py-24 md:py-32">
+    <section id="credentials" className="bg-brand-bg py-16 md:py-20">
       <div className="max-w-[87.5rem] mx-auto px-10">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
@@ -21,7 +21,7 @@ const Credentials = () => {
           {/* Education */}
           <div>
             <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
+              className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               Edu<span className="text-brand-accent">cation</span>
@@ -39,7 +39,7 @@ const Credentials = () => {
                     </div>
                     <div className="flex-1">
                       <h3
-                        className="text-white font-semibold text-lg mb-1"
+                        className="text-brand-fg font-semibold text-lg mb-1"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                       >
                         {edu.degree}
@@ -71,7 +71,7 @@ const Credentials = () => {
           {/* Certifications */}
           <div>
             <h2
-              className="text-white font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
+              className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               Certi<span className="text-brand-accent">fications</span>
@@ -92,7 +92,7 @@ const Credentials = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4
-                      className="text-white font-medium text-sm truncate"
+                      className="text-brand-fg font-medium text-sm truncate"
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
                       {cert.name}
