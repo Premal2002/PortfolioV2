@@ -9,6 +9,7 @@ import {
   Cpu,
   Monitor,
   ShoppingCart,
+  Ticket,
 } from "lucide-react";
 import React from "react";
 
@@ -42,7 +43,7 @@ export const skills = {
   languages: {
     title: "Languages",
     icon: React.createElement(Code2, { size: 20 }),
-    items: ["C#", "Java", "JavaScript", "SQL"],
+    items: ["C#", "Java", "JavaScript", "Typescript", "SQL"],
   },
   backend: {
     title: "Backend",
@@ -115,14 +116,45 @@ export const experience = [
 ];
 
 export const projects = [
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 1 — TickSync (NEW)
+  // ─────────────────────────────────────────────────────────────
   {
-    title: "Device Monitoring Project",
+    title: "TickSync — Movie Ticket Booking System",
+    year: "2024",
+    icon: React.createElement(Ticket, { size: 24 }),
+    descriptions: [
+      "Full-stack movie ticket booking platform — ASP.NET Core (.NET 8) backend with Next.js 15 frontend, covering movie discovery, seat selection, payments, and admin management.",
+      "Real-time seat locking via native WebSockets — seats locked by one user instantly reflect for all concurrent users, eliminating double-booking without polling.",
+      "Integrated Razorpay payments, TMDB API sync, role-based JWT auth, email OTP reset, and an admin dashboard with dynamic entity inspection.",
+    ],
+    tech: [
+      "ASP.NET Core",
+      ".NET 8",
+      "EF Core",
+      "SQL Server",
+      "WebSockets",
+      "JWT",
+      "Razorpay",
+      "TMDB API",
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind CSS",
+      "GitHub Actions",
+    ],
+    github: "https://github.com/Premal2002/TickSyncBackend",
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 2 — Device Monitoring System
+  // ─────────────────────────────────────────────────────────────
+  {
+    title: "Device Monitoring System",
     year: "2025",
     icon: React.createElement(Monitor, { size: 24 }),
     descriptions: [
-      "Built a real-time system using ASP.NET Core (.NET 8) and Next.js with WebSocket updates.",
-      "Implemented a GraphQL backend service for efficient querying of structured data.",
-      "Developed interactive visualizations using React and GoJS.",
+      "Real-time device monitoring platform using ASP.NET Core (.NET 8) and Next.js, with live telemetry pushed via WebSockets for sub-200ms dashboard updates.",
+      "GraphQL API (Hot Chocolate) for efficient structured data querying, and interactive network topology visualizations built with GoJS.",
     ],
     tech: [
       "ASP.NET Core",
@@ -133,16 +165,30 @@ export const projects = [
       "React",
       "GoJS",
     ],
+    github: "https://github.com/Premal2002/DeviceMonitoringProject"
   },
+
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 3 — eShop Microservices Platform
+  // ─────────────────────────────────────────────────────────────
   {
-    title: "eShop Microservices",
-    year: "2025",
+    title: "eShop Microservices Platform",
+    year: "2026",
     icon: React.createElement(ShoppingCart, { size: 24 }),
     descriptions: [
-      "Developed a modular e-commerce system using .NET 8 microservices with DDD and CQRS.",
-      "Used RabbitMQ for event-driven messaging and Docker for local orchestration.",
+      "Modular e-commerce backend using .NET 8 microservices with DDD and CQRS across Catalog, Ordering, and Basket services.",
+      "Async event-driven messaging via RabbitMQ and Docker Compose orchestration with EF Core code-first migrations.",
     ],
-    tech: [".NET 8", "DDD", "CQRS", "RabbitMQ", "Docker"],
+    tech: [
+      ".NET 8",
+      "DDD",
+      "CQRS",
+      "RabbitMQ",
+      "Docker",
+      "EF Core",
+      "Clean Architecture",
+    ],
+    github: "https://github.com/Premal2002/EShopMicroservices"
   },
 ];
 

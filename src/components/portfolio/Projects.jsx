@@ -1,6 +1,6 @@
 import React from "react";
 import { projects } from "../../data/mock";
-import { ArrowUpRight, Calendar } from "lucide-react";
+import { ArrowUpRight, Calendar, Github } from "lucide-react";
 import { useInView, fadeUp } from "../../hooks/useInView";
 
 const Projects = () => {
@@ -48,14 +48,30 @@ const Projects = () => {
                 <div className="w-14 h-14 rounded-xl bg-brand-border/40 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
                   {project.icon}
                 </div>
-                <div className="flex items-center gap-2 text-brand-muted">
-                  <Calendar size={14} />
-                  <span
-                    className="text-xs font-medium"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {project.year}
-                  </span>
+                <div className="flex items-center gap-3 text-brand-muted">
+                  {/* GitHub link — only shown if project has a github field */}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-xs font-medium text-brand-muted hover:text-brand-accent transition-colors duration-200"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github size={14} />
+                      <span>Code</span>
+                    </a>
+                  )}
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={14} />
+                    <span
+                      className="text-xs font-medium"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {project.year}
+                    </span>
+                  </div>
                 </div>
               </div>
 
