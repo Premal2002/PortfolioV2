@@ -51,7 +51,6 @@ package.json
 portfolio-project.code-workspace
 postcss.config.cjs
 public/favicon.svg
-public/og-preview.png
 public/vite.svg
 README.md
 src/App.css
@@ -3738,6 +3737,25 @@ export default defineConfig({
 })
 </file>
 
+<file path="index.html">
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premal Kadam | Software Developer</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
+</file>
+
 <file path="README.md">
 # Premal Kadam — Portfolio Website
 
@@ -5633,45 +5651,6 @@ const Skills = () => {
 };
 
 export default Skills;
-</file>
-
-<file path="index.html">
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Premal Kadam | Software Developer</title>
-
-  <!-- Primary Meta -->
-  <meta name="title" content="Premal Kadam | Software Developer" />
-  <meta name="description"
-    content="Software Developer skilled in building modern, high-performance web apps. Explore my projects, experience, and skills." />
-
-  <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://portfolio-v2-five-flax-37.vercel.app/" />
-  <meta property="og:title" content="Premal Kadam | Software Developer - Tech Enthusiast" />
-  <meta property="og:description"
-    content="Software Developer skilled in building modern, high-performance web apps. Check out my projects and let's connect." />
-  <meta property="og:image" content="https://portfolio-v2-five-flax-37.vercel.app/og-preview.png" />
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Premal Kadam | Software Developer" />
-  <meta name="twitter:description"
-    content="Software Developer skilled in building modern, high-performance web apps. Explore my projects, experience, and skills." />
-  <meta name="twitter:image" content="https://portfolio-v2-five-flax-37.vercel.app/og-preview.png" />
-</head>
-
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
-
-</html>
 </file>
 
 <file path="src/components/portfolio/Contact.jsx">
