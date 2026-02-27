@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { personalInfo } from "../../data/mock";
 import {
   Mail,
@@ -14,8 +15,16 @@ import { Textarea } from "../ui/textarea";
 import { useToast } from "../../hooks/use-toast";
 import { useInView, fadeUp } from "../../hooks/useInView";
 
+// ─── EmailJS Config ────────────────────────────────────────────────────────────
+// Replace these with your actual EmailJS credentials from emailjs.com dashboard
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+// ──────────────────────────────────────────────────────────────────────────────
+
 const Contact = () => {
   const { toast } = useToast();
+  const formRef = useRef(null);
   const [sectionRef, inView] = useInView();
   const [formData, setFormData] = useState({
     name: "",
@@ -32,15 +41,32 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSending(true);
-    // Mock submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        toast({
+          title: "Message sent! 🎉",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        toast({
+          title: "Failed to send message",
+          description: "Something went wrong. Please try emailing me directly.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setSending(false);
       });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setSending(false);
-    }, 1200);
   };
 
   const contactDetails = [
@@ -169,6 +195,7 @@ const Contact = () => {
 
           {/* Contact form */}
           <form
+            ref={formRef}
             onSubmit={handleSubmit}
             style={fadeUp(inView, 280)}
             className="flex flex-col gap-5"
@@ -258,7 +285,29 @@ const Contact = () => {
               }}
             >
               {sending ? (
-                "Sending..."
+                <>
+                  <svg
+                    className="animate-spin h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    />
+                  </svg>
+                  Sending...
+                </>
               ) : (
                 <>
                   Send Message
