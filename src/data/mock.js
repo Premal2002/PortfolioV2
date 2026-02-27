@@ -209,24 +209,34 @@ export const education = [
 
 export const certifications = [
   {
-    name: "Microsoft Certified: Azure Fundamentals",
-    issuer: "Microsoft",
-    date: "Dec 2025",
+    name: ".Net 8 Microservices: DDD, CQRS, Docker, Redis, RabbitMQ",
+    issuer: "Udemy",
+    date: "Feb 2026",
+    link: "https://www.udemy.com/certificate/UC-a2c54460-1a78-4ec0-9513-0096288803d1/",
   },
   {
     name: "ASP.NET Core GraphQL",
     issuer: "Udemy",
     date: "Sep 2025",
+    link: "https://www.udemy.com/certificate/UC-46cbc676-1773-4e59-bcec-0ff67a7bd601/",
   },
   {
     name: "TDD Fundamentals in C#",
     issuer: "Udemy",
     date: "Sep 2025",
+    link: "https://www.udemy.com/certificate/UC-a0489648-9cf7-45c6-83df-12facea33cec/",
+  },
+  {
+    name: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
+    date: "Dec 2024",
+    link: "https://learn.microsoft.com/en-us/users/premkadam-8456/credentials/9c98894328efb98d?ref=https%3A%2F%2Fwww.linkedin.com%2F",
   },
   {
     name: "Java Full Stack Professional",
     issuer: "Edu-Bridge Pvt. Ltd.",
     date: "Jun 2024",
+    link: "https://www.edubridgeindia.com/certificate-detail?enrollment_number=EBEON1123851955",
   },
   {
     name: "Web Development",

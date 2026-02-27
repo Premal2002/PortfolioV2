@@ -1,6 +1,6 @@
 import React from "react";
 import { education, certifications } from "../../data/mock";
-import { GraduationCap, Award, BadgeCheck } from "lucide-react";
+import { GraduationCap, Award, BadgeCheck, ExternalLink } from "lucide-react";
 import { useInView, fadeUp } from "../../hooks/useInView";
 
 const Credentials = () => {
@@ -97,6 +97,7 @@ const Credentials = () => {
                   style={fadeUp(inView, 200 + idx * 70)}
                   className="group flex items-center gap-4 p-5 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
                 >
+                  {/* Icon */}
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
                     {idx === 0 ? (
                       <BadgeCheck size={20} className="text-brand-accent" />
@@ -104,6 +105,8 @@ const Credentials = () => {
                       <Award size={20} className="text-brand-accent" />
                     )}
                   </div>
+
+                  {/* Info */}
                   <div className="flex-1 min-w-0">
                     <h4
                       className="text-brand-fg font-medium text-sm truncate"
@@ -127,6 +130,27 @@ const Credentials = () => {
                       </span>
                     </div>
                   </div>
+
+                  {/* View Certificate button — only rendered when link exists */}
+                  {cert.link ? (
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
+                                 border border-brand-border/60 text-brand-muted
+                                 hover:border-brand-primary/50 hover:text-brand-accent hover:bg-brand-primary/5
+                                 transition-all duration-200"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      title="View Certificate"
+                    >
+                      <ExternalLink size={12} />
+                      <span className="hidden sm:inline">View</span>
+                    </a>
+                  ) : (
+                    // Invisible placeholder to keep layout consistent
+                    <div className="flex-shrink-0 w-[60px] sm:w-[68px]" />
+                  )}
                 </div>
               ))}
             </div>

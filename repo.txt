@@ -3841,6 +3841,47 @@ Give it a star on GitHub — it helps!
 ---
 </file>
 
+<file path="src/App.css">
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar — uses CSS variables so it switches with the theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--brand-bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--brand-border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--brand-primary));
+}
+
+/* Selection color */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: rgb(var(--brand-fg));
+}
+</file>
+
 <file path="src/data/mock.js">
 import {
   Code2,
@@ -3853,6 +3894,7 @@ import {
   Cpu,
   Monitor,
   ShoppingCart,
+  Ticket,
 } from "lucide-react";
 import React from "react";
 
@@ -3959,14 +4001,45 @@ export const experience = [
 ];
 
 export const projects = [
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 1 — TickSync (NEW)
+  // ─────────────────────────────────────────────────────────────
   {
-    title: "Device Monitoring Project",
+    title: "TickSync — Movie Ticket Booking System",
+    year: "2024",
+    icon: React.createElement(Ticket, { size: 24 }),
+    descriptions: [
+      "Full-stack movie ticket booking platform — ASP.NET Core (.NET 8) backend with Next.js 15 frontend, covering movie discovery, seat selection, payments, and admin management.",
+      "Real-time seat locking via native WebSockets — seats locked by one user instantly reflect for all concurrent users, eliminating double-booking without polling.",
+      "Integrated Razorpay payments, TMDB API sync, role-based JWT auth, email OTP reset, and an admin dashboard with dynamic entity inspection.",
+    ],
+    tech: [
+      "ASP.NET Core",
+      ".NET 8",
+      "EF Core",
+      "SQL Server",
+      "WebSockets",
+      "JWT",
+      "Razorpay",
+      "TMDB API",
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind CSS",
+      "GitHub Actions",
+    ],
+    github: "https://github.com/Premal2002/TickSyncBackend",
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 2 — Device Monitoring System
+  // ─────────────────────────────────────────────────────────────
+  {
+    title: "Device Monitoring System",
     year: "2025",
     icon: React.createElement(Monitor, { size: 24 }),
     descriptions: [
-      "Built a real-time system using ASP.NET Core (.NET 8) and Next.js with WebSocket updates.",
-      "Implemented a GraphQL backend service for efficient querying of structured data.",
-      "Developed interactive visualizations using React and GoJS.",
+      "Real-time device monitoring platform using ASP.NET Core (.NET 8) and Next.js, with live telemetry pushed via WebSockets for sub-200ms dashboard updates.",
+      "GraphQL API (Hot Chocolate) for efficient structured data querying, and interactive network topology visualizations built with GoJS.",
     ],
     tech: [
       "ASP.NET Core",
@@ -3977,16 +4050,30 @@ export const projects = [
       "React",
       "GoJS",
     ],
+    github: "https://github.com/Premal2002/DeviceMonitoringProject"
   },
+
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 3 — eShop Microservices Platform
+  // ─────────────────────────────────────────────────────────────
   {
-    title: "eShop Microservices",
-    year: "2025",
+    title: "eShop Microservices Platform",
+    year: "2026",
     icon: React.createElement(ShoppingCart, { size: 24 }),
     descriptions: [
-      "Developed a modular e-commerce system using .NET 8 microservices with DDD and CQRS.",
-      "Used RabbitMQ for event-driven messaging and Docker for local orchestration.",
+      "Modular e-commerce backend using .NET 8 microservices with DDD and CQRS across Catalog, Ordering, and Basket services.",
+      "Async event-driven messaging via RabbitMQ and Docker Compose orchestration with EF Core code-first migrations.",
     ],
-    tech: [".NET 8", "DDD", "CQRS", "RabbitMQ", "Docker"],
+    tech: [
+      ".NET 8",
+      "DDD",
+      "CQRS",
+      "RabbitMQ",
+      "Docker",
+      "EF Core",
+      "Clean Architecture",
+    ],
+    github: "https://github.com/Premal2002/EShopMicroservices"
   },
 ];
 
@@ -4034,47 +4121,6 @@ export const certifications = [
 ];
 
 export const contactFormMessages = [];
-</file>
-
-<file path="src/App.css">
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar — uses CSS variables so it switches with the theme */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: rgb(var(--brand-bg));
-}
-::-webkit-scrollbar-thumb {
-  background: rgb(var(--brand-border));
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(var(--brand-primary));
-}
-
-/* Selection color */
-::selection {
-  background: rgba(99, 102, 241, 0.3);
-  color: rgb(var(--brand-fg));
-}
 </file>
 
 <file path="src/index.css">
@@ -5456,116 +5502,6 @@ const Hero = () => {
 export default Hero;
 </file>
 
-<file path="src/components/portfolio/Projects.jsx">
-import React from "react";
-import { projects } from "../../data/mock";
-import { ArrowUpRight, Calendar } from "lucide-react";
-import { useInView, fadeUp } from "../../hooks/useInView";
-
-const Projects = () => {
-  const [sectionRef, inView] = useInView();
-
-  return (
-    <section id="projects" className="bg-brand-bg py-16 md:py-20">
-      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div
-          style={fadeUp(inView, 0)}
-          className="flex items-center gap-4 mb-12"
-        >
-          <span
-            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            04 / Projects
-          </span>
-          <div className="h-px flex-1 bg-brand-border/50" />
-        </div>
-
-        <h2
-          className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            ...fadeUp(inView, 80),
-          }}
-        >
-          Featured <span className="text-brand-accent">Work</span>
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, idx) => (
-            <div
-              key={idx}
-              style={fadeUp(inView, 160 + idx * 120)}
-              className="group relative p-8 rounded-2xl border border-brand-border/50 bg-brand-surface/15 hover:border-brand-primary/30 hover:bg-brand-surface/30 transition-all duration-300 overflow-hidden"
-            >
-              {/* Background accent */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/[0.03] rounded-full blur-[60px] group-hover:bg-brand-primary/[0.07] transition-all duration-500" />
-
-              {/* Header */}
-              <div className="relative z-10 flex items-start justify-between mb-6">
-                <div className="w-14 h-14 rounded-xl bg-brand-border/40 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
-                  {project.icon}
-                </div>
-                <div className="flex items-center gap-2 text-brand-muted">
-                  <Calendar size={14} />
-                  <span
-                    className="text-xs font-medium"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {project.year}
-                  </span>
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3
-                className="relative z-10 text-brand-fg font-bold text-2xl mb-4 group-hover:text-brand-accent transition-colors duration-300"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                {project.title}
-                <ArrowUpRight
-                  size={20}
-                  className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </h3>
-
-              {/* Descriptions */}
-              <ul className="relative z-10 space-y-2 mb-6">
-                {project.descriptions.map((desc, dIdx) => (
-                  <li
-                    key={dIdx}
-                    className="text-brand-muted text-sm leading-relaxed pl-4 border-l-2 border-brand-border/40"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {desc}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Tech stack */}
-              <div className="relative z-10 flex flex-wrap gap-2">
-                {project.tech.map((t, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="text-brand-accent/80 text-xs font-medium px-3 py-1.5 rounded-full border border-brand-border bg-brand-border/15 group-hover:border-brand-primary/30 transition-colors duration-300"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Projects;
-</file>
-
 <file path="src/components/portfolio/Skills.jsx">
 import React from "react";
 import { skills } from "../../data/mock";
@@ -5643,6 +5579,132 @@ const Skills = () => {
 };
 
 export default Skills;
+</file>
+
+<file path="src/components/portfolio/Projects.jsx">
+import React from "react";
+import { projects } from "../../data/mock";
+import { ArrowUpRight, Calendar, Github } from "lucide-react";
+import { useInView, fadeUp } from "../../hooks/useInView";
+
+const Projects = () => {
+  const [sectionRef, inView] = useInView();
+
+  return (
+    <section id="projects" className="bg-brand-bg py-16 md:py-20">
+      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div
+          style={fadeUp(inView, 0)}
+          className="flex items-center gap-4 mb-12"
+        >
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            04 / Projects
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <h2
+          className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            ...fadeUp(inView, 80),
+          }}
+        >
+          Featured <span className="text-brand-accent">Work</span>
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {projects.map((project, idx) => (
+            <div
+              key={idx}
+              style={fadeUp(inView, 160 + idx * 120)}
+              className="group relative p-8 rounded-2xl border border-brand-border/50 bg-brand-surface/15 hover:border-brand-primary/30 hover:bg-brand-surface/30 transition-all duration-300 overflow-hidden"
+            >
+              {/* Background accent */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/[0.03] rounded-full blur-[60px] group-hover:bg-brand-primary/[0.07] transition-all duration-500" />
+
+              {/* Header */}
+              <div className="relative z-10 flex items-start justify-between mb-6">
+                <div className="w-14 h-14 rounded-xl bg-brand-border/40 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
+                  {project.icon}
+                </div>
+                <div className="flex items-center gap-3 text-brand-muted">
+                  {/* GitHub link — only shown if project has a github field */}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-xs font-medium text-brand-muted hover:text-brand-accent transition-colors duration-200"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github size={14} />
+                      <span>Code</span>
+                    </a>
+                  )}
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={14} />
+                    <span
+                      className="text-xs font-medium"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {project.year}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3
+                className="relative z-10 text-brand-fg font-bold text-2xl mb-4 group-hover:text-brand-accent transition-colors duration-300"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                {project.title}
+                <ArrowUpRight
+                  size={20}
+                  className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </h3>
+
+              {/* Descriptions */}
+              <ul className="relative z-10 space-y-2 mb-6">
+                {project.descriptions.map((desc, dIdx) => (
+                  <li
+                    key={dIdx}
+                    className="text-brand-muted text-sm leading-relaxed pl-4 border-l-2 border-brand-border/40"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {desc}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Tech stack */}
+              <div className="relative z-10 flex flex-wrap gap-2">
+                {project.tech.map((t, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="text-brand-accent/80 text-xs font-medium px-3 py-1.5 rounded-full border border-brand-border bg-brand-border/15 group-hover:border-brand-primary/30 transition-colors duration-300"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
 </file>
 
 </files>
