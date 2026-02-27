@@ -41,6 +41,7 @@ The content is organized as follows:
 </file_summary>
 
 <directory_structure>
+.env.example
 .gitignore
 components.json
 create-components.ps1
@@ -49,6 +50,7 @@ index.html
 package.json
 portfolio-project.code-workspace
 postcss.config.cjs
+public/favicon.svg
 public/vite.svg
 README.md
 src/App.css
@@ -61,6 +63,7 @@ src/components/portfolio/Experience.jsx
 src/components/portfolio/Footer.jsx
 src/components/portfolio/Header.jsx
 src/components/portfolio/Hero.jsx
+src/components/portfolio/NotFound.jsx
 src/components/portfolio/Projects.jsx
 src/components/portfolio/Skills.jsx
 src/components/ui/accordion.jsx
@@ -116,11 +119,18 @@ src/index.css
 src/lib/utils.js
 src/main.jsx
 tailwind.config.js
+vercel.json
 vite.config.ts
 </directory_structure>
 
 <files>
 This section contains the contents of the repository's files.
+
+<file path=".env.example">
+VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
+VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
+VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxxxxxxx
+</file>
 
 <file path=".gitignore">
 # Logs
@@ -241,91 +251,6 @@ export default defineConfig([
 ])
 </file>
 
-<file path="index.html">
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
-</file>
-
-<file path="package.json">
-{
-  "name": "portfolio",
-  "version": "1.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@hookform/resolvers": "^5.0.1",
-    "@radix-ui/react-accordion": "^1.2.8",
-    "@radix-ui/react-alert-dialog": "^1.1.11",
-    "@radix-ui/react-aspect-ratio": "^1.1.4",
-    "@radix-ui/react-avatar": "^1.1.7",
-    "@radix-ui/react-checkbox": "^1.2.3",
-    "@radix-ui/react-collapsible": "^1.1.8",
-    "@radix-ui/react-context-menu": "^2.2.12",
-    "@radix-ui/react-dialog": "^1.1.11",
-    "@radix-ui/react-dropdown-menu": "^2.1.12",
-    "@radix-ui/react-hover-card": "^1.1.11",
-    "@radix-ui/react-label": "^2.1.4",
-    "@radix-ui/react-menubar": "^1.1.12",
-    "@radix-ui/react-navigation-menu": "^1.2.10",
-    "@radix-ui/react-popover": "^1.1.11",
-    "@radix-ui/react-progress": "^1.1.4",
-    "@radix-ui/react-radio-group": "^1.3.4",
-    "@radix-ui/react-scroll-area": "^1.2.6",
-    "@radix-ui/react-select": "^2.2.2",
-    "@radix-ui/react-separator": "^1.1.4",
-    "@radix-ui/react-slider": "^1.3.2",
-    "@radix-ui/react-slot": "^1.2.0",
-    "@radix-ui/react-switch": "^1.2.2",
-    "@radix-ui/react-tabs": "^1.1.9",
-    "@radix-ui/react-toast": "^1.2.11",
-    "@radix-ui/react-toggle": "^1.1.6",
-    "@radix-ui/react-toggle-group": "^1.1.7",
-    "@radix-ui/react-tooltip": "^1.2.4",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "cmdk": "^1.1.1",
-    "date-fns": "3.6.0",
-    "embla-carousel-react": "^8.6.0",
-    "input-otp": "^1.4.2",
-    "lucide-react": "^0.507.0",
-    "react": "18.3.1",
-    "react-day-picker": "8.10.1",
-    "react-dom": "18.3.1",
-    "react-hook-form": "^7.56.2",
-    "react-resizable-panels": "^3.0.1",
-    "recharts": "^3.6.0",
-    "sonner": "^2.0.3",
-    "tailwind-merge": "^3.2.0",
-    "tailwindcss-animate": "^1.0.7",
-    "vaul": "^1.1.2",
-    "zod": "^3.24.4"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17",
-    "vite": "^5.1.6"
-  }
-}
-</file>
-
 <file path="portfolio-project.code-workspace">
 {
   "folders": [
@@ -354,12 +279,208 @@ module.exports = {
 }
 </file>
 
+<file path="public/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed" />
+      <stop offset="100%" style="stop-color:#4f46e5" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circle background -->
+  <circle cx="32" cy="32" r="32" fill="url(#bgGrad)" />
+
+  <!-- Subtle inner highlight ring -->
+  <circle cx="32" cy="32" r="30.5" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+
+  <!-- PK text — centered, bold white -->
+  <text
+    x="32"
+    y="32"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="'Arial Black', 'Segoe UI', Arial, sans-serif"
+    font-size="26"
+    font-weight="900"
+    fill="#ffffff"
+    letter-spacing="-1.5"
+  >PK</text>
+
+</svg>
+</file>
+
 <file path="public/vite.svg">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
 </file>
 
 <file path="src/assets/react.svg">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
+</file>
+
+<file path="src/components/portfolio/NotFound.jsx">
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft, Home } from "lucide-react";
+
+const NotFound = () => {
+    const navigate = useNavigate();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        const t = setTimeout(() => setMounted(true), 80);
+        return () => clearTimeout(t);
+    }, []);
+
+    const fade = (delay) => ({
+        opacity: mounted ? 1 : 0,
+        transform: mounted ? "translateY(0px)" : "translateY(24px)",
+        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+    });
+
+    const goHome = () => navigate("/");
+
+    return (
+        <div
+            className="relative min-h-screen flex flex-col items-center justify-center bg-brand-bg overflow-hidden px-6"
+        >
+            {/* ── Background grid (matches Hero) ── */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+                <div
+                    className="w-full h-full"
+                    style={{
+                        backgroundImage:
+                            "linear-gradient(#818cf8 1px, transparent 1px), linear-gradient(90deg, #818cf8 1px, transparent 1px)",
+                        backgroundSize: "60px 60px",
+                    }}
+                />
+            </div>
+
+            {/* ── Decorative blobs ── */}
+            <div className="absolute top-20 right-16 w-[360px] h-[360px] bg-brand-hover/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-20 left-10 w-[280px] h-[280px] bg-brand-accent/6 rounded-full blur-[100px] pointer-events-none" />
+
+            {/* ── Content ── */}
+            <div className="relative z-10 flex flex-col items-center text-center max-w-2xl">
+
+                {/* Big 404 */}
+                <div style={fade(100)} className="relative mb-2 select-none">
+                    <span
+                        className="text-brand-fg font-black leading-none"
+                        style={{
+                            fontFamily: "'Space Grotesk', sans-serif",
+                            fontSize: "clamp(7rem, 20vw, 14rem)",
+                            letterSpacing: "-0.06em",
+                            /* Layered text-shadow creates a depth glow */
+                            textShadow:
+                                "0 0 80px rgba(99,102,241,0.35), 0 0 160px rgba(99,102,241,0.15)",
+                        }}
+                    >
+                        4
+                        <span style={{ color: "rgb(var(--brand-primary))" }}>0</span>
+                        4
+                    </span>
+
+                    {/* Thin horizontal rule through the middle of "404" */}
+                    <div
+                        className="absolute left-0 right-0"
+                        style={{
+                            top: "52%",
+                            height: "1px",
+                            background:
+                                "linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent)",
+                        }}
+                    />
+                </div>
+
+                {/* Label */}
+                <div style={fade(200)} className="flex items-center gap-4 mb-6">
+                    <div className="h-px w-12 bg-brand-border/60" />
+                    <span
+                        className="text-brand-muted text-xs font-medium uppercase tracking-[0.25em]"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        Page Not Found
+                    </span>
+                    <div className="h-px w-12 bg-brand-border/60" />
+                </div>
+
+                {/* Heading */}
+                <h1
+                    className="text-brand-fg font-black text-3xl md:text-4xl uppercase leading-tight mb-5"
+                    style={{
+                        fontFamily: "'Space Grotesk', sans-serif",
+                        letterSpacing: "-0.03em",
+                        ...fade(300),
+                    }}
+                >
+                    Looks like you're{" "}
+                    <span className="text-brand-accent">lost</span>
+                </h1>
+
+                {/* Subtext */}
+                <p
+                    className="text-brand-muted text-base md:text-lg leading-relaxed mb-10 max-w-md"
+                    style={{ fontFamily: "'Inter', sans-serif", ...fade(400) }}
+                >
+                    The page you're looking for doesn't exist or has been moved.
+                    Let's get you back on track.
+                </p>
+
+                {/* CTA Buttons */}
+                <div
+                    style={fade(520)}
+                    className="flex flex-col sm:flex-row items-center gap-4"
+                >
+                    {/* Primary — Go Home */}
+                    <button
+                        onClick={goHome}
+                        className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-semibold text-sm px-7 py-3.5 rounded-full hover:scale-[1.03] hover:bg-brand-hover active:scale-[0.97] transition-all duration-300 uppercase"
+                        style={{
+                            fontFamily: "'Inter', sans-serif",
+                            letterSpacing: "-0.03em",
+                        }}
+                    >
+                        <Home size={16} />
+                        Back to Home
+                    </button>
+
+                    {/* Secondary — Go Back */}
+                    <button
+                        onClick={() => window.history.back()}
+                        className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-accent font-semibold text-sm px-7 py-3.5 rounded-full border border-brand-hover hover:bg-brand-primary/10 active:scale-[0.97] transition-all duration-300 uppercase"
+                        style={{
+                            fontFamily: "'Inter', sans-serif",
+                            letterSpacing: "-0.03em",
+                        }}
+                    >
+                        <ArrowLeft size={16} />
+                        Go Back
+                    </button>
+                </div>
+
+                {/* Logo watermark at bottom */}
+                <div
+                    style={fade(650)}
+                    className="mt-16"
+                >
+                    <button
+                        onClick={goHome}
+                        className="flex items-center gap-0.5 opacity-30 hover:opacity-60 transition-opacity duration-300 select-none"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                        <span className="text-brand-muted font-medium text-base">&lt;</span>
+                        <span className="text-brand-accent font-black text-lg tracking-tight">PK</span>
+                        <span className="text-brand-muted font-medium text-sm">&nbsp;/&gt;</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    );
+};
+
+export default NotFound;
 </file>
 
 <file path="src/components/ui/accordion.jsx">
@@ -3590,6 +3711,17 @@ root.render(
 );
 </file>
 
+<file path="vercel.json">
+{
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
+</file>
+
 <file path="vite.config.ts">
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -3603,6 +3735,25 @@ export default defineConfig({
     },
   },
 })
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premal Kadam | Software Developer</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
 </file>
 
 <file path="README.md">
@@ -3841,6 +3992,77 @@ Give it a star on GitHub — it helps!
 ---
 </file>
 
+<file path="package.json">
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@hookform/resolvers": "^5.0.1",
+    "@radix-ui/react-accordion": "^1.2.8",
+    "@radix-ui/react-alert-dialog": "^1.1.11",
+    "@radix-ui/react-aspect-ratio": "^1.1.4",
+    "@radix-ui/react-avatar": "^1.1.7",
+    "@radix-ui/react-checkbox": "^1.2.3",
+    "@radix-ui/react-collapsible": "^1.1.8",
+    "@radix-ui/react-context-menu": "^2.2.12",
+    "@radix-ui/react-dialog": "^1.1.11",
+    "@radix-ui/react-dropdown-menu": "^2.1.12",
+    "@radix-ui/react-hover-card": "^1.1.11",
+    "@radix-ui/react-label": "^2.1.4",
+    "@radix-ui/react-menubar": "^1.1.12",
+    "@radix-ui/react-navigation-menu": "^1.2.10",
+    "@radix-ui/react-popover": "^1.1.11",
+    "@radix-ui/react-progress": "^1.1.4",
+    "@radix-ui/react-radio-group": "^1.3.4",
+    "@radix-ui/react-scroll-area": "^1.2.6",
+    "@radix-ui/react-select": "^2.2.2",
+    "@radix-ui/react-separator": "^1.1.4",
+    "@radix-ui/react-slider": "^1.3.2",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@radix-ui/react-switch": "^1.2.2",
+    "@radix-ui/react-tabs": "^1.1.9",
+    "@radix-ui/react-toast": "^1.2.11",
+    "@radix-ui/react-toggle": "^1.1.6",
+    "@radix-ui/react-toggle-group": "^1.1.7",
+    "@radix-ui/react-tooltip": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "3.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.4.2",
+    "lucide-react": "^0.507.0",
+    "react": "18.3.1",
+    "react-day-picker": "8.10.1",
+    "react-dom": "18.3.1",
+    "react-hook-form": "^7.56.2",
+    "react-resizable-panels": "^3.0.1",
+    "react-router-dom": "^7.13.1",
+    "recharts": "^3.6.0",
+    "sonner": "^2.0.3",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^1.1.2",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.1.6"
+  }
+}
+</file>
+
 <file path="src/App.css">
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
@@ -3879,395 +4101,6 @@ html {
 ::selection {
   background: rgba(99, 102, 241, 0.3);
   color: rgb(var(--brand-fg));
-}
-</file>
-
-<file path="src/data/mock.js">
-import {
-  Code2,
-  Server,
-  Database,
-  Globe,
-  Container,
-  GitBranch,
-  Layers,
-  Cpu,
-  Monitor,
-  ShoppingCart,
-  Ticket,
-} from "lucide-react";
-import React from "react";
-
-export const personalInfo = {
-  name: "Premal Kadam",
-  firstName: "Premal",
-  lastName: "Kadam",
-  title: "Software Developer",
-  tagline: "Building scalable, real-time & data-driven applications",
-  email: "premkasdam143@gmail.com",
-  phone: "+91-9768342809",
-  location: "Thane, Maharashtra, India",
-  linkedin: "https://www.linkedin.com/in/premal-kadam/",
-  github: "https://github.com/Premal2002",
-  summary:
-    "Software Developer with hands-on experience building scalable, real-time, and data-driven applications using modern backend and frontend technologies. Strong expertise in ASP.NET Core, microservices, GraphQL, gRPC, WebSockets, and Docker, with a focus on clean architecture, performance optimization, and reliable data synchronization.",
-  summaryExtended:
-    "Experienced in developing responsive user interfaces using React, Next.js, Angular, Single-SPA, and GoJS. Microsoft Azure Fundamentals certified, with a strong focus on maintainable and cloud-native system design.",
-};
-
-export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Credentials", href: "#credentials" },
-  { label: "Contact", href: "#contact" },
-];
-
-export const skills = {
-  languages: {
-    title: "Languages",
-    icon: React.createElement(Code2, { size: 20 }),
-    items: ["C#", "Java", "JavaScript", "Typescript", "SQL"],
-  },
-  backend: {
-    title: "Backend",
-    icon: React.createElement(Server, { size: 20 }),
-    items: [
-      "ASP.NET Core",
-      ".NET 8",
-      "MVC",
-      "LINQ",
-      "EF Core",
-      "REST",
-      "gRPC",
-      "GraphQL",
-    ],
-  },
-  frontend: {
-    title: "Frontend",
-    icon: React.createElement(Globe, { size: 20 }),
-    items: ["React", "Next.js", "Angular", "Single-SPA", "GoJS"],
-  },
-  databases: {
-    title: "Databases",
-    icon: React.createElement(Database, { size: 20 }),
-    items: ["SQL Server", "MySQL", "PostgreSQL", "SQLite"],
-  },
-  devops: {
-    title: "DevOps & Tools",
-    icon: React.createElement(Container, { size: 20 }),
-    items: ["Docker", "Git", "GitHub", "Postman", "Visual Studio", "VS Code"],
-  },
-  architecture: {
-    title: "Architecture",
-    icon: React.createElement(Layers, { size: 20 }),
-    items: [
-      "Clean Architecture",
-      "DDD",
-      "CQRS",
-      "Microservices",
-      "Event-Driven",
-    ],
-  },
-};
-
-export const experience = [
-  {
-    company: "WonderBiz Technologies",
-    role: "Software Developer",
-    period: "Mar 2025 – Present",
-    current: true,
-    descriptions: [
-      "Developing and maintaining .NET 8 microservices using Clean Architecture, DDD, and CQRS.",
-      "Implemented gRPC-based inter-service communication and APIs using GraphQL (Hot Chocolate).",
-      "Worked with Dockerized services, EF Core migrations, and schema versioning.",
-      "Participated in code reviews, debugging, and production issue resolution.",
-    ],
-    tech: [".NET 8", "gRPC", "GraphQL", "Docker", "EF Core", "CQRS"],
-  },
-  {
-    company: "Stavtar Solutions",
-    role: "Associate Software Developer",
-    period: "Aug 2024 – Feb 2025",
-    current: false,
-    descriptions: [
-      "Built and maintained ASP.NET Core Web APIs integrating accounting systems using REST and EF Core.",
-      "Handled data synchronization for invoices, transactions, and vendor records.",
-      "Optimized SQL Server and MySQL queries and followed Git-based workflows.",
-    ],
-    tech: ["ASP.NET Core", "REST", "EF Core", "SQL Server", "MySQL", "Git"],
-  },
-];
-
-export const projects = [
-  // ─────────────────────────────────────────────────────────────
-  // PROJECT 1 — TickSync (NEW)
-  // ─────────────────────────────────────────────────────────────
-  {
-    title: "TickSync — Movie Ticket Booking System",
-    year: "2024",
-    icon: React.createElement(Ticket, { size: 24 }),
-    descriptions: [
-      "Full-stack movie ticket booking platform — ASP.NET Core (.NET 8) backend with Next.js 15 frontend, covering movie discovery, seat selection, payments, and admin management.",
-      "Real-time seat locking via native WebSockets — seats locked by one user instantly reflect for all concurrent users, eliminating double-booking without polling.",
-      "Integrated Razorpay payments, TMDB API sync, role-based JWT auth, email OTP reset, and an admin dashboard with dynamic entity inspection.",
-    ],
-    tech: [
-      "ASP.NET Core",
-      ".NET 8",
-      "EF Core",
-      "SQL Server",
-      "WebSockets",
-      "JWT",
-      "Razorpay",
-      "TMDB API",
-      "Next.js 15",
-      "TypeScript",
-      "Tailwind CSS",
-      "GitHub Actions",
-    ],
-    github: "https://github.com/Premal2002/TickSyncBackend",
-  },
-
-  // ─────────────────────────────────────────────────────────────
-  // PROJECT 2 — Device Monitoring System
-  // ─────────────────────────────────────────────────────────────
-  {
-    title: "Device Monitoring System",
-    year: "2025",
-    icon: React.createElement(Monitor, { size: 24 }),
-    descriptions: [
-      "Real-time device monitoring platform using ASP.NET Core (.NET 8) and Next.js, with live telemetry pushed via WebSockets for sub-200ms dashboard updates.",
-      "GraphQL API (Hot Chocolate) for efficient structured data querying, and interactive network topology visualizations built with GoJS.",
-    ],
-    tech: [
-      "ASP.NET Core",
-      ".NET 8",
-      "Next.js",
-      "WebSockets",
-      "GraphQL",
-      "React",
-      "GoJS",
-    ],
-    github: "https://github.com/Premal2002/DeviceMonitoringProject"
-  },
-
-  // ─────────────────────────────────────────────────────────────
-  // PROJECT 3 — eShop Microservices Platform
-  // ─────────────────────────────────────────────────────────────
-  {
-    title: "eShop Microservices Platform",
-    year: "2026",
-    icon: React.createElement(ShoppingCart, { size: 24 }),
-    descriptions: [
-      "Modular e-commerce backend using .NET 8 microservices with DDD and CQRS across Catalog, Ordering, and Basket services.",
-      "Async event-driven messaging via RabbitMQ and Docker Compose orchestration with EF Core code-first migrations.",
-    ],
-    tech: [
-      ".NET 8",
-      "DDD",
-      "CQRS",
-      "RabbitMQ",
-      "Docker",
-      "EF Core",
-      "Clean Architecture",
-    ],
-    github: "https://github.com/Premal2002/EShopMicroservices"
-  },
-];
-
-export const education = [
-  {
-    institution: "Mumbai University",
-    degree: "B.E. in Computer Engineering",
-    period: "2021 – 2024",
-    score: "CGPA: 9.0",
-  },
-  {
-    institution: "Govt. Polytechnic Mumbai",
-    degree: "Diploma in Computer Engineering",
-    period: "2019 – 2021",
-    score: "82.86%",
-  },
-];
-
-export const certifications = [
-  {
-    name: "Microsoft Certified: Azure Fundamentals",
-    issuer: "Microsoft",
-    date: "Dec 2025",
-  },
-  {
-    name: "ASP.NET Core GraphQL",
-    issuer: "Udemy",
-    date: "Sep 2025",
-  },
-  {
-    name: "TDD Fundamentals in C#",
-    issuer: "Udemy",
-    date: "Sep 2025",
-  },
-  {
-    name: "Java Full Stack Professional",
-    issuer: "Edu-Bridge Pvt. Ltd.",
-    date: "Jun 2024",
-  },
-  {
-    name: "Web Development",
-    issuer: "Dr. Angela Yu (The App Brewery)",
-    date: "Nov 2022",
-  },
-];
-
-export const contactFormMessages = [];
-</file>
-
-<file path="src/index.css">
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  margin: 0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family:
-    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-@layer base {
-  /* ─── Portfolio brand tokens ──────────────────────────────────────────── */
-  /* Values are bare R G B channels (no rgb() wrapper) so Tailwind's        */
-  /* rgb(var(--x) / <alpha-value>) opacity modifiers work correctly.        */
-
-  /* Light mode (default) */
-  /* surface & border share the same indigo as primary so all card opacity  */
-  /* steps (bg /20, hover /40, border /50) form one cohesive colour family. */
-  :root {
-    --brand-bg: 242 242 252; /* #f2f2fc very light lavender page bg */
-    --brand-surface: 200 198 255; /* #c8c6ff: /20=soft white-lavender card, /40=deeper lavender hover */
-    --brand-border: 99 102 241; /* #6366f1: /50=visible border, /30=soft hover border */
-    --brand-primary: 99 102 241; /* #6366f1                          */
-    --brand-hover: 79 70 229; /* #4f46e5                          */
-    --brand-accent: 67 56 202; /* #4338ca — darker indigo for light bg */
-    --brand-muted: 90 100 128; /* #5a6480 — medium grey-blue       */
-    --brand-fg: 15 14 26; /* #0f0e1a — near black             */
-  }
-
-  /* Dark mode — exactly the current look */
-  .dark {
-    --brand-bg: 9 9 15; /* #09090f                          */
-    --brand-surface: 19 19 42; /* #13132a                          */
-    --brand-border: 45 43 110; /* #2d2b6e                          */
-    --brand-primary: 99 102 241; /* #6366f1                          */
-    --brand-hover: 79 70 229; /* #4f46e5                          */
-    --brand-accent: 129 140 248; /* #818cf8                          */
-    --brand-muted: 148 163 184; /* #94a3b8                          */
-    --brand-fg: 255 255 255; /* #ffffff                          */
-  }
-
-  /* ─── shadcn/ui system tokens ─────────────────────────────────────────── */
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 239 84% 67%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 239 84% 67%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 239 84% 67%;
-    --chart-1: 239 84% 67%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 240 20% 4%;
-    --foreground: 0 0% 98%;
-    --card: 240 20% 9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 20% 9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 239 84% 67%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 18% 16%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 18% 16%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 239 84% 67%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 18% 20%;
-    --input: 240 18% 16%;
-    --ring: 239 84% 67%;
-    --chart-1: 239 84% 67%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@layer base {
-  [data-debug-wrapper="true"] {
-    display: contents !important;
-  }
-
-  [data-debug-wrapper="true"] > * {
-    margin-left: inherit;
-    margin-right: inherit;
-    margin-top: inherit;
-    margin-bottom: inherit;
-    padding-left: inherit;
-    padding-right: inherit;
-    padding-top: inherit;
-    padding-bottom: inherit;
-    column-gap: inherit;
-    row-gap: inherit;
-    gap: inherit;
-    border-left-width: inherit;
-    border-right-width: inherit;
-    border-top-width: inherit;
-    border-bottom-width: inherit;
-    border-left-style: inherit;
-    border-right-style: inherit;
-    border-top-style: inherit;
-    border-bottom-style: inherit;
-    border-left-color: inherit;
-    border-right-color: inherit;
-    border-top-color: inherit;
-    border-bottom-color: inherit;
-  }
 }
 </file>
 
@@ -4367,55 +4200,6 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
-</file>
-
-<file path="src/App.jsx">
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Header from "./components/portfolio/Header";
-import Hero from "./components/portfolio/Hero";
-import About from "./components/portfolio/About";
-import Skills from "./components/portfolio/Skills";
-import Experience from "./components/portfolio/Experience";
-import Projects from "./components/portfolio/Projects";
-import Credentials from "./components/portfolio/Credentials";
-import Contact from "./components/portfolio/Contact";
-import Footer from "./components/portfolio/Footer";
-import { Toaster } from "./components/ui/toaster";
-
-function App() {
-  const [isDark, setIsDark] = useState(() => {
-    // Persist preference across reloads
-    const saved = localStorage.getItem("theme");
-    return saved ? saved === "dark" : true; // default: dark
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
-
-  return (
-    <div className="App bg-brand-bg min-h-screen">
-      <Header isDark={isDark} onToggleTheme={toggleTheme} />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Credentials />
-        <Contact />
-      </main>
-      <Footer />
-      <Toaster />
-    </div>
-  );
-}
-
-export default App;
 </file>
 
 <file path="src/components/portfolio/Footer.jsx">
@@ -4655,6 +4439,716 @@ const Header = ({ isDark, onToggleTheme }) => {
 export default Header;
 </file>
 
+<file path="src/data/mock.js">
+import {
+  Code2,
+  Server,
+  Database,
+  Globe,
+  Container,
+  GitBranch,
+  Layers,
+  Cpu,
+  Monitor,
+  ShoppingCart,
+  Ticket,
+} from "lucide-react";
+import React from "react";
+
+export const personalInfo = {
+  name: "Premal Kadam",
+  firstName: "Premal",
+  lastName: "Kadam",
+  title: "Software Developer",
+  tagline: "Building scalable, real-time & data-driven applications",
+  email: "premkasdam143@gmail.com",
+  phone: "+91-9768342809",
+  location: "Thane, Maharashtra, India",
+  linkedin: "https://www.linkedin.com/in/premal-kadam/",
+  github: "https://github.com/Premal2002",
+  summary:
+    "Software Developer with hands-on experience building scalable, real-time, and data-driven applications using modern backend and frontend technologies. Strong expertise in ASP.NET Core, microservices, GraphQL, gRPC, WebSockets, and Docker, with a focus on clean architecture, performance optimization, and reliable data synchronization.",
+  summaryExtended:
+    "Experienced in developing responsive user interfaces using React, Next.js, Angular, Single-SPA, and GoJS. Microsoft Azure Fundamentals certified, with a strong focus on maintainable and cloud-native system design.",
+};
+
+export const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Credentials", href: "#credentials" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const skills = {
+  languages: {
+    title: "Languages",
+    icon: React.createElement(Code2, { size: 20 }),
+    items: ["C#", "Java", "JavaScript", "Typescript", "SQL"],
+  },
+  backend: {
+    title: "Backend",
+    icon: React.createElement(Server, { size: 20 }),
+    items: [
+      "ASP.NET Core",
+      ".NET 8",
+      "MVC",
+      "LINQ",
+      "EF Core",
+      "REST",
+      "gRPC",
+      "GraphQL",
+    ],
+  },
+  frontend: {
+    title: "Frontend",
+    icon: React.createElement(Globe, { size: 20 }),
+    items: ["React", "Next.js", "Angular", "Single-SPA", "GoJS"],
+  },
+  databases: {
+    title: "Databases",
+    icon: React.createElement(Database, { size: 20 }),
+    items: ["SQL Server", "MySQL", "PostgreSQL", "SQLite"],
+  },
+  devops: {
+    title: "DevOps & Tools",
+    icon: React.createElement(Container, { size: 20 }),
+    items: ["Docker", "Git", "GitHub", "Postman", "Visual Studio", "VS Code"],
+  },
+  architecture: {
+    title: "Architecture",
+    icon: React.createElement(Layers, { size: 20 }),
+    items: [
+      "Clean Architecture",
+      "DDD",
+      "CQRS",
+      "Microservices",
+      "Event-Driven",
+    ],
+  },
+};
+
+export const experience = [
+  {
+    company: "WonderBiz Technologies",
+    role: "Software Developer",
+    period: "Mar 2025 – Present",
+    current: true,
+    descriptions: [
+      "Developing and maintaining .NET 8 microservices using Clean Architecture, DDD, and CQRS.",
+      "Implemented gRPC-based inter-service communication and APIs using GraphQL (Hot Chocolate).",
+      "Worked with Dockerized services, EF Core migrations, and schema versioning.",
+      "Participated in code reviews, debugging, and production issue resolution.",
+    ],
+    tech: [".NET 8", "gRPC", "GraphQL", "Docker", "EF Core", "CQRS"],
+  },
+  {
+    company: "Stavtar Solutions",
+    role: "Associate Software Developer",
+    period: "Aug 2024 – Feb 2025",
+    current: false,
+    descriptions: [
+      "Built and maintained ASP.NET Core Web APIs integrating accounting systems using REST and EF Core.",
+      "Handled data synchronization for invoices, transactions, and vendor records.",
+      "Optimized SQL Server and MySQL queries and followed Git-based workflows.",
+    ],
+    tech: ["ASP.NET Core", "REST", "EF Core", "SQL Server", "MySQL", "Git"],
+  },
+];
+
+export const projects = [
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 1 — TickSync (NEW)
+  // ─────────────────────────────────────────────────────────────
+  {
+    title: "TickSync — Movie Ticket Booking System",
+    year: "2024",
+    icon: React.createElement(Ticket, { size: 24 }),
+    descriptions: [
+      "Full-stack movie ticket booking platform — ASP.NET Core (.NET 8) backend with Next.js 15 frontend, covering movie discovery, seat selection, payments, and admin management.",
+      "Real-time seat locking via native WebSockets — seats locked by one user instantly reflect for all concurrent users, eliminating double-booking without polling.",
+      "Integrated Razorpay payments, TMDB API sync, role-based JWT auth, email OTP reset, and an admin dashboard with dynamic entity inspection.",
+    ],
+    tech: [
+      "ASP.NET Core",
+      ".NET 8",
+      "EF Core",
+      "SQL Server",
+      "WebSockets",
+      "JWT",
+      "Razorpay",
+      "TMDB API",
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind CSS",
+      "GitHub Actions",
+    ],
+    github: "https://github.com/Premal2002/TickSyncBackend",
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 2 — Device Monitoring System
+  // ─────────────────────────────────────────────────────────────
+  {
+    title: "Device Monitoring System",
+    year: "2025",
+    icon: React.createElement(Monitor, { size: 24 }),
+    descriptions: [
+      "Real-time device monitoring platform using ASP.NET Core (.NET 8) and Next.js, with live telemetry pushed via WebSockets for sub-200ms dashboard updates.",
+      "GraphQL API (Hot Chocolate) for efficient structured data querying, and interactive network topology visualizations built with GoJS.",
+    ],
+    tech: [
+      "ASP.NET Core",
+      ".NET 8",
+      "Next.js",
+      "WebSockets",
+      "GraphQL",
+      "React",
+      "GoJS",
+    ],
+    github: "https://github.com/Premal2002/DeviceMonitoringProject"
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 3 — eShop Microservices Platform
+  // ─────────────────────────────────────────────────────────────
+  {
+    title: "eShop Microservices Platform",
+    year: "2026",
+    icon: React.createElement(ShoppingCart, { size: 24 }),
+    descriptions: [
+      "Modular e-commerce backend using .NET 8 microservices with DDD and CQRS across Catalog, Ordering, and Basket services.",
+      "Async event-driven messaging via RabbitMQ and Docker Compose orchestration with EF Core code-first migrations.",
+    ],
+    tech: [
+      ".NET 8",
+      "DDD",
+      "CQRS",
+      "RabbitMQ",
+      "Docker",
+      "EF Core",
+      "Clean Architecture",
+    ],
+    github: "https://github.com/Premal2002/EShopMicroservices"
+  },
+];
+
+export const education = [
+  {
+    institution: "Mumbai University",
+    degree: "B.E. in Computer Engineering",
+    period: "2021 – 2024",
+    score: "CGPA: 9.0",
+  },
+  {
+    institution: "Govt. Polytechnic Mumbai",
+    degree: "Diploma in Computer Engineering",
+    period: "2019 – 2021",
+    score: "82.86%",
+  },
+];
+
+export const certifications = [
+  {
+    name: ".Net 8 Microservices: DDD, CQRS, Docker, Redis, RabbitMQ",
+    issuer: "Udemy",
+    date: "Feb 2026",
+    link: "https://www.udemy.com/certificate/UC-a2c54460-1a78-4ec0-9513-0096288803d1/",
+  },
+  {
+    name: "ASP.NET Core GraphQL",
+    issuer: "Udemy",
+    date: "Sep 2025",
+    link: "https://www.udemy.com/certificate/UC-46cbc676-1773-4e59-bcec-0ff67a7bd601/",
+  },
+  {
+    name: "TDD Fundamentals in C#",
+    issuer: "Udemy",
+    date: "Sep 2025",
+    link: "https://www.udemy.com/certificate/UC-a0489648-9cf7-45c6-83df-12facea33cec/",
+  },
+  {
+    name: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
+    date: "Dec 2024",
+    link: "https://learn.microsoft.com/en-us/users/premkadam-8456/credentials/9c98894328efb98d?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+  },
+  {
+    name: "Java Full Stack Professional",
+    issuer: "Edu-Bridge Pvt. Ltd.",
+    date: "Jun 2024",
+    link: "https://www.edubridgeindia.com/certificate-detail?enrollment_number=EBEON1123851955",
+  },
+  {
+    name: "Web Development",
+    issuer: "Dr. Angela Yu (The App Brewery)",
+    date: "Nov 2022",
+  },
+];
+
+export const contactFormMessages = [];
+</file>
+
+<file path="src/index.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+  /* ─── Portfolio brand tokens ──────────────────────────────────────────── */
+  /* Values are bare R G B channels (no rgb() wrapper) so Tailwind's        */
+  /* rgb(var(--x) / <alpha-value>) opacity modifiers work correctly.        */
+
+  /* Light mode (default) */
+  :root {
+    --brand-bg: 242 242 252;
+    /* #f2f2fc very light lavender page bg   */
+    --brand-surface: 200 198 255;
+    /* #c8c6ff: /20=soft white-lavender card */
+    --brand-border: 99 102 241;
+    /* #6366f1: /50=visible border           */
+    --brand-primary: 99 102 241;
+    /* #6366f1                               */
+    --brand-hover: 79 70 229;
+    /* #4f46e5                               */
+    --brand-accent: 67 56 202;
+    /* #4338ca — darker indigo for light bg  */
+    --brand-muted: 90 100 128;
+    /* #5a6480 — medium grey-blue            */
+    --brand-fg: 15 14 26;
+    /* #0f0e1a — near black                  */
+  }
+
+  /* Dark mode */
+  .dark {
+    --brand-bg: 9 9 15;
+    /* #09090f                               */
+    --brand-surface: 19 19 42;
+    /* #13132a                               */
+    --brand-border: 45 43 110;
+    /* #2d2b6e                               */
+    --brand-primary: 99 102 241;
+    /* #6366f1                               */
+    --brand-hover: 79 70 229;
+    /* #4f46e5                               */
+    --brand-accent: 129 140 248;
+    /* #818cf8                               */
+    --brand-muted: 148 163 184;
+    /* #94a3b8                               */
+    --brand-fg: 255 255 255;
+    /* #ffffff                               */
+  }
+
+  /* ─── shadcn/ui system tokens ─────────────────────────────────────────── */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 239 84% 67%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 239 84% 67%;
+    --chart-1: 239 84% 67%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 20% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 20% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 20% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 18% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 18% 16%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 239 84% 67%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 18% 20%;
+    --input: 240 18% 16%;
+    --ring: 239 84% 67%;
+    --chart-1: 239 84% 67%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+
+  [data-debug-wrapper="true"]>* {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+    border-left-style: inherit;
+    border-right-style: inherit;
+    border-top-style: inherit;
+    border-bottom-style: inherit;
+    border-left-color: inherit;
+    border-right-color: inherit;
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+  }
+}
+
+/* ─── Autofill override ────────────────────────────────────────────────────── */
+/* Browsers forcefully inject a white background on autofilled inputs via the  */
+/* :-webkit-autofill pseudo-class, ignoring all Tailwind/CSS overrides.        */
+/* Fix: use an inset box-shadow to fake the background — browsers can't block  */
+/* box-shadow the way they block background-color on autofill.                 */
+/* The hex values below are the manually blended result of bg-brand-surface/30 */
+/* layered over bg-brand-bg for each theme, so it looks identical to a normal  */
+/* unfilled input.                                                              */
+
+:root {
+  --autofill-bg: #e5e5fd;
+  /* light: blend of #f2f2fc + rgba(200,198,255,0.3) */
+}
+
+.dark {
+  --autofill-bg: #0c0c17;
+  /* dark:  blend of #09090f + rgba(19,19,42,0.3)    */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--autofill-bg) inset !important;
+  -webkit-text-fill-color: rgb(var(--brand-fg)) !important;
+  caret-color: rgb(var(--brand-fg));
+  /* Delays the autofill background transition by ~83 min,                    */
+  /* hiding any flash of white before your styles apply.                      */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+  /* ─── Portfolio brand tokens ──────────────────────────────────────────── */
+  /* Values are bare R G B channels (no rgb() wrapper) so Tailwind's        */
+  /* rgb(var(--x) / <alpha-value>) opacity modifiers work correctly.        */
+
+  /* Light mode (default) */
+  :root {
+    --brand-bg: 242 242 252;
+    /* #f2f2fc very light lavender page bg   */
+    --brand-surface: 200 198 255;
+    /* #c8c6ff: /20=soft white-lavender card */
+    --brand-border: 99 102 241;
+    /* #6366f1: /50=visible border           */
+    --brand-primary: 99 102 241;
+    /* #6366f1                               */
+    --brand-hover: 79 70 229;
+    /* #4f46e5                               */
+    --brand-accent: 67 56 202;
+    /* #4338ca — darker indigo for light bg  */
+    --brand-muted: 90 100 128;
+    /* #5a6480 — medium grey-blue            */
+    --brand-fg: 15 14 26;
+    /* #0f0e1a — near black                  */
+  }
+
+  /* Dark mode */
+  .dark {
+    --brand-bg: 9 9 15;
+    /* #09090f                               */
+    --brand-surface: 19 19 42;
+    /* #13132a                               */
+    --brand-border: 45 43 110;
+    /* #2d2b6e                               */
+    --brand-primary: 99 102 241;
+    /* #6366f1                               */
+    --brand-hover: 79 70 229;
+    /* #4f46e5                               */
+    --brand-accent: 129 140 248;
+    /* #818cf8                               */
+    --brand-muted: 148 163 184;
+    /* #94a3b8                               */
+    --brand-fg: 255 255 255;
+    /* #ffffff                               */
+  }
+
+  /* ─── shadcn/ui system tokens ─────────────────────────────────────────── */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 239 84% 67%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 239 84% 67%;
+    --chart-1: 239 84% 67%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 20% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 20% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 20% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 18% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 18% 16%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 239 84% 67%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 18% 20%;
+    --input: 240 18% 16%;
+    --ring: 239 84% 67%;
+    --chart-1: 239 84% 67%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+
+  [data-debug-wrapper="true"]>* {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+    border-left-style: inherit;
+    border-right-style: inherit;
+    border-top-style: inherit;
+    border-bottom-style: inherit;
+    border-left-color: inherit;
+    border-right-color: inherit;
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+  }
+}
+
+/* ─── Autofill override ────────────────────────────────────────────────────── */
+/* Browsers forcefully inject a white background on autofilled inputs via the  */
+/* :-webkit-autofill pseudo-class, ignoring all Tailwind/CSS overrides.        */
+/* Fix: use an inset box-shadow to fake the background — browsers can't block  */
+/* box-shadow the way they block background-color on autofill.                 */
+/* The hex values below are the manually blended result of bg-brand-surface/30 */
+/* layered over bg-brand-bg for each theme, so it looks identical to a normal  */
+/* unfilled input.                                                              */
+
+:root {
+  --autofill-bg: #e5e5fd;
+  /* light: blend of #f2f2fc + rgba(200,198,255,0.3) */
+}
+
+.dark {
+  --autofill-bg: #0c0c17;
+  /* dark:  blend of #09090f + rgba(19,19,42,0.3)    */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--autofill-bg) inset !important;
+  -webkit-text-fill-color: rgb(var(--brand-fg)) !important;
+  caret-color: rgb(var(--brand-fg));
+  /* Delays the autofill background transition by ~83 min,                    */
+  /* hiding any flash of white before your styles apply.                      */
+  transition: background-color 5000s ease-in-out 0s;
+}
+</file>
+
+<file path="src/App.jsx">
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/portfolio/Header";
+import Hero from "./components/portfolio/Hero";
+import About from "./components/portfolio/About";
+import Skills from "./components/portfolio/Skills";
+import Experience from "./components/portfolio/Experience";
+import Projects from "./components/portfolio/Projects";
+import Credentials from "./components/portfolio/Credentials";
+import Contact from "./components/portfolio/Contact";
+import Footer from "./components/portfolio/Footer";
+import NotFound from "./components/portfolio/NotFound";
+import { Toaster } from "./components/ui/toaster";
+
+// ── Main portfolio page ───────────────────────────────────────────────────────
+const Portfolio = ({ isDark, toggleTheme }) => (
+  <div className="App bg-brand-bg min-h-screen">
+    <Header isDark={isDark} onToggleTheme={toggleTheme} />
+    <main>
+      <Hero />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Credentials />
+      <Contact />
+    </main>
+    <Footer />
+    <Toaster />
+  </div>
+);
+
+// ── App root with router ──────────────────────────────────────────────────────
+function App() {
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    return saved ? saved === "dark" : true; // default: dark
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark((prev) => !prev);
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Main portfolio */}
+        <Route
+          path="/"
+          element={<Portfolio isDark={isDark} toggleTheme={toggleTheme} />}
+        />
+
+        {/* 404 — catches every unmatched route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+</file>
+
 <file path="src/components/portfolio/About.jsx">
 import React from "react";
 import { personalInfo } from "../../data/mock";
@@ -4758,428 +5252,6 @@ const About = () => {
 };
 
 export default About;
-</file>
-
-<file path="src/components/portfolio/Contact.jsx">
-import React, { useState } from "react";
-import { personalInfo } from "../../data/mock";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  Linkedin,
-  Github,
-  ArrowUpRight,
-} from "lucide-react";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { useToast } from "../../hooks/use-toast";
-import { useInView, fadeUp } from "../../hooks/useInView";
-
-const Contact = () => {
-  const { toast } = useToast();
-  const [sectionRef, inView] = useInView();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [sending, setSending] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSending(true);
-    // Mock submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setSending(false);
-    }, 1200);
-  };
-
-  const contactDetails = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: personalInfo.email,
-      href: `mailto:${personalInfo.email}`,
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: personalInfo.phone,
-      href: `tel:${personalInfo.phone}`,
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: personalInfo.location,
-      href: null,
-    },
-  ];
-
-  const socials = [
-    { icon: Linkedin, label: "LinkedIn", href: personalInfo.linkedin },
-    { icon: Github, label: "GitHub", href: personalInfo.github },
-  ];
-
-  return (
-    <section id="contact" className="bg-brand-bg py-24 md:py-32">
-      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div
-          style={fadeUp(inView, 0)}
-          className="flex items-center gap-4 mb-12"
-        >
-          <span
-            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            06 / Contact
-          </span>
-          <div className="h-px flex-1 bg-brand-border/50" />
-        </div>
-
-        <h2
-          className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            ...fadeUp(inView, 80),
-          }}
-        >
-          Get In <span className="text-brand-accent">Touch</span>
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact info */}
-          <div style={fadeUp(inView, 160)}>
-            <p
-              className="text-brand-muted text-lg leading-relaxed mb-10"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Have a project in mind or want to collaborate? Feel free to reach
-              out. I'm always open to discussing new opportunities.
-            </p>
-
-            <div className="flex flex-col gap-5 mb-10">
-              {contactDetails.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-brand-border/40 flex items-center justify-center">
-                    <item.icon size={20} className="text-brand-accent" />
-                  </div>
-                  <div>
-                    <span
-                      className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-0.5"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      {item.label}
-                    </span>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-brand-fg text-sm font-medium hover:text-brand-accent transition-colors duration-300"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span
-                        className="text-brand-fg text-sm font-medium"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {item.value}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Socials */}
-            <div className="flex gap-3">
-              {socials.map((s, idx) => (
-                <a
-                  key={idx}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-brand-border bg-brand-surface/20 hover:border-brand-primary/40 hover:bg-brand-border/30 transition-all duration-300"
-                >
-                  <s.icon size={18} className="text-brand-accent" />
-                  <span
-                    className="text-brand-muted text-sm font-medium group-hover:text-brand-fg transition-colors duration-300"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {s.label}
-                  </span>
-                  <ArrowUpRight
-                    size={14}
-                    className="text-brand-muted opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact form */}
-          <form
-            onSubmit={handleSubmit}
-            style={fadeUp(inView, 280)}
-            className="flex flex-col gap-5"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label
-                  className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Name
-                </label>
-                <Input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your name"
-                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                />
-              </div>
-              <div>
-                <label
-                  className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Email
-                </label>
-                <Input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="your@email.com"
-                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                Subject
-              </label>
-              <Input
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                placeholder="Project inquiry"
-                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              />
-            </div>
-
-            <div>
-              <label
-                className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                Message
-              </label>
-              <Textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                placeholder="Tell me about your project..."
-                rows={5}
-                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg resize-none"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={sending}
-              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                letterSpacing: "-0.04em",
-              }}
-            >
-              {sending ? (
-                "Sending..."
-              ) : (
-                <>
-                  Send Message
-                  <Send size={18} />
-                </>
-              )}
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Contact;
-</file>
-
-<file path="src/components/portfolio/Credentials.jsx">
-import React from "react";
-import { education, certifications } from "../../data/mock";
-import { GraduationCap, Award, BadgeCheck } from "lucide-react";
-import { useInView, fadeUp } from "../../hooks/useInView";
-
-const Credentials = () => {
-  const [sectionRef, inView] = useInView();
-
-  return (
-    <section id="credentials" className="bg-brand-bg py-16 md:py-20">
-      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
-        <div
-          style={fadeUp(inView, 0)}
-          className="flex items-center gap-4 mb-12"
-        >
-          <span
-            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            05 / Credentials
-          </span>
-          <div className="h-px flex-1 bg-brand-border/50" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Education */}
-          <div>
-            <h2
-              className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                ...fadeUp(inView, 80),
-              }}
-            >
-              Edu<span className="text-brand-accent">cation</span>
-            </h2>
-
-            <div className="flex flex-col gap-6">
-              {education.map((edu, idx) => (
-                <div
-                  key={idx}
-                  style={fadeUp(inView, 160 + idx * 90)}
-                  className="group p-6 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
-                      <GraduationCap size={22} className="text-brand-accent" />
-                    </div>
-                    <div className="flex-1">
-                      <h3
-                        className="text-brand-fg font-semibold text-lg mb-1"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                      >
-                        {edu.degree}
-                      </h3>
-                      <p
-                        className="text-brand-accent text-sm font-medium mb-2"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {edu.institution}
-                      </p>
-                      <div className="flex items-center gap-4">
-                        <span
-                          className="text-brand-muted text-sm"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {edu.period}
-                        </span>
-                        <span className="text-brand-accent/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-brand-border/30 border border-brand-border/40">
-                          {edu.score}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <h2
-              className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                ...fadeUp(inView, 120),
-              }}
-            >
-              Certi<span className="text-brand-accent">fications</span>
-            </h2>
-
-            <div className="flex flex-col gap-4">
-              {certifications.map((cert, idx) => (
-                <div
-                  key={idx}
-                  style={fadeUp(inView, 200 + idx * 70)}
-                  className="group flex items-center gap-4 p-5 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
-                    {idx === 0 ? (
-                      <BadgeCheck size={20} className="text-brand-accent" />
-                    ) : (
-                      <Award size={20} className="text-brand-accent" />
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4
-                      className="text-brand-fg font-medium text-sm truncate"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      {cert.name}
-                    </h4>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="text-brand-muted text-xs"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {cert.issuer}
-                      </span>
-                      <span className="text-brand-border">·</span>
-                      <span
-                        className="text-brand-muted text-xs"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {cert.date}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Credentials;
 </file>
 
 <file path="src/components/portfolio/Experience.jsx">
@@ -5579,6 +5651,501 @@ const Skills = () => {
 };
 
 export default Skills;
+</file>
+
+<file path="src/components/portfolio/Contact.jsx">
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { personalInfo } from "../../data/mock";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Linkedin,
+  Github,
+  ArrowUpRight,
+} from "lucide-react";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { useToast } from "../../hooks/use-toast";
+import { useInView, fadeUp } from "../../hooks/useInView";
+
+// ─── EmailJS Config ────────────────────────────────────────────────────────────
+// Replace these with your actual EmailJS credentials from emailjs.com dashboard
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+// ──────────────────────────────────────────────────────────────────────────────
+
+const Contact = () => {
+  const { toast } = useToast();
+  const formRef = useRef(null);
+  const [sectionRef, inView] = useInView();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSending(true);
+
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        toast({
+          title: "Message sent! 🎉",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        toast({
+          title: "Failed to send message",
+          description: "Something went wrong. Please try emailing me directly.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setSending(false);
+      });
+  };
+
+  const contactDetails = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: personalInfo.email,
+      href: `mailto:${personalInfo.email}`,
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: personalInfo.phone,
+      href: `tel:${personalInfo.phone}`,
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: personalInfo.location,
+      href: null,
+    },
+  ];
+
+  const socials = [
+    { icon: Linkedin, label: "LinkedIn", href: personalInfo.linkedin },
+    { icon: Github, label: "GitHub", href: personalInfo.github },
+  ];
+
+  return (
+    <section id="contact" className="bg-brand-bg py-24 md:py-32">
+      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div
+          style={fadeUp(inView, 0)}
+          className="flex items-center gap-4 mb-12"
+        >
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            06 / Contact
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <h2
+          className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-16 uppercase"
+          style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            ...fadeUp(inView, 80),
+          }}
+        >
+          Get In <span className="text-brand-accent">Touch</span>
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Contact info */}
+          <div style={fadeUp(inView, 160)}>
+            <p
+              className="text-brand-muted text-lg leading-relaxed mb-10"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Have a project in mind or want to collaborate? Feel free to reach
+              out. I'm always open to discussing new opportunities.
+            </p>
+
+            <div className="flex flex-col gap-5 mb-10">
+              {contactDetails.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-brand-border/40 flex items-center justify-center">
+                    <item.icon size={20} className="text-brand-accent" />
+                  </div>
+                  <div>
+                    <span
+                      className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-0.5"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {item.label}
+                    </span>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="text-brand-fg text-sm font-medium hover:text-brand-accent transition-colors duration-300"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span
+                        className="text-brand-fg text-sm font-medium"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {item.value}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Socials */}
+            <div className="flex gap-3">
+              {socials.map((s, idx) => (
+                <a
+                  key={idx}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-brand-border bg-brand-surface/20 hover:border-brand-primary/40 hover:bg-brand-border/30 transition-all duration-300"
+                >
+                  <s.icon size={18} className="text-brand-accent" />
+                  <span
+                    className="text-brand-muted text-sm font-medium group-hover:text-brand-fg transition-colors duration-300"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {s.label}
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-brand-muted opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact form */}
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            style={fadeUp(inView, 280)}
+            className="flex flex-col gap-5"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label
+                  className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  Name
+                </label>
+                <Input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your name"
+                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                />
+              </div>
+              <div>
+                <label
+                  className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  Email
+                </label>
+                <Input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="your@email.com"
+                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                Subject
+              </label>
+              <Input
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                placeholder="Project inquiry"
+                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              />
+            </div>
+
+            <div>
+              <label
+                className="text-brand-muted text-xs font-medium uppercase tracking-widest block mb-2"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                Message
+              </label>
+              <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="Tell me about your project..."
+                rows={5}
+                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg resize-none"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={sending}
+              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "-0.04em",
+              }}
+            >
+              {sending ? (
+                <>
+                  <svg
+                    className="animate-spin h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    />
+                  </svg>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send Message
+                  <Send size={18} />
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
+</file>
+
+<file path="src/components/portfolio/Credentials.jsx">
+import React from "react";
+import { education, certifications } from "../../data/mock";
+import { GraduationCap, Award, BadgeCheck, ExternalLink } from "lucide-react";
+import { useInView, fadeUp } from "../../hooks/useInView";
+
+const Credentials = () => {
+  const [sectionRef, inView] = useInView();
+
+  return (
+    <section id="credentials" className="bg-brand-bg py-16 md:py-20">
+      <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
+        {/* Section label */}
+        <div
+          style={fadeUp(inView, 0)}
+          className="flex items-center gap-4 mb-12"
+        >
+          <span
+            className="text-brand-muted text-xs font-medium uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            05 / Credentials
+          </span>
+          <div className="h-px flex-1 bg-brand-border/50" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Education */}
+          <div>
+            <h2
+              className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                ...fadeUp(inView, 80),
+              }}
+            >
+              Edu<span className="text-brand-accent">cation</span>
+            </h2>
+
+            <div className="flex flex-col gap-6">
+              {education.map((edu, idx) => (
+                <div
+                  key={idx}
+                  style={fadeUp(inView, 160 + idx * 90)}
+                  className="group p-6 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
+                      <GraduationCap size={22} className="text-brand-accent" />
+                    </div>
+                    <div className="flex-1">
+                      <h3
+                        className="text-brand-fg font-semibold text-lg mb-1"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        {edu.degree}
+                      </h3>
+                      <p
+                        className="text-brand-accent text-sm font-medium mb-2"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {edu.institution}
+                      </p>
+                      <div className="flex items-center gap-4">
+                        <span
+                          className="text-brand-muted text-sm"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {edu.period}
+                        </span>
+                        <span className="text-brand-accent/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-brand-border/30 border border-brand-border/40">
+                          {edu.score}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div>
+            <h2
+              className="text-brand-fg font-black text-4xl md:text-5xl leading-tight mb-12 uppercase"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                ...fadeUp(inView, 120),
+              }}
+            >
+              Certi<span className="text-brand-accent">fications</span>
+            </h2>
+
+            <div className="flex flex-col gap-4">
+              {certifications.map((cert, idx) => (
+                <div
+                  key={idx}
+                  style={fadeUp(inView, 200 + idx * 70)}
+                  className="group flex items-center gap-4 p-5 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
+                >
+                  {/* Icon */}
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
+                    {idx === 0 ? (
+                      <BadgeCheck size={20} className="text-brand-accent" />
+                    ) : (
+                      <Award size={20} className="text-brand-accent" />
+                    )}
+                  </div>
+
+                  {/* Info */}
+                  <div className="flex-1 min-w-0">
+                    <h4
+                      className="text-brand-fg font-medium text-sm truncate"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {cert.name}
+                    </h4>
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="text-brand-muted text-xs"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {cert.issuer}
+                      </span>
+                      <span className="text-brand-border">·</span>
+                      <span
+                        className="text-brand-muted text-xs"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {cert.date}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* View Certificate button — only rendered when link exists */}
+                  {cert.link ? (
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
+                                 border border-brand-border/60 text-brand-muted
+                                 hover:border-brand-primary/50 hover:text-brand-accent hover:bg-brand-primary/5
+                                 transition-all duration-200"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      title="View Certificate"
+                    >
+                      <ExternalLink size={12} />
+                      <span className="hidden sm:inline">View</span>
+                    </a>
+                  ) : (
+                    // Invisible placeholder to keep layout consistent
+                    <div className="flex-shrink-0 w-[60px] sm:w-[68px]" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Credentials;
 </file>
 
 <file path="src/components/portfolio/Projects.jsx">
