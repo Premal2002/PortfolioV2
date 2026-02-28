@@ -1,10 +1,14 @@
+// src/components/portfolio/Skills.jsx
 import React from "react";
 import { skills } from "../../data/mock";
 import { useInView, fadeUp } from "../../hooks/useInView";
+import { SkillsSkeleton } from "./SectionSkeletons";          // ← NEW
 
 const Skills = () => {
   const skillCategories = Object.values(skills);
   const [sectionRef, inView] = useInView();
+
+  if (!inView) return <SkillsSkeleton ref={sectionRef} />;   // ← NEW
 
   return (
     <section id="skills" className="bg-brand-bg py-16 md:py-20">

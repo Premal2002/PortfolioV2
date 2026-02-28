@@ -2,14 +2,16 @@ import React from "react";
 import { projects } from "../../data/mock";
 import { ArrowUpRight, Calendar, Github } from "lucide-react";
 import { useInView, fadeUp } from "../../hooks/useInView";
+import { ProjectsSkeleton } from "./SectionSkeletons";        // ← NEW
 
 const Projects = () => {
   const [sectionRef, inView] = useInView();
 
+  if (!inView) return <ProjectsSkeleton ref={sectionRef} />;  // ← NEW
+
   return (
     <section id="projects" className="bg-brand-bg py-16 md:py-20">
       <div ref={sectionRef} className="max-w-[87.5rem] mx-auto px-10">
-        {/* Section label */}
         <div
           style={fadeUp(inView, 0)}
           className="flex items-center gap-4 mb-12"
@@ -40,16 +42,13 @@ const Projects = () => {
               style={fadeUp(inView, 160 + idx * 120)}
               className="group relative p-8 rounded-2xl border border-brand-border/50 bg-brand-surface/15 hover:border-brand-primary/30 hover:bg-brand-surface/30 transition-all duration-300 overflow-hidden"
             >
-              {/* Background accent */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/[0.03] rounded-full blur-[60px] group-hover:bg-brand-primary/[0.07] transition-all duration-500" />
 
-              {/* Header */}
               <div className="relative z-10 flex items-start justify-between mb-6">
                 <div className="w-14 h-14 rounded-xl bg-brand-border/40 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
                   {project.icon}
                 </div>
                 <div className="flex items-center gap-3 text-brand-muted">
-                  {/* GitHub link — only shown if project has a github field */}
                   {project.github && (
                     <a
                       href={project.github}
@@ -75,7 +74,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Title */}
               <h3
                 className="relative z-10 text-brand-fg font-bold text-2xl mb-4 group-hover:text-brand-accent transition-colors duration-300"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
@@ -87,7 +85,6 @@ const Projects = () => {
                 />
               </h3>
 
-              {/* Descriptions */}
               <ul className="relative z-10 space-y-2 mb-6">
                 {project.descriptions.map((desc, dIdx) => (
                   <li
@@ -100,7 +97,6 @@ const Projects = () => {
                 ))}
               </ul>
 
-              {/* Tech stack */}
               <div className="relative z-10 flex flex-wrap gap-2">
                 {project.tech.map((t, tIdx) => (
                   <span

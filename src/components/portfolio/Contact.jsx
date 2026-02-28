@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { ContactSkeleton } from "./SectionSkeletons";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "../../data/mock";
 import {
@@ -33,6 +34,7 @@ const Contact = () => {
     message: "",
   });
   const [sending, setSending] = useState(false);
+  if (!inView) return <ContactSkeleton ref={sectionRef} />;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

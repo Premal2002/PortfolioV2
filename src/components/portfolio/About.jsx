@@ -1,7 +1,9 @@
+// src/components/portfolio/About.jsx
 import React from "react";
 import { personalInfo } from "../../data/mock";
 import { Terminal, Cloud, Zap } from "lucide-react";
 import { useInView, fadeUp } from "../../hooks/useInView";
+import { AboutSkeleton } from "./SectionSkeletons";           // ← NEW
 
 const highlights = [
   {
@@ -23,6 +25,9 @@ const highlights = [
 
 const About = () => {
   const [sectionRef, inView] = useInView();
+
+  // ── Show skeleton until section scrolls into view ─────────────────────────
+  if (!inView) return <AboutSkeleton ref={sectionRef} />;   // ← NEW
 
   return (
     <section id="about" className="bg-brand-bg py-16 md:py-20">

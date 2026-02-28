@@ -1,10 +1,12 @@
 import React from "react";
+import { CredentialsSkeleton } from "./SectionSkeletons";
 import { education, certifications } from "../../data/mock";
 import { GraduationCap, Award, BadgeCheck, ExternalLink } from "lucide-react";
 import { useInView, fadeUp } from "../../hooks/useInView";
 
 const Credentials = () => {
   const [sectionRef, inView] = useInView();
+  if (!inView) return <CredentialsSkeleton ref={sectionRef} />;
 
   return (
     <section id="credentials" className="bg-brand-bg py-16 md:py-20">

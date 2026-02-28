@@ -1,10 +1,14 @@
+// src/components/portfolio/Experience.jsx
 import React from "react";
 import { experience } from "../../data/mock";
 import { Building2, ChevronRight } from "lucide-react";
 import { useInView, fadeUp } from "../../hooks/useInView";
+import { ExperienceSkeleton } from "./SectionSkeletons";      // ← NEW
 
 const Experience = () => {
   const [sectionRef, inView] = useInView();
+
+  if (!inView) return <ExperienceSkeleton ref={sectionRef} />; // ← NEW
 
   return (
     <section id="experience" className="bg-brand-bg py-16 md:py-20">
@@ -48,11 +52,10 @@ const Experience = () => {
                   {/* Timeline dot */}
                   <div className="hidden md:flex flex-shrink-0 relative z-10">
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${
-                        exp.current
+                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${exp.current
                           ? "bg-brand-primary border-brand-primary"
                           : "bg-brand-surface border-brand-border group-hover:border-brand-primary/50"
-                      }`}
+                        }`}
                     >
                       <Building2
                         size={18}
