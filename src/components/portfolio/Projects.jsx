@@ -2,12 +2,12 @@ import React from "react";
 import { projects } from "../../data/mock";
 import { ArrowUpRight, Calendar, Github } from "lucide-react";
 import { useInView, fadeUp } from "../../hooks/useInView";
-import { ProjectsSkeleton } from "./SectionSkeletons";        // ← NEW
+import { ProjectsSkeleton } from "./SectionSkeletons";
 
 const Projects = () => {
   const [sectionRef, inView] = useInView();
 
-  if (!inView) return <ProjectsSkeleton ref={sectionRef} />;  // ← NEW
+  if (!inView) return <ProjectsSkeleton ref={sectionRef} />;
 
   return (
     <section id="projects" className="bg-brand-bg py-16 md:py-20">

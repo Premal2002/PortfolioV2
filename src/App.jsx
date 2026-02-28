@@ -12,10 +12,13 @@ import Contact from "./components/portfolio/Contact";
 import Footer from "./components/portfolio/Footer";
 import NotFound from "./components/portfolio/NotFound";
 import { Toaster } from "./components/ui/toaster";
+import ScrollToTop from "./components/portfolio/ScrollToTop";
+import ScrollProgress from "./components/portfolio/Scrollprogress";
 
 // ── Main portfolio page ───────────────────────────────────────────────────────
 const Portfolio = ({ isDark, toggleTheme }) => (
   <div className="App bg-brand-bg min-h-screen">
+    <ScrollProgress />
     <Header isDark={isDark} onToggleTheme={toggleTheme} />
     <main>
       <Hero />
@@ -27,6 +30,7 @@ const Portfolio = ({ isDark, toggleTheme }) => (
       <Contact />
     </main>
     <Footer />
+    <ScrollToTop />
     <Toaster />
   </div>
 );

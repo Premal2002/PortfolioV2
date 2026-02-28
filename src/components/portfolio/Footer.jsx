@@ -1,6 +1,6 @@
 import React from "react";
 import { personalInfo, navLinks } from "../../data/mock";
-import { ArrowUp, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -57,15 +57,6 @@ const Footer = () => {
               </a>
             ))}
           </nav>
-
-          {/* Scroll to top */}
-          <button
-            onClick={scrollToTop}
-            className="w-10 h-10 rounded-full border border-brand-border bg-brand-surface/40 flex items-center justify-center text-brand-muted hover:text-brand-accent hover:border-brand-primary/40 transition-all duration-300"
-            aria-label="Back to top"
-          >
-            <ArrowUp size={18} />
-          </button>
         </div>
 
         {/* Divider */}
