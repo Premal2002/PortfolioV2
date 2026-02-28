@@ -387,3 +387,16 @@ textarea:-webkit-autofill:focus {
   /* hiding any flash of white before your styles apply.                      */
   transition: background-color 5000s ease-in-out 0s;
 }
+
+/* usetypewriter */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}

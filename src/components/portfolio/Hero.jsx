@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { personalInfo } from "../../data/mock";
 import { ArrowDown, MapPin, Briefcase } from "lucide-react";
+import { useTypewriter } from "../../hooks/useTypewriter";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -20,6 +21,21 @@ const Hero = () => {
     transform: mounted ? "translateY(0px)" : "translateY(20px)",
     transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
   });
+
+  // ── Typing animation: cycles through tagline variants ──────────────────────
+  const typedTagline = useTypewriter({
+    phrases: [
+      "Building scalable, real-time & data-driven applications",
+      "Designing cloud-native microservices architectures",
+      "Crafting high-performance backend systems",
+      "Turning complex problems into clean solutions",
+    ],
+    typeSpeed: 65,
+    deleteSpeed: 30,
+    pauseAfter: 2200,
+    pauseBefore: 400,
+  });
+  // ────────────────────────────────────────────────────────────────────────────
 
   return (
     <section
@@ -109,12 +125,28 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Tagline */}
+          {/* Tagline — now animated */}
           <p
             style={{ fontFamily: "'Inter', sans-serif", ...fade(620) }}
             className="text-brand-muted text-lg max-w-2xl leading-relaxed"
           >
-            {personalInfo.tagline}. Expertise in{" "}
+            {/* Typed tagline with blinking cursor */}
+            <span className="text-brand-fg font-medium">
+              {typedTagline}
+              <span
+                aria-hidden="true"
+                style={{
+                  display: "inline-block",
+                  width: "2px",
+                  height: "1.1em",
+                  background: "rgb(var(--brand-accent))",
+                  marginLeft: "3px",
+                  verticalAlign: "middle",
+                  animation: "blink 1s step-end infinite",
+                }}
+              />
+            </span>
+            {". "}Expertise in{" "}
             <span className="text-brand-fg">ASP.NET Core</span>,{" "}
             <span className="text-brand-fg">Microservices</span>,{" "}
             <span className="text-brand-fg">React</span> &{" "}
