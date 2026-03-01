@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { personalInfo } from "../../data/mock";
-import { ArrowDown, MapPin, Briefcase } from "lucide-react";
+import { ArrowDown, MapPin, Briefcase, Download } from "lucide-react";
 import { useTypewriter } from "../../hooks/useTypewriter";
 
 const Hero = () => {
@@ -189,6 +189,24 @@ const Hero = () => {
               }}
             >
               Get In Touch
+            </a>
+
+            {/* ── Resume Download ── */}
+            {/* Place your resume PDF at: public/Premal_Kadam_Resume.pdf */}
+            <a
+              href="/Premal_Kadam_Resume.pdf"
+              download="Premal_Kadam_Resume.pdf"
+              className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-muted font-semibold text-base px-8 py-3.5 rounded-full border border-brand-border/60 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 active:scale-[0.98] transition-all duration-300 uppercase tracking-tight group"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "-0.04em",
+              }}
+            >
+              <Download
+                size={17}
+                className="group-hover:translate-y-0.5 transition-transform duration-300"
+              />
+              Resume
             </a>
           </div>
         </div>

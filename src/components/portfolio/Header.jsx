@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { navLinks, personalInfo } from "../../data/mock";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Download } from "lucide-react";
 
 const Header = ({ isDark, onToggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -21,11 +21,10 @@ const Header = ({ isDark, onToggleTheme }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        scrolled
-          ? "bg-brand-bg/95 backdrop-blur-md border-b border-brand-border/50"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${scrolled
+        ? "bg-brand-bg/95 backdrop-blur-md border-b border-brand-border/50"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-[87.5rem] mx-auto px-10 flex items-center justify-between h-[72px]">
         {/* Logo */}
@@ -59,7 +58,7 @@ const Header = ({ isDark, onToggleTheme }) => {
           ))}
         </nav>
 
-        {/* Right side: theme toggle + CTA */}
+        {/* Right side: theme toggle + Resume + CTA */}
         <div className="hidden md:flex items-center gap-3">
           {/* Theme toggle */}
           <button
@@ -69,6 +68,20 @@ const Header = ({ isDark, onToggleTheme }) => {
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
+
+          {/* ── Resume Download — ghost button, sits before primary CTA ── */}
+          <a
+            href="/Premal_Kadam_Resume.pdf"
+            download="Premal_Kadam_Resume.pdf"
+            className="inline-flex items-center gap-1.5 text-brand-muted text-sm font-medium px-4 py-2 rounded-full border border-brand-border/50 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all duration-300 group"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            <Download
+              size={14}
+              className="group-hover:translate-y-0.5 transition-transform duration-300"
+            />
+            Resume
+          </a>
 
           {/* CTA */}
           <a
@@ -118,6 +131,18 @@ const Header = ({ isDark, onToggleTheme }) => {
                 {link.label}
               </a>
             ))}
+
+            {/* Resume in mobile menu */}
+            <a
+              href="/Premal_Kadam_Resume.pdf"
+              download="Premal_Kadam_Resume.pdf"
+              className="inline-flex items-center gap-2 px-4 py-3 text-brand-muted text-base font-medium hover:text-brand-accent transition-colors duration-300"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              <Download size={16} />
+              Download Resume
+            </a>
+
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "#contact")}

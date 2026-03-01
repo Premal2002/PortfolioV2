@@ -1,6 +1,6 @@
 import React from "react";
 import { personalInfo, navLinks } from "../../data/mock";
-import { Heart } from "lucide-react";
+import { Heart, Download } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -57,6 +57,20 @@ const Footer = () => {
               </a>
             ))}
           </nav>
+
+          {/* ── Resume download — utility placement, right side ── */}
+          <a
+            href="/Premal_Kadam_Resume.pdf"
+            download="Premal_Kadam_Resume.pdf"
+            className="inline-flex items-center gap-2 text-brand-muted text-sm font-medium px-5 py-2.5 rounded-full border border-brand-border/50 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all duration-300 group flex-shrink-0"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            <Download
+              size={14}
+              className="group-hover:translate-y-0.5 transition-transform duration-300"
+            />
+            Download Resume
+          </a>
         </div>
 
         {/* Divider */}
