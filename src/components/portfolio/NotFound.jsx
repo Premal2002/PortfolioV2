@@ -29,15 +29,15 @@ const NotFound = () => {
                     className="w-full h-full"
                     style={{
                         backgroundImage:
-                            "linear-gradient(#818cf8 1px, transparent 1px), linear-gradient(90deg, #818cf8 1px, transparent 1px)",
+                            "linear-gradient(rgb(var(--brand-fg)) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--brand-fg)) 1px, transparent 1px)",
                         backgroundSize: "60px 60px",
                     }}
                 />
             </div>
 
             {/* ── Decorative blobs ── */}
-            <div className="absolute top-20 right-16 w-[360px] h-[360px] bg-brand-hover/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-20 left-10 w-[280px] h-[280px] bg-brand-accent/6 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-20 right-16 w-[360px] h-[360px] bg-brand-hover/10 rounded-none blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-20 left-10 w-[280px] h-[280px] bg-brand-accent/6 rounded-none blur-[100px] pointer-events-none" />
 
             {/* ── Content ── */}
             <div className="relative z-10 flex flex-col items-center text-center max-w-2xl">
@@ -52,7 +52,7 @@ const NotFound = () => {
                             letterSpacing: "-0.06em",
                             /* Layered text-shadow creates a depth glow */
                             textShadow:
-                                "0 0 80px rgba(99,102,241,0.35), 0 0 160px rgba(99,102,241,0.15)",
+                                "0 0 80px rgb(var(--brand-fg) / 0.25), 0 0 160px rgb(var(--brand-fg) / 0.1)",
                         }}
                     >
                         4
@@ -67,7 +67,7 @@ const NotFound = () => {
                             top: "52%",
                             height: "1px",
                             background:
-                                "linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent)",
+                                "linear-gradient(90deg, transparent, rgb(var(--brand-fg) / 0.3), transparent)",
                         }}
                     />
                 </div>
@@ -114,7 +114,7 @@ const NotFound = () => {
                     {/* Primary — Go Home */}
                     <button
                         onClick={goHome}
-                        className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-semibold text-sm px-7 py-3.5 rounded-full hover:scale-[1.03] hover:bg-brand-hover active:scale-[0.97] transition-all duration-300 uppercase"
+                        className="inline-flex items-center justify-center gap-2 bg-brand-primary text-brand-bg font-semibold text-sm px-7 py-3.5 rounded-none hover:scale-[1.03] hover:bg-brand-hover active:scale-[0.97] transition-all duration-300 uppercase"
                         style={{
                             fontFamily: "'Inter', sans-serif",
                             letterSpacing: "-0.03em",
@@ -127,7 +127,7 @@ const NotFound = () => {
                     {/* Secondary — Go Back */}
                     <button
                         onClick={() => window.history.back()}
-                        className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-accent font-semibold text-sm px-7 py-3.5 rounded-full border border-brand-hover hover:bg-brand-primary/10 active:scale-[0.97] transition-all duration-300 uppercase"
+                        className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-accent font-semibold text-sm px-7 py-3.5 rounded-none border border-brand-hover hover:bg-brand-primary/10 active:scale-[0.97] transition-all duration-300 uppercase"
                         style={{
                             fontFamily: "'Inter', sans-serif",
                             letterSpacing: "-0.03em",

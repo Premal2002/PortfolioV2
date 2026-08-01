@@ -138,7 +138,7 @@ const Contact = () => {
             <div className="flex flex-col gap-5 mb-10">
               {contactDetails.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-brand-border/40 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-none bg-brand-border/40 flex items-center justify-center">
                     <item.icon size={20} className="text-brand-accent" />
                   </div>
                   <div>
@@ -177,7 +177,7 @@ const Contact = () => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-brand-border bg-brand-surface/20 hover:border-brand-primary/40 hover:bg-brand-border/30 transition-all duration-300"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-none border border-brand-border bg-brand-surface/20 hover:border-brand-primary/40 hover:bg-brand-border/30 transition-all duration-300"
                 >
                   <s.icon size={18} className="text-brand-accent" />
                   <span
@@ -216,7 +216,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your name"
-                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-none h-12"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 />
               </div>
@@ -234,7 +234,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="your@email.com"
-                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                  className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-none h-12"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 />
               </div>
@@ -253,7 +253,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 placeholder="Project inquiry"
-                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg h-12"
+                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-none h-12"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               />
             </div>
@@ -272,7 +272,7 @@ const Contact = () => {
                 required
                 placeholder="Tell me about your project..."
                 rows={5}
-                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-lg resize-none"
+                className="bg-brand-surface/30 border-brand-border/50 text-brand-fg placeholder:text-brand-muted/50 focus:border-brand-primary/50 focus:ring-brand-primary/20 rounded-none resize-none"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               />
             </div>
@@ -280,7 +280,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={sending}
-              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
+              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-brand-bg font-semibold text-base px-8 py-3.5 rounded-none hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight disabled:opacity-50 disabled:cursor-not-allowed self-start"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 letterSpacing: "-0.04em",
@@ -289,7 +289,7 @@ const Contact = () => {
               {sending ? (
                 <>
                   <svg
-                    className="animate-spin h-4 w-4 text-white"
+                    className="animate-spin h-4 w-4 text-brand-bg"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

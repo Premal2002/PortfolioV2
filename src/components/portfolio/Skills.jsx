@@ -42,11 +42,11 @@ const Skills = () => {
             <div
               key={idx}
               style={fadeUp(inView, 160 + idx * 70)}
-              className="group p-6 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/30 hover:bg-brand-surface/40 transition-all duration-300"
+              className="group p-6 rounded-none border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/30 hover:bg-brand-surface/40 transition-all duration-300"
             >
               {/* Card header */}
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-brand-border/50 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
+                <div className="w-10 h-10 rounded-none bg-brand-border/50 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
                   {category.icon}
                 </div>
                 <h3
@@ -62,7 +62,7 @@ const Skills = () => {
                 {category.items.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="text-brand-accent text-xs font-medium px-3 py-1.5 rounded-full border border-brand-border bg-brand-border/20 hover:bg-brand-primary/10 hover:border-brand-primary/40 transition-colors duration-200 cursor-default"
+                    className="text-brand-accent text-xs font-medium px-3 py-1.5 rounded-none border border-brand-border bg-brand-border/20 hover:bg-brand-primary/10 hover:border-brand-primary/40 transition-colors duration-200 cursor-default"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {skill}

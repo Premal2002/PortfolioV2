@@ -48,7 +48,7 @@ const Hero = () => {
           className="w-full h-full"
           style={{
             backgroundImage:
-              "linear-gradient(#818cf8 1px, transparent 1px), linear-gradient(90deg, #818cf8 1px, transparent 1px)",
+              "linear-gradient(rgb(var(--brand-fg)) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--brand-fg)) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -91,9 +91,11 @@ const Hero = () => {
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "clamp(3.5rem, 8vw, 8rem)",
+                WebkitTextStroke: "2.5px rgb(var(--brand-fg))",
+                color: "transparent",
                 ...fade(360),
               }}
-              className="text-brand-fg font-black uppercase leading-[0.85] mt-2"
+              className="font-black uppercase leading-[0.85] mt-2"
             >
               {personalInfo.lastName}
             </h1>
@@ -166,7 +168,7 @@ const Hero = () => {
                   .querySelector("#projects")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
+              className="inline-flex items-center justify-center bg-brand-primary text-brand-bg font-semibold text-base px-8 py-3.5 rounded-none hover:bg-brand-hover active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 letterSpacing: "-0.04em",
@@ -182,7 +184,7 @@ const Hero = () => {
                   .querySelector("#contact")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center justify-center bg-transparent text-brand-accent font-semibold text-base px-8 py-3.5 rounded-full border border-brand-hover hover:bg-brand-primary hover:text-white active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
+              className="inline-flex items-center justify-center bg-transparent text-brand-accent font-semibold text-base px-8 py-3.5 rounded-none border border-brand-hover hover:bg-brand-primary hover:text-brand-bg active:scale-[0.98] transition-all duration-300 uppercase tracking-tight"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 letterSpacing: "-0.04em",
@@ -196,7 +198,7 @@ const Hero = () => {
             <a
               href="/Premal_Kadam_Resume.pdf"
               download="Premal_Kadam_Resume.pdf"
-              className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-muted font-semibold text-base px-8 py-3.5 rounded-full border border-brand-border/60 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 active:scale-[0.98] transition-all duration-300 uppercase tracking-tight group"
+              className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-muted font-semibold text-base px-8 py-3.5 rounded-none border border-brand-border/60 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 active:scale-[0.98] transition-all duration-300 uppercase tracking-tight group"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 letterSpacing: "-0.04em",

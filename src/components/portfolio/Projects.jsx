@@ -40,12 +40,12 @@ const Projects = () => {
             <div
               key={idx}
               style={fadeUp(inView, 160 + idx * 120)}
-              className="group relative p-8 rounded-2xl border border-brand-border/50 bg-brand-surface/15 hover:border-brand-primary/30 hover:bg-brand-surface/30 transition-all duration-300 overflow-hidden"
+              className="group relative p-8 rounded-none border border-brand-border/50 bg-brand-surface/15 hover:border-brand-primary/30 hover:bg-brand-surface/30 transition-all duration-300 overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/[0.03] rounded-full blur-[60px] group-hover:bg-brand-primary/[0.07] transition-all duration-500" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/[0.03] rounded-none blur-[60px] group-hover:bg-brand-primary/[0.07] transition-all duration-500" />
 
               <div className="relative z-10 flex items-start justify-between mb-6">
-                <div className="w-14 h-14 rounded-xl bg-brand-border/40 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
+                <div className="w-14 h-14 rounded-none bg-brand-border/40 flex items-center justify-center text-brand-accent group-hover:bg-brand-primary/10 transition-colors duration-300">
                   {project.icon}
                 </div>
                 <div className="flex items-center gap-3 text-brand-muted">
@@ -101,7 +101,7 @@ const Projects = () => {
                 {project.tech.map((t, tIdx) => (
                   <span
                     key={tIdx}
-                    className="text-brand-accent/80 text-xs font-medium px-3 py-1.5 rounded-full border border-brand-border bg-brand-border/15 group-hover:border-brand-primary/30 transition-colors duration-300"
+                    className="text-brand-accent/80 text-xs font-medium px-3 py-1.5 rounded-none border border-brand-border bg-brand-border/15 group-hover:border-brand-primary/30 transition-colors duration-300"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {t}

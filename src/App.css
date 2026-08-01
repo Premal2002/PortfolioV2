@@ -25,7 +25,7 @@ html {
 }
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--brand-border));
-  border-radius: 3px;
+  border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(var(--brand-primary));
@@ -33,6 +33,6 @@ html {
 
 /* Selection color */
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgb(var(--brand-fg) / 0.15);
   color: rgb(var(--brand-fg));
 }

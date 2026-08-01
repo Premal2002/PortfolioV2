@@ -62,7 +62,7 @@ const Footer = () => {
           <a
             href="/Premal_Kadam_Resume.pdf"
             download="Premal_Kadam_Resume.pdf"
-            className="inline-flex items-center gap-2 text-brand-muted text-sm font-medium px-5 py-2.5 rounded-full border border-brand-border/50 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all duration-300 group flex-shrink-0"
+            className="inline-flex items-center gap-2 text-brand-muted text-sm font-medium px-5 py-2.5 rounded-none border border-brand-border/50 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all duration-300 group flex-shrink-0"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <Download

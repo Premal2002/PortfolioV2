@@ -80,7 +80,7 @@ const Header = ({ isDark, onToggleTheme }) => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300 ${isActive(link.href)
+                className={`text-sm font-medium px-4 py-2 rounded-none transition-colors duration-300 ${isActive(link.href)
                     ? "text-brand-fg bg-brand-border/40"
                     : "text-brand-muted hover:text-brand-fg hover:bg-brand-border/40"
                   }`}
@@ -95,7 +95,7 @@ const Header = ({ isDark, onToggleTheme }) => {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={onToggleTheme}
-              className="text-brand-muted hover:text-brand-accent transition-colors duration-300 p-2 rounded-full hover:bg-brand-border/40"
+              className="text-brand-muted hover:text-brand-accent transition-colors duration-300 p-2 rounded-none hover:bg-brand-border/40"
               aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
@@ -104,7 +104,7 @@ const Header = ({ isDark, onToggleTheme }) => {
             <a
               href="/Premal_Kadam_Resume.pdf"
               download="Premal_Kadam_Resume.pdf"
-              className="inline-flex items-center gap-1.5 text-brand-muted text-sm font-medium px-4 py-2 rounded-full border border-brand-border/50 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all duration-300 group"
+              className="inline-flex items-center gap-1.5 text-brand-muted text-sm font-medium px-4 py-2 rounded-none border border-brand-border/50 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all duration-300 group"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               <Download
@@ -117,7 +117,7 @@ const Header = ({ isDark, onToggleTheme }) => {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "#contact")}
-              className="inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300"
+              className="inline-flex items-center justify-center bg-brand-primary text-brand-bg font-semibold text-sm px-6 py-2.5 rounded-none hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] transition-all duration-300"
               style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.04em" }}
             >
               Let's Talk
@@ -128,7 +128,7 @@ const Header = ({ isDark, onToggleTheme }) => {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={onToggleTheme}
-              className="text-brand-muted hover:text-brand-accent transition-colors duration-300 p-2 rounded-full hover:bg-brand-border/40"
+              className="text-brand-muted hover:text-brand-accent transition-colors duration-300 p-2 rounded-none hover:bg-brand-border/40"
               aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
@@ -175,7 +175,7 @@ const Header = ({ isDark, onToggleTheme }) => {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className={`w-full text-center text-2xl font-semibold px-6 py-4 rounded-2xl transition-all duration-300 ${isActive(link.href)
+              className={`w-full text-center text-2xl font-semibold px-6 py-4 rounded-none transition-all duration-300 ${isActive(link.href)
                   ? "text-brand-fg bg-brand-border/40"
                   : "text-brand-muted hover:text-brand-fg hover:bg-brand-border/40"
                 }`}
@@ -203,7 +203,7 @@ const Header = ({ isDark, onToggleTheme }) => {
           <a
             href="/Premal_Kadam_Resume.pdf"
             download="Premal_Kadam_Resume.pdf"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-brand-muted text-base font-medium rounded-full border border-brand-border/50 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-brand-muted text-base font-medium rounded-none border border-brand-border/50 hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all duration-300"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <Download size={16} />
@@ -213,7 +213,7 @@ const Header = ({ isDark, onToggleTheme }) => {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="inline-flex items-center justify-center bg-brand-primary text-white font-semibold text-base px-6 py-3.5 rounded-full hover:bg-brand-hover transition-all duration-300 w-full"
+            className="inline-flex items-center justify-center bg-brand-primary text-brand-bg font-semibold text-base px-6 py-3.5 rounded-none hover:bg-brand-hover transition-all duration-300 w-full"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Let's Talk

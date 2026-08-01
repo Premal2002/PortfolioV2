@@ -43,10 +43,10 @@ const Credentials = () => {
                 <div
                   key={idx}
                   style={fadeUp(inView, 160 + idx * 90)}
-                  className="group p-6 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
+                  className="group p-6 rounded-none border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-none bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
                       <GraduationCap size={22} className="text-brand-accent" />
                     </div>
                     <div className="flex-1">
@@ -69,7 +69,7 @@ const Credentials = () => {
                         >
                           {edu.period}
                         </span>
-                        <span className="text-brand-accent/80 text-xs font-semibold px-2.5 py-0.5 rounded-md bg-brand-border/30 border border-brand-border/40">
+                        <span className="text-brand-accent/80 text-xs font-semibold px-2.5 py-0.5 rounded-none bg-brand-border/30 border border-brand-border/40">
                           {edu.score}
                         </span>
                       </div>
@@ -97,10 +97,10 @@ const Credentials = () => {
                 <div
                   key={idx}
                   style={fadeUp(inView, 200 + idx * 70)}
-                  className="group flex items-center gap-4 p-5 rounded-xl border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
+                  className="group flex items-center gap-4 p-5 rounded-none border border-brand-border/50 bg-brand-surface/20 hover:border-brand-primary/20 hover:bg-brand-surface/30 transition-all duration-300"
                 >
                   {/* Icon */}
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-none bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
                     {idx === 0 ? (
                       <BadgeCheck size={20} className="text-brand-accent" />
                     ) : (
@@ -139,7 +139,7 @@ const Credentials = () => {
                       href={cert.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
+                      className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-none text-xs font-medium
                                  border border-brand-border/60 text-brand-muted
                                  hover:border-brand-primary/50 hover:text-brand-accent hover:bg-brand-primary/5
                                  transition-all duration-200"

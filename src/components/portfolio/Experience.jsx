@@ -52,7 +52,7 @@ const Experience = () => {
                   {/* Timeline dot */}
                   <div className="hidden md:flex flex-shrink-0 relative z-10">
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${exp.current
+                      className={`w-10 h-10 rounded-none flex items-center justify-center border-2 transition-colors duration-300 ${exp.current
                           ? "bg-brand-primary border-brand-primary"
                           : "bg-brand-surface border-brand-border group-hover:border-brand-primary/50"
                         }`}
@@ -60,14 +60,14 @@ const Experience = () => {
                       <Building2
                         size={18}
                         className={
-                          exp.current ? "text-white" : "text-brand-muted"
+                          exp.current ? "text-brand-bg" : "text-brand-muted"
                         }
                       />
                     </div>
                   </div>
 
                   {/* Content card */}
-                  <div className="flex-1 p-6 md:p-8 rounded-xl border border-brand-border/50 bg-brand-surface/20 group-hover:border-brand-primary/20 group-hover:bg-brand-surface/30 transition-all duration-300">
+                  <div className="flex-1 p-6 md:p-8 rounded-none border border-brand-border/50 bg-brand-surface/20 group-hover:border-brand-primary/20 group-hover:bg-brand-surface/30 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                       <div>
                         <h3
@@ -85,7 +85,7 @@ const Experience = () => {
                       </div>
                       <div className="flex items-center gap-2">
                         {exp.current && (
-                          <span className="text-white text-xs font-semibold px-3 py-1 bg-brand-primary rounded-full uppercase">
+                          <span className="text-brand-bg text-xs font-semibold px-3 py-1 bg-brand-primary rounded-none uppercase">
                             Current
                           </span>
                         )}
@@ -119,7 +119,7 @@ const Experience = () => {
                       {exp.tech.map((t, tIdx) => (
                         <span
                           key={tIdx}
-                          className="text-brand-accent/80 text-xs font-medium px-2.5 py-1 rounded-md bg-brand-border/20 border border-brand-border/40"
+                          className="text-brand-accent/80 text-xs font-medium px-2.5 py-1 rounded-none bg-brand-border/20 border border-brand-border/40"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                           {t}

@@ -76,9 +76,9 @@ const About = () => {
               <div
                 key={i}
                 style={fadeUp(inView, 180 + i * 100)}
-                className="group flex gap-5 p-6 rounded-xl border border-brand-border/50 bg-brand-surface/30 hover:bg-brand-border/30 hover:border-brand-primary/30 transition-all duration-300 cursor-default"
+                className="group flex gap-5 p-6 rounded-none border border-brand-border/50 bg-brand-surface/30 hover:bg-brand-border/30 hover:border-brand-primary/30 transition-all duration-300 cursor-default"
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
+                <div className="flex-shrink-0 w-12 h-12 rounded-none bg-brand-border/50 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300">
                   <item.icon size={22} className="text-brand-accent" />
                 </div>
                 <div>
