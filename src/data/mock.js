@@ -135,7 +135,7 @@ export const projects = [
       "React",
       "TypeScript",
     ],
-    github: "https://github.com/Premal2002/TickSyncBackend"
+    github: "https://github.com/Premal2002/WhatsApp-automation-Bot"
   },
 
   // ─────────────────────────────────────────────────────────────
