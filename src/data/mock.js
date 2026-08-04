@@ -10,6 +10,7 @@ import {
   Monitor,
   ShoppingCart,
   Ticket,
+  Bot,
 } from "lucide-react";
 import React from "react";
 
@@ -117,7 +118,28 @@ export const experience = [
 
 export const projects = [
   // ─────────────────────────────────────────────────────────────
-  // PROJECT 1 — TickSync (NEW)
+  // PROJECT 1 — WhatsApp Food Ordering Bot (NEW)
+  // ─────────────────────────────────────────────────────────────
+  {
+    title: "WhatsApp Food Ordering Bot",
+    year: "2026",
+    icon: React.createElement(Bot, { size: 24 }),
+    descriptions: [
+      "Built a WhatsApp ordering bot (Node.js, MongoDB, WhatsApp Cloud API) handling the full flow — menu, cart, delivery, and payment verification.",
+      "Added geolocation-based delivery pricing and a React + TypeScript admin dashboard with analytics and CSV export.",
+    ],
+    tech: [
+      "Node.js",
+      "MongoDB",
+      "WhatsApp Cloud API",
+      "React",
+      "TypeScript",
+    ],
+    github: "https://github.com/Premal2002/TickSyncBackend"
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // PROJECT 2 — TickSync
   // ─────────────────────────────────────────────────────────────
   {
     title: "TickSync — Movie Ticket Booking System",
@@ -146,7 +168,7 @@ export const projects = [
   },
 
   // ─────────────────────────────────────────────────────────────
-  // PROJECT 2 — Device Monitoring System
+  // PROJECT 3 — Device Monitoring System
   // ─────────────────────────────────────────────────────────────
   {
     title: "Device Monitoring System",
@@ -169,7 +191,7 @@ export const projects = [
   },
 
   // ─────────────────────────────────────────────────────────────
-  // PROJECT 3 — eShop Microservices Platform
+  // PROJECT 4 — eShop Microservices Platform
   // ─────────────────────────────────────────────────────────────
   {
     title: "eShop Microservices Platform",

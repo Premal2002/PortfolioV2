@@ -1,6 +1,6 @@
 import React from "react";
 import { projects } from "../../data/mock";
-import { ArrowUpRight, Calendar, Github } from "lucide-react";
+import { ArrowUpRight, Calendar, Github, ExternalLink } from "lucide-react";
 import { useInView, fadeUp } from "../../hooks/useInView";
 import { ProjectsSkeleton } from "./SectionSkeletons";
 
@@ -60,6 +60,19 @@ const Projects = () => {
                     >
                       <Github size={14} />
                       <span>Code</span>
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-xs font-medium text-brand-muted hover:text-brand-accent transition-colors duration-200"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink size={14} />
+                      <span>Live</span>
                     </a>
                   )}
                   <div className="flex items-center gap-1.5">
