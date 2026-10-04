@@ -44,7 +44,7 @@ export const skills = {
   languages: {
     title: "Languages",
     icon: React.createElement(Code2, { size: 20 }),
-    items: ["C#", "Java", "JavaScript", "Typescript", "SQL"],
+    items: ["C#", "JavaScript", "Typescript", "SQL", "Java"],
   },
   backend: {
     title: "Backend",
@@ -55,20 +55,23 @@ export const skills = {
       "MVC",
       "LINQ",
       "EF Core",
-      "REST",
-      "gRPC",
-      "GraphQL",
+      "Hot Chocolate",
+      "GraphQL Subscriptions",
+      "WebSockets",
+      "Unit/TDD testing",
+      "REST API design",
+      "Azure basics"
     ],
   },
   frontend: {
     title: "Frontend",
     icon: React.createElement(Globe, { size: 20 }),
-    items: ["React", "Next.js", "Angular", "Single-SPA", "GoJS"],
+    items: ["React",  "Micro-frontends (Single-SPA)", "Angular"],
   },
   databases: {
     title: "Databases",
     icon: React.createElement(Database, { size: 20 }),
-    items: ["SQL Server", "MySQL", "PostgreSQL", "SQLite"],
+    items: ["SQLite", "SQL Server", "PostgreSQL", "MySQL", "MongoDB"],
   },
   devops: {
     title: "DevOps & Tools",
@@ -95,12 +98,12 @@ export const experience = [
     period: "Mar 2025 – Present",
     current: true,
     descriptions: [
-      "Developing and maintaining .NET 8 microservices using Clean Architecture, DDD, and CQRS.",
-      "Implemented gRPC-based inter-service communication and APIs using GraphQL (Hot Chocolate).",
-      "Worked with Dockerized services, EF Core migrations, and schema versioning.",
-      "Participated in code reviews, debugging, and production issue resolution.",
+      "Built full-stack features for a device-management platform using .NET 8 microservices, GraphQL, gRPC, and React micro-frontends, following Clean Architecture, DDD, CQRS.",
+      "Led end-to-end development of an alarm inhibition feature, covering UI, APIs, suppression and restore logic, role-based access, audit events, and real-time GraphQL subscriptions.",
+      "Designed and developed a PDF report export for live topology diagrams, including architecture design, snapshot capture from the diagram, and integration with a PDF generation service.",
+      "Built internal tools (a multi-repo build automation tool and a .NET WPF debugging tool) adopted by multiple developers, and fixed production defects across frontend and backend."
     ],
-    tech: [".NET 8", "gRPC", "GraphQL", "Docker", "EF Core", "CQRS"],
+    tech: [".NET 8", "GraphQL", "Docker", "EF Core", "CQRS", "Hot Chocolate", "React", "Single-SPA", "WPF", "Angular"],
   },
   {
     company: "Stavtar Solutions",
